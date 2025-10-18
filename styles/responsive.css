@@ -1,0 +1,212 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        padding: 1.2rem;
+    }
+    
+    .serie-poster {
+        height: 250px;
+    }
+    
+    .nav-controls {
+        max-width: 500px;
+    }
+    
+    .back-button {
+        padding: 0.8rem 1.3rem;
+    }
+    
+    .filters-chips-panel {
+        padding: 1.2rem;
+    }
+    
+    .chips-container {
+        gap: 0.5rem;
+    }
+    
+    .filter-chip {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.82rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .series-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .serie-poster {
+        height: 280px;
+    }
+    
+    .nav-controls {
+        max-width: 600px;
+    }
+    
+    .back-button {
+        padding: 0.8rem 1.4rem;
+    }
+    
+    .filters-chips-panel {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    
+    .nav-controls {
+        gap: 0.6rem;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .search-container input {
+        padding: 0.7rem 0.9rem 0.7rem 2.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-icon {
+        left: 12px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .filter-toggle, .wishlist-toggle {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+    }
+    
+    .filter-toggle svg, .wishlist-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .back-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .filters-chips-panel {
+        padding: 1rem;
+    }
+    
+    .filters-section {
+        margin-bottom: 1.2rem;
+    }
+    
+    .filters-section-title {
+        font-size: 0.85rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .chips-container {
+        gap: 0.5rem;
+    }
+    
+    .filter-chip {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 0.8rem;
+    }
+    
+    .serie-poster {
+        height: 190px;
+    }
+    
+    .serie-info {
+        padding: 0.6rem;
+    }
+    
+    .serie-title {
+        font-size: 0.9rem;
+    }
+    
+    .serie-meta {
+        font-size: 0.75rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        padding: 0.6rem;
+    }
+    
+    .serie-poster {
+        height: 170px;
+    }
+    
+    .search-container input {
+        padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .search-icon {
+        left: 10px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    .back-button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .back-button svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .filters-chips-panel {
+        padding: 0.8rem;
+    }
+    
+    .filter-chip {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+    }
+    
+    .chips-container {
+        gap: 0.4rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .series-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .chips-container {
+        justify-content: center;
+    }
+}
