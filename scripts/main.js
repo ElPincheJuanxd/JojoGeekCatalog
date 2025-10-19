@@ -287,7 +287,7 @@ class UltraOptimizedSeriesCatalog {
                     window.scrollTo(0, savedState.scrollPosition);
                 }
                 this.stateManager.clearState();
-            }, 100); // 🆕 Menos tiempo de espera
+            }, 100);
         }
     }
 
@@ -420,7 +420,7 @@ class UltraOptimizedSeriesCatalog {
             fragment.appendChild(card);
         });
 
-        grid.innerHTML = ''; // Limpiar una sola vez
+        grid.innerHTML = '';
         grid.appendChild(fragment);
 
         // 🆕 INICIALIZAR LAZY LOADING OPTIMIZADO
@@ -505,7 +505,7 @@ class UltraOptimizedSeriesCatalog {
                 }
             });
         }, {
-            rootMargin: '100px', // 🆕 Cargar antes de que sean visibles
+            rootMargin: '100px',
             threshold: 0.01
         });
 
@@ -543,22 +543,33 @@ class UltraOptimizedSeriesCatalog {
         }
     }
 
+    // 🆕 MÉTODO TOGGLEWISHLIST CORREGIDO - ACTUALIZACIÓN INMEDIATA
     toggleWishlist(serieId, button) {
         const wasInWishlist = this.wishlistManager.isInWishlist(serieId);
         
         if (wasInWishlist) {
             this.wishlistManager.removeFromWishlist(serieId);
+            
+            // 🆕 CORRECCIÓN: Actualización visual inmediata al QUITAR
             button.classList.remove('active');
+            button.style.background = 'rgba(0, 0, 0, 0.7)';
+            
+            console.log('❌ Serie removida de wishlist:', serieId);
         } else {
             this.wishlistManager.addToWishlist(serieId);
+            
+            // 🆕 CORRECCIÓN: Actualización visual inmediata al AGREGAR
             button.classList.add('active');
+            button.style.background = 'var(--accent)';
+            
+            console.log('✅ Serie agregada a wishlist:', serieId);
         }
         
-        // 🆕 ANIMACIÓN MÁS RÁPIDA
+        // 🆕 ANIMACIÓN MÁS CLARA
         button.style.transform = 'scale(1.1)';
         setTimeout(() => {
             button.style.transform = 'scale(1)';
-        }, 100);
+        }, 150);
     }
 
     handleChipClick(type, value) {
@@ -606,14 +617,31 @@ class UltraOptimizedSeriesCatalog {
         this.updateChipsActiveState('status');
     }
 
+    // 🆕 MÉTODO MEJORADO PARA ACTUALIZAR CHIPS
     updateChipsActiveState(type) {
         const chips = document.querySelectorAll(`.filter-chip[data-type="${type}"]`);
         chips.forEach(chip => {
             const value = chip.dataset.value;
+            let isActive = false;
+            
             if (type === 'genre') {
-                chip.classList.toggle('active', this.activeGenreFilters.has(value));
+                isActive = this.activeGenreFilters.has(value);
             } else if (type === 'status') {
-                chip.classList.toggle('active', this.activeStatusFilters.has(value));
+                isActive = this.activeStatusFilters.has(value);
+            }
+            
+            // 🆕 ACTUALIZACIÓN VISUAL INMEDIATA
+            chip.classList.toggle('active', isActive);
+            
+            // 🆕 CAMBIO DE COLOR INMEDIATO
+            if (isActive) {
+                chip.style.background = 'var(--accent)';
+                chip.style.color = 'white';
+                chip.style.borderColor = 'var(--accent)';
+            } else {
+                chip.style.background = 'var(--bg-primary)';
+                chip.style.color = 'var(--text-primary)';
+                chip.style.borderColor = 'var(--bg-primary)';
             }
         });
     }
@@ -657,7 +685,7 @@ class UltraOptimizedSeriesCatalog {
                 this.filteredSeries.sort((a, b) => a.title.localeCompare(b.title));
                 this.renderSeries();
             }
-        }, 200); // 🆕 Menos tiempo de debounce
+        }, 200);
     }
 
     toggleFiltersPanel() {
@@ -750,7 +778,7 @@ class UltraOptimizedSeriesCatalog {
         this.saveCurrentState();
         setTimeout(() => {
             window.location.href = `pages/serie.html?id=${serie.id}`;
-        }, 50); // 🆕 Menos tiempo de espera
+        }, 50);
     }
 
     clearState() {
