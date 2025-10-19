@@ -62,7 +62,6 @@ class WishlistManager {
         return this.wishlist.length;
     }
 
-    // 🆕 Actualizar TODOS los contadores
     updateAllWishlistCounts() {
         const count = this.getWishlistCount();
         
@@ -78,10 +77,8 @@ class WishlistManager {
     }
 
     dispatchWishlistUpdate() {
-        // 🆕 Disparar evento global para sincronizar todas las páginas
         window.dispatchEvent(new CustomEvent('wishlistUpdated'));
         
-        // 🆕 También disparar storage event para sincronizar entre pestañas
         const storageEvent = new StorageEvent('storage', {
             key: 'seriesWishlist',
             newValue: JSON.stringify(this.wishlist)
@@ -194,18 +191,12 @@ class ViewingStateManager {
     }
 }
 
-// 🆕 GESTOR DE ESTADO TEMPORAL SOLO PARA NAVEGACIÓN ENTRE SERIES
+// GESTOR DE ESTADO TEMPORAL
 class CatalogStateManager {
     constructor() {
         this.stateKey = 'catalogTempState';
-        this.init();
     }
 
-    init() {
-        // No hacemos nada especial en init
-    }
-
-    // 🆕 Guardar estado solo cuando se navega a una serie
     saveState(searchTerm, genreFilters, statusFilters) {
         const state = {
             scrollPosition: window.scrollY,
@@ -215,38 +206,27 @@ class CatalogStateManager {
             timestamp: Date.now()
         };
         localStorage.setItem(this.stateKey, JSON.stringify(state));
-        console.log('💾 Estado guardado para navegación entre series');
     }
 
-    // 🆕 Restaurar estado solo si existe
     restoreState() {
         const saved = localStorage.getItem(this.stateKey);
-        if (saved) {
-            const state = JSON.parse(saved);
-            console.log('🔄 Restaurando estado de navegación');
-            return state;
-        }
-        return null;
+        return saved ? JSON.parse(saved) : null;
     }
 
-    // 🆕 Limpiar estado inmediatamente después de restaurar
     clearState() {
         localStorage.removeItem(this.stateKey);
-        console.log('🧹 Estado limpiado');
     }
 }
 
-// 🖼️ CATÁLOGO OPTIMIZADO CON SISTEMA DE IMÁGENES MEJORADO
-class OptimizedSeriesCatalog {
+// 🚀 CATÁLOGO ULTRA-OPTIMIZADO
+class UltraOptimizedSeriesCatalog {
     constructor() {
         this.series = seriesData;
-        // 🆕 CACHE DE IMÁGENES - se mantiene durante la sesión
-        this.imageCache = new Map();
-        // 🆕 CACHE DE IMÁGENES OPTIMIZADAS
-        this.optimizedCache = new Map();
         
-        // 🆕 AGREGAR TIMEOUT PARA BÚSQUEDA OPTIMIZADA
+        // 🆕 CACHE MEJORADO - Solo cache simple
+        this.imageCache = new Map();
         this.searchTimeout = null;
+        this.lazyLoadingObserver = null;
         
         this.sortSeriesAlphabetically();
         this.filteredSeries = [...this.series];
@@ -257,10 +237,19 @@ class OptimizedSeriesCatalog {
         this.viewingStateManager = new ViewingStateManager();
         this.searchTerm = '';
         this.stateManager = new CatalogStateManager();
+        
+        // 🆕 OPTIMIZACIÓN: Precargar datos críticos
+        this.preloadCriticalData();
         this.init();
     }
 
-    // 🆕 MÉTODO PARA DETECTAR PELÍCULAS
+    // 🆕 PRECARGAR DATOS CRÍTICOS
+    preloadCriticalData() {
+        // Precargar estados de wishlist y viewing states
+        this.wishlistManager.loadWishlist();
+        this.viewingStateManager.loadViewingStates();
+    }
+
     isMovie(serie) {
         return serie.genre.some(g => 
             g.toLowerCase().includes('película') || 
@@ -269,24 +258,19 @@ class OptimizedSeriesCatalog {
         );
     }
 
-    // 🆕 MÉTODO PARA ORDENAR SERIES ALFABÉTICAMENTE
     sortSeriesAlphabetically() {
         this.series.sort((a, b) => a.title.localeCompare(b.title));
-        console.log('🔤 Series ordenadas alfabéticamente');
     }
 
-    // 🆕 Restaurar estado al inicializar y LIMPIAR INMEDIATAMENTE
     restoreState() {
         const savedState = this.stateManager.restoreState();
         if (savedState) {
-            // Restaurar búsqueda
             this.searchTerm = savedState.searchTerm || '';
             const searchInput = document.getElementById('searchInput');
             if (searchInput && this.searchTerm) {
                 searchInput.value = this.searchTerm;
             }
 
-            // Restaurar filtros
             if (savedState.genreFilters) {
                 this.activeGenreFilters = new Set(savedState.genreFilters);
             }
@@ -294,24 +278,19 @@ class OptimizedSeriesCatalog {
                 this.activeStatusFilters = new Set(savedState.statusFilters);
             }
 
-            // Aplicar filtros
             this.applyFilters();
             this.updateChipsActiveState('genre');
             this.updateChipsActiveState('status');
 
-            // Restaurar scroll después de renderizar
             setTimeout(() => {
                 if (savedState.scrollPosition) {
                     window.scrollTo(0, savedState.scrollPosition);
-                    console.log('📜 Scroll restaurado:', savedState.scrollPosition);
                 }
-                // 🆕 LIMPIAR INMEDIATAMENTE DESPUÉS DE RESTAURAR
                 this.stateManager.clearState();
-            }, 300);
+            }, 100); // 🆕 Menos tiempo de espera
         }
     }
 
-    // 🆕 Guardar estado actual
     saveCurrentState() {
         this.stateManager.saveState(
             this.searchTerm,
@@ -384,7 +363,6 @@ class OptimizedSeriesCatalog {
             'historico': 'Histórico',
             'psicologico': 'Psicológico',
             'misterio': 'Misterio',
-            // 🆕 NUEVOS GÉNEROS
             'videojuegos': 'Videojuegos',
             'romance': 'Romance',
             'thriller': 'Thriller',
@@ -420,43 +398,49 @@ class OptimizedSeriesCatalog {
         return names[genre] || genre;
     }
 
-    // 🆕 MÉTODO MODIFICADO PARA LAZY LOADING CON CACHE Y OPTIMIZACIÓN
+    // 🆕 RENDERIZADO ULTRA-OPTIMIZADO
     renderSeries() {
         const grid = document.getElementById('seriesGrid');
-        grid.innerHTML = '';
+        
+        // 🆕 LIMPIAR OBSERVER ANTERIOR
+        if (this.lazyLoadingObserver) {
+            this.lazyLoadingObserver.disconnect();
+        }
 
         if (this.filteredSeries.length === 0) {
             grid.innerHTML = '<p class="no-results">No se encontraron series</p>';
             return;
         }
 
+        // 🆕 USAR FRAGMENT PARA RENDERIZADO MÁS RÁPIDO
+        const fragment = document.createDocumentFragment();
+        
         this.filteredSeries.forEach(serie => {
             const card = this.createSerieCard(serie);
-            grid.appendChild(card);
+            fragment.appendChild(card);
         });
 
-        // 🆕 INICIALIZAR LAZY LOADING CON CACHE Y OPTIMIZACIÓN
-        this.initializeLazyLoading();
-        
-        // 🆕 PRECARGAR IMÁGENES IMPORTANTES EN SEGUNDO PLANO
-        setTimeout(() => this.preloadImportantImages(), 1000);
+        grid.innerHTML = ''; // Limpiar una sola vez
+        grid.appendChild(fragment);
+
+        // 🆕 INICIALIZAR LAZY LOADING OPTIMIZADO
+        this.initializeOptimizedLazyLoading();
     }
 
-    // 🆕 MÉTODO MODIFICADO PARA CREAR CARDS CON DETECCIÓN DE CACHE Y OPTIMIZACIÓN
+    // 🆕 CREAR CARD OPTIMIZADA
     createSerieCard(serie) {
         const card = document.createElement('div');
         card.className = 'serie-card';
+        
         const isInWishlist = this.wishlistManager.isInWishlist(serie.id);
         const viewingState = this.viewingStateManager.getViewingState(serie.id);
         const hasProgress = this.viewingStateManager.hasProgress(serie.id);
         const isMovie = this.isMovie(serie);
         
-        // 🆕 VERIFICAR SI LA IMAGEN YA ESTÁ EN CACHE NORMAL U OPTIMIZADA
-        const isCached = this.imageCache.has(serie.poster);
-        const isOptimized = this.optimizedCache.has(serie.poster);
-        const finalSrc = isOptimized ? this.optimizedCache.get(serie.poster) : 
-                         isCached ? this.imageCache.get(serie.poster) : 
-                         './assets/images/placeholder.jpg';
+        // 🆕 CARGAR IMAGEN DIRECTAMENTE SIN CACHE COMPLEJO
+        const finalSrc = this.imageCache.has(serie.poster) ? 
+                        this.imageCache.get(serie.poster) : 
+                        './assets/images/placeholder.jpg';
         
         card.innerHTML = `
             <div class="status-indicator-card ${viewingState} ${hasProgress ? 'has-progress' : ''}" 
@@ -472,11 +456,10 @@ class OptimizedSeriesCatalog {
                 </svg>
             </button>
             
-            <!-- 🆕 IMAGEN CON DETECCIÓN DE CACHE Y OPTIMIZACIÓN -->
             <img src="${finalSrc}" 
                  data-src="${serie.poster}" 
                  alt="${serie.title}" 
-                 class="serie-poster ${isCached || isOptimized ? 'loaded' : 'lazy'} ${isCached ? 'cached' : ''} ${isOptimized ? 'optimized' : ''}"
+                 class="serie-poster ${this.imageCache.has(serie.poster) ? 'loaded' : 'lazy'}"
                  width="300" 
                  height="450"
                  loading="lazy">
@@ -490,6 +473,7 @@ class OptimizedSeriesCatalog {
             </div>
         `;
 
+        // 🆕 EVENTOS OPTIMIZADOS - Delegación de eventos
         card.addEventListener('click', (e) => {
             if (!e.target.closest('.wishlist-btn-card') && !e.target.closest('.status-indicator-card')) {
                 this.showSerieDetails(serie);
@@ -502,224 +486,79 @@ class OptimizedSeriesCatalog {
             this.toggleWishlist(serie.id, wishlistBtn);
         });
 
-        const statusIndicator = card.querySelector('.status-indicator-card');
-        statusIndicator.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.showSerieDetails(serie);
-        });
-
         return card;
     }
 
-    // 🆕 SISTEMA DE CACHE DE IMÁGENES MEJORADO CON OPTIMIZACIÓN
-    initializeLazyLoading() {
+    // 🆕 LAZY LOADING ULTRA-OPTIMIZADO
+    initializeOptimizedLazyLoading() {
         const lazyImages = document.querySelectorAll('.serie-poster.lazy');
         
-        console.log(`🖼️ Inicializando lazy loading: ${lazyImages.length} imágenes por cargar`);
+        if (lazyImages.length === 0) return;
 
-        if (lazyImages.length > 0 && 'IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        this.loadImageWithOptimization(img);
-                        imageObserver.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px',
-                threshold: 0.1
+        // 🆕 OBSERVER MÁS EFICIENTE
+        this.lazyLoadingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    this.loadImageSimple(img);
+                    this.lazyLoadingObserver.unobserve(img);
+                }
             });
+        }, {
+            rootMargin: '100px', // 🆕 Cargar antes de que sean visibles
+            threshold: 0.01
+        });
 
-            lazyImages.forEach(img => imageObserver.observe(img));
-        } else if (lazyImages.length > 0) {
-            // Fallback para navegadores antiguos
-            lazyImages.forEach(img => this.loadImageWithOptimization(img));
-        }
-
-        // 🆕 Mostrar estadísticas del cache
-        const cachedImages = document.querySelectorAll('.serie-poster.cached').length;
-        const optimizedImages = document.querySelectorAll('.serie-poster.optimized').length;
-        console.log(`📊 Cache stats: ${cachedImages} cacheadas | ${optimizedImages} optimizadas | ${lazyImages.length} pendientes`);
+        lazyImages.forEach(img => this.lazyLoadingObserver.observe(img));
     }
 
-    // 🆕 MÉTODO MEJORADO PARA CARGAR IMÁGENES CON OPTIMIZACIÓN
-    async loadImageWithOptimization(img) {
+    // 🆕 CARGA SIMPLE DE IMÁGENES - SIN OPTIMIZACIÓN COMPLEJA
+    async loadImageSimple(img) {
         const src = img.getAttribute('data-src');
         
-        // 🆕 VERIFICAR SI YA ESTÁ OPTIMIZADA
-        if (this.optimizedCache.has(src)) {
-            img.src = this.optimizedCache.get(src);
-            img.classList.remove('lazy');
-            img.classList.add('loaded');
-            img.classList.add('optimized');
-            console.log(`⚡ Usando versión optimizada: ${src.split('/').pop()}`);
-            return;
-        }
-        
-        // 🆕 VERIFICAR SI YA ESTÁ EN CACHE NORMAL
         if (this.imageCache.has(src)) {
             img.src = this.imageCache.get(src);
             img.classList.remove('lazy');
             img.classList.add('loaded');
-            img.classList.add('cached');
             return;
         }
 
-        // 🆕 CARGAR Y OPTIMIZAR IMAGEN
-        await this.loadAndOptimizeImage(img, src);
-    }
-
-    // 🆕 MÉTODO PARA CARGAR Y OPTIMIZAR IMAGEN
-    async loadAndOptimizeImage(targetImg, originalSrc) {
         try {
-            const tempImage = new Image();
-            tempImage.crossOrigin = 'anonymous';
-            
+            // 🆕 CARGAR DIRECTAMENTE SIN OPTIMIZACIÓN (más rápido)
             await new Promise((resolve, reject) => {
-                tempImage.onload = resolve;
-                tempImage.onerror = reject;
-                tempImage.src = originalSrc;
-            });
-
-            // 🆕 INTENTAR OPTIMIZAR LA IMAGEN
-            const optimizedResult = await this.optimizeImage(tempImage);
-            
-            if (optimizedResult && optimizedResult.success) {
-                // 🆕 GUARDAR VERSIÓN OPTIMIZADA
-                this.optimizedCache.set(originalSrc, optimizedResult.dataUrl);
-                targetImg.src = optimizedResult.dataUrl;
-                targetImg.classList.add('optimized');
-                console.log(`🎯 Imagen optimizada: ${originalSrc.split('/').pop()} - ${optimizedResult.reduction}% más pequeña`);
-            } else {
-                // 🆕 FALLBACK A VERSIÓN ORIGINAL
-                this.imageCache.set(originalSrc, originalSrc);
-                targetImg.src = originalSrc;
-                console.log(`📦 Usando original (sin optimización): ${originalSrc.split('/').pop()}`);
-            }
-            
-            targetImg.classList.remove('lazy');
-            targetImg.classList.add('loaded');
-            
-        } catch (error) {
-            // 🆕 FALLBACK EN CASO DE ERROR
-            console.warn('❌ Error cargando imagen, usando placeholder:', originalSrc, error);
-            targetImg.classList.remove('lazy');
-            // Mantener el placeholder
-        }
-    }
-
-    // 🆕 MÉTODO PARA OPTIMIZAR IMAGEN USANDO CANVAS
-    async optimizeImage(imageElement, quality = 0.8, maxWidth = 800) {
-        return new Promise((resolve) => {
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                
-                // Calcular nuevo tamaño manteniendo aspect ratio
-                let width = imageElement.naturalWidth;
-                let height = imageElement.naturalHeight;
-                
-                if (width > maxWidth) {
-                    height = (height * maxWidth) / width;
-                    width = maxWidth;
-                }
-                
-                canvas.width = width;
-                canvas.height = height;
-                
-                // Dibujar imagen redimensionada
-                ctx.drawImage(imageElement, 0, 0, width, height);
-                
-                // 🆕 INTENTAR WebP PRIMERO, LUEGO JPEG
-                let optimizedDataUrl;
-                try {
-                    optimizedDataUrl = canvas.toDataURL('image/webp', quality);
-                } catch (webpError) {
-                    // Fallback a JPEG si WebP no es soportado
-                    optimizedDataUrl = canvas.toDataURL('image/jpeg', quality);
-                }
-                
-                // Calcular reducción (estimación)
-                const originalSize = this.estimateImageSize(imageElement);
-                const optimizedSize = optimizedDataUrl.length;
-                const reduction = originalSize > 0 ? 
-                    ((1 - (optimizedSize / originalSize)) * 100).toFixed(1) : '0';
-                
-                resolve({
-                    success: true,
-                    dataUrl: optimizedDataUrl,
-                    format: optimizedDataUrl.includes('webp') ? 'webp' : 'jpeg',
-                    originalSize,
-                    optimizedSize,
-                    reduction
-                });
-                
-            } catch (error) {
-                console.warn('❌ Error en optimización:', error);
-                resolve({ success: false, error: error.message });
-            }
-        });
-    }
-
-    // 🆕 ESTIMAR TAMAÑO DE IMAGEN (aproximado)
-    estimateImageSize(img) {
-        // Estimación basada en dimensiones y calidad
-        if (img.naturalWidth && img.naturalHeight) {
-            return img.naturalWidth * img.naturalHeight * 0.5; // Estimación aproximada
-        }
-        return 0;
-    }
-
-    // 🆕 MÉTODO PARA PRECARGAR IMÁGENES IMPORTANTES
-    preloadImportantImages() {
-        // Precargar solo si no hay muchas imágenes ya en cache
-        if (this.imageCache.size + this.optimizedCache.size < 20) {
-            const importantImages = this.filteredSeries.slice(0, 6).map(serie => serie.poster);
-            
-            importantImages.forEach(src => {
-                if (!this.imageCache.has(src) && !this.optimizedCache.has(src)) {
-                    const img = new Image();
-                    img.onload = () => {
-                        this.imageCache.set(src, src);
-                        console.log(`⚡ Preload cache: ${src.split('/').pop()}`);
-                    };
-                    img.onerror = () => {
-                        console.warn(`❌ Error preload: ${src}`);
-                    };
+                const tempImg = new Image();
+                tempImg.onload = () => {
+                    this.imageCache.set(src, src);
                     img.src = src;
-                }
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                    resolve();
+                };
+                tempImg.onerror = reject;
+                tempImg.src = src;
             });
+        } catch (error) {
+            console.warn('❌ Error cargando imagen:', src);
+            // Mantener placeholder
         }
     }
 
-    // 🆕 MÉTODO TOGGLEWISHLIST CORREGIDO - ACTUALIZACIÓN INMEDIATA
     toggleWishlist(serieId, button) {
         const wasInWishlist = this.wishlistManager.isInWishlist(serieId);
         
         if (wasInWishlist) {
             this.wishlistManager.removeFromWishlist(serieId);
-            
-            // 🆕 ACTUALIZACIÓN VISUAL INMEDIATA - MÉTODO DIRECTO
             button.classList.remove('active');
-            button.style.background = 'rgba(0, 0, 0, 0.7)';
-            
-            console.log('❌ Serie removida de wishlist:', serieId);
         } else {
             this.wishlistManager.addToWishlist(serieId);
-            
-            // 🆕 ACTUALIZACIÓN VISUAL INMEDIATA - MÉTODO DIRECTO
             button.classList.add('active');
-            button.style.background = 'var(--accent)';
-            
-            console.log('✅ Serie agregada a wishlist:', serieId);
         }
         
-        // 🆕 PEQUEÑA ANIMACIÓN DE FEEDBACK
+        // 🆕 ANIMACIÓN MÁS RÁPIDA
         button.style.transform = 'scale(1.1)';
         setTimeout(() => {
             button.style.transform = 'scale(1)';
-        }, 150);
+        }, 100);
     }
 
     handleChipClick(type, value) {
@@ -794,16 +633,13 @@ class OptimizedSeriesCatalog {
             );
         }
         
-        // 🆕 ORDENAR RESULTADOS FILTRADOS ALFABÉTICAMENTE
         filtered.sort((a, b) => a.title.localeCompare(b.title));
-        
         this.filteredSeries = filtered;
         this.renderSeries();
     }
 
-    // 🆕 BÚSQUEDA OPTIMIZADA CON DEBOUNCE
+    // 🆕 BÚSQUEDA MÁS RÁPIDA
     searchSeries(query) {
-        // 🆕 DEBOUNCE - Esperar que el usuario termine de escribir
         clearTimeout(this.searchTimeout);
         
         this.searchTimeout = setTimeout(() => {
@@ -812,26 +648,16 @@ class OptimizedSeriesCatalog {
             if (this.searchTerm === '') {
                 this.applyFilters();
             } else {
-                // 🆕 BÚSQUEDA OPTIMIZADA - Solo en título y géneros
-                this.filteredSeries = this.series.filter(serie => {
-                    // Buscar solo en título (primero) - más rápido
-                    if (serie.title.toLowerCase().includes(this.searchTerm)) {
-                        return true;
-                    }
-                    
-                    // Luego en géneros (segundo)
-                    if (serie.genre.some(g => g.includes(this.searchTerm))) {
-                        return true;
-                    }
-                    
-                    return false;
-                });
+                // 🆕 BÚSQUEDA MÁS EFICIENTE
+                this.filteredSeries = this.series.filter(serie => 
+                    serie.title.toLowerCase().includes(this.searchTerm) ||
+                    serie.genre.some(g => g.includes(this.searchTerm))
+                );
                 
-                // 🆕 ORDENAR RESULTADOS DE BÚSQUEDA ALFABÉTICAMENTE
                 this.filteredSeries.sort((a, b) => a.title.localeCompare(b.title));
                 this.renderSeries();
             }
-        }, 300); // 🆕 Esperar 300ms después de que el usuario deje de escribir
+        }, 200); // 🆕 Menos tiempo de debounce
     }
 
     toggleFiltersPanel() {
@@ -889,16 +715,17 @@ class OptimizedSeriesCatalog {
         });
 
         const searchInput = document.getElementById('searchInput');
-        
-        // 🆕 EVENTO OPTIMIZADO
         searchInput.addEventListener('input', (e) => {
             this.searchSeries(e.target.value);
         });
 
-        // 🆕 LIMPIAR TIMEOUT AL SALIR DE LA PÁGINA
+        // 🆕 LIMPIAR RECURSOS
         window.addEventListener('beforeunload', () => {
             if (this.searchTimeout) {
                 clearTimeout(this.searchTimeout);
+            }
+            if (this.lazyLoadingObserver) {
+                this.lazyLoadingObserver.disconnect();
             }
         });
 
@@ -911,30 +738,27 @@ class OptimizedSeriesCatalog {
         });
     }
 
-    // 🆕 Modificar init
     init() {
         this.wishlistManager.updateAllWishlistCounts();
         this.renderChips();
-        this.restoreState(); // 🆕 Restaurar antes de renderizar series
+        this.restoreState();
         this.renderSeries();
         this.setupEventListeners();
     }
 
-    // 🆕 Modificar showSerieDetails para guardar estado antes de navegar
     showSerieDetails(serie) {
         this.saveCurrentState();
         setTimeout(() => {
             window.location.href = `pages/serie.html?id=${serie.id}`;
-        }, 100);
+        }, 50); // 🆕 Menos tiempo de espera
     }
 
-    // 🆕 Método para limpiar estado (usar cuando se salga del catálogo)
     clearState() {
         this.stateManager.clearState();
     }
 }
 
-// 🆕 SISTEMA CENTRALIZADO DE WISHLIST
+// SISTEMA CENTRALIZADO DE WISHLIST
 class GlobalWishlistManager {
     constructor() {
         this.init();
@@ -949,7 +773,6 @@ class GlobalWishlistManager {
         const wishlist = JSON.parse(localStorage.getItem('seriesWishlist') || '[]');
         const count = wishlist.length;
         
-        // Actualizar TODOS los badges de wishlist en la página
         const wishlistBadges = document.querySelectorAll('.wishlist-count');
         wishlistBadges.forEach(badge => {
             badge.textContent = count;
@@ -959,26 +782,22 @@ class GlobalWishlistManager {
                 badge.classList.remove('visible');
             }
         });
-        
-        console.log('🔄 Wishlist global actualizada:', count, 'series');
     }
 
     setupGlobalListeners() {
-        // Escuchar cambios en localStorage desde otras pestañas
         window.addEventListener('storage', (e) => {
             if (e.key === 'seriesWishlist') {
                 this.updateAllWishlistCounts();
             }
         });
 
-        // Escuchar eventos personalizados desde otras partes de la app
         window.addEventListener('wishlistUpdated', () => {
             this.updateAllWishlistCounts();
         });
     }
 }
 
-// 🆕 SISTEMA DE PANEL ACERCA DE / CONTACTO
+// SISTEMA DE PANEL ACERCA DE
 class AboutPanelManager {
     constructor() {
         this.panel = document.getElementById('aboutPanel');
@@ -990,26 +809,21 @@ class AboutPanelManager {
 
     init() {
         this.setupEventListeners();
-        console.log('ℹ️ Panel Acerca De inicializado');
     }
 
     setupEventListeners() {
-        // Abrir panel
         this.toggleButton.addEventListener('click', () => {
             this.openPanel();
         });
 
-        // Cerrar panel
         this.closeButton.addEventListener('click', () => {
             this.closePanel();
         });
 
-        // Cerrar con overlay
         this.overlay.addEventListener('click', () => {
             this.closePanel();
         });
 
-        // Cerrar con ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.panel.classList.contains('active')) {
                 this.closePanel();
@@ -1020,32 +834,19 @@ class AboutPanelManager {
     openPanel() {
         this.panel.classList.add('active');
         this.overlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevenir scroll
-        console.log('📱 Panel Acerca De abierto');
+        document.body.style.overflow = 'hidden';
     }
 
     closePanel() {
         this.panel.classList.remove('active');
         this.overlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restaurar scroll
-        console.log('📱 Panel Acerca De cerrado');
-    }
-
-    // Método para actualizar información dinámicamente
-    updateVersionInfo(version, updateDate) {
-        const versionElement = document.querySelector('.version-info strong');
-        const dateElement = document.querySelector('.version-info span');
-        
-        if (versionElement) versionElement.textContent = `Versión ${version}`;
-        if (dateElement) dateElement.textContent = `Actualizado: ${updateDate}`;
+        document.body.style.overflow = '';
     }
 }
 
-// SISTEMA DE BADGE DE NOTICIAS MEJORADO
+// SISTEMA DE BADGE DE NOTICIAS
 function updateNewsBadge() {
-    // Esperar a que noticiasData esté disponible
     if (typeof noticiasData === 'undefined') {
-        console.log('noticiasData no está disponible aún, reintentando...');
         setTimeout(updateNewsBadge, 100);
         return;
     }
@@ -1063,30 +864,22 @@ function updateNewsBadge() {
                 badge.classList.remove('visible');
             }
         });
-        
-        console.log('✅ Badge actualizado:', noticiasNoLeidas, 'noticias no leídas');
     } catch (error) {
         console.error('❌ Error actualizando badge:', error);
     }
 }
 
-// Inicializar cuando el DOM esté listo
+// 🚀 INICIALIZACIÓN OPTIMIZADA
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Inicializando SeriesCatalog Optimizado...');
+    console.log('🚀 Inicializando Catálogo Ultra-Optimizado...');
     
-    // 🆕 USAR LA VERSIÓN OPTIMIZADA
-    new OptimizedSeriesCatalog();
+    // 🆕 USAR LA VERSIÓN ULTRA-OPTIMIZADA
+    new UltraOptimizedSeriesCatalog();
     new GlobalWishlistManager();
-    
-    // 🆕 INICIALIZAR PANEL ACERCA DE
     new AboutPanelManager();
     
-    // Intentar actualizar badge después de que todo esté cargado
     setTimeout(updateNewsBadge, 500);
 });
 
-// También actualizar cuando se cargue la ventana completa
 window.addEventListener('load', updateNewsBadge);
-
-// Actualizar badge cuando cambie el estado de lectura
 window.addEventListener('storage', updateNewsBadge);
