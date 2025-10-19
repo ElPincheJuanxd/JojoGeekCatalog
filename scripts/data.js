@@ -1674,7 +1674,7 @@ const seriesData = [
         title: "Amnesia",
         poster: "./assets/images/series/amnesia.jpg",
         year: "2013",
-        genre: ["Misterio", "Romance", "Drama", "Josei"],
+        genre: ["Misterio", "Romance", "Drama"],
         seasons: 1,
         studio: "Brain's Base",
         description: "Una joven despierta sin memoria de quién es y descubre que está involucrada en un misterioso triángulo amoroso. Debe recuperar sus recuerdos mientras navega relaciones peligrosas y descubre secretos oscuros sobre su pasado."
@@ -1684,7 +1684,7 @@ const seriesData = [
         title: "Dance with Devils",
         poster: "./assets/images/series/dance-with-devils.jpg",
         year: "2015",
-        genre: ["Fantasía", "Misterio", "Romance", "Musical", "Josei"],
+        genre: ["Fantasía", "Misterio", "Romance", "Musical"],
         seasons: 1,
         studio: "Brain's Base",
         description: "Ritsuka Tachibana, una estudiante de secundaria, se ve envuelta en una batalla entre demonios y exorcistas cuando su madre es secuestrada. Los líderes del consejo estudiantil, que en realidad son demonios, compiten por su corazón y un poderoso grimorio que ella posee."
@@ -1694,7 +1694,7 @@ const seriesData = [
         title: "Diabolik Lovers",
         poster: "./assets/images/series/diabolik-lovers.jpg",
         year: "2013-2015",
-        genre: ["Horror", "Romance", "Josei"],
+        genre: ["Horror", "Romance"],
         seasons: 2,
         studio: "Zexcs",
         description: "Yui Komori es enviada a vivir con la familia Sakamaki, seis hermanos vampiros sádicos y sedientos de sangre. Atrapada en su mansión, debe sobrevivir mientras cada hermano intenta hacerla su propia novia de sangre en esta oscura historia de romance vampírico."
@@ -1704,7 +1704,7 @@ const seriesData = [
         title: "Hiiro no Kakera",
         poster: "./assets/images/series/hiiro-no-kakera.jpg",
         year: "2012",
-        genre: ["Fantasía", "Romance", "Sobrenatural", "Josei"],
+        genre: ["Fantasía", "Romance", "Sobrenatural"],
         seasons: 2,
         studio: "Studio Deen",
         description: "Tamaki Kasuga se muda con su abuela a un pequeño pueblo donde descubre que es la descendiente de una princesa con poderes especiales. Debe proteger el Sello que mantiene a raya a los espíritus malignos con la ayuda de cinco guardianes masculinos, cada uno con habilidades únicas."
@@ -1714,7 +1714,7 @@ const seriesData = [
         title: "Norn9",
         poster: "./assets/images/series/norn9.jpg",
         year: "2016",
-        genre: ["Ciencia Ficción", "Romance", "Fantasía", "Josei"],
+        genre: ["Ciencia Ficción", "Romance", "Fantasía"],
         seasons: 1,
         studio: "Telecom Animation Film",
         description: "Tres chicas con poderes especiales y nueve jóvenes viajan a bordo de la nave Norn para completar una misteriosa misión. En este viaje a través del tiempo, cada personaje desarrolla relaciones complejas mientras descubren secretos sobre sus habilidades y el propósito de su viaje."
@@ -1959,7 +1959,7 @@ const seriesData = [
         title: "Cloverfield Saga",
         poster: "./assets/images/series/cloverfield.jpg",
         year: "2008-2018",
-        genre: ["Ciencia Ficción", "Horror", "Found Footage", "Película"],
+        genre: ["Ciencia Ficción", "Horror", "Película"],
         seasons: 1,
         parts: 3,
         studio: "Bad Robot Productions",
@@ -2148,7 +2148,7 @@ const seriesData = [
     title: "Banana Fish",
     poster: "./assets/images/series/banana-fish.jpg",
     year: "2018",
-    genre: ["Acción", "Drama", "Crimen", "Shoujo", "Suspenso"],
+    genre: ["Acción", "Drama", "Shoujo", "Suspenso"],
     seasons: 1,
     studio: "MAPPA",
     description: "Una intensa y emocional historia de crimen y redención ambientada en Nueva York. Ash Lynx, un joven y carismático líder de pandillas, investiga el misterio detrás de 'Banana Fish', una droga que llevó a su hermano mayor a la locura. Cuando conoce a Eiji Okumura, un fotógrafo japonés, su vida da un giro inesperado. La serie explora temas oscuros como el crimen organizado, la corrupción política y el trauma, mientras desarrolla una profunda conexión entre sus protagonistas."
@@ -2160,7 +2160,7 @@ const seriesData = [
     title: "Heroic Age",
     poster: "./assets/images/series/heroic-age.jpg",
     year: "2007",
-    genre: ["Ciencia Ficción", "Mecha", "Aventura", "Espacial", "Shonen"],
+    genre: ["Ciencia Ficción", "Mecha", "Aventura", "Shonen"],
     seasons: 1,
     studio: "Xebec",
     description: "En un futuro lejano, la humanidad vive al borde de la extinción, acosada por razas alienígenas superiores. La princesa Deianeira busca al héroe legendario que puede salvar a la humanidad según una antigua profecía. Encuentra a Age, un joven salvaje con increíbles poderes que puede pilotar poderosas unidades de combate. Juntos emprenden un épico viaje interestelar para cumplir la profecía y asegurar el futuro de la humanidad en una galaxia llena de peligros."
