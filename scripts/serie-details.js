@@ -203,7 +203,7 @@ class SerieDetails {
 
     init() {
         this.wishlistManager.updateAllWishlistCounts();
-        this.updateNewsBadge(); // 🆕 AGREGADA ESTA LÍNEA
+        this.updateNewsBadge();
         this.loadSerieFromURL();
         this.renderSerieDetails();
         this.setupWishlistButton();
@@ -244,7 +244,8 @@ class SerieDetails {
             <div class="hero-content">
                 <img src="../${this.currentSerie.poster}" 
                      alt="${this.currentSerie.title}" 
-                     class="hero-poster">
+                     class="hero-poster"
+                     onerror="this.src='../assets/images/placeholder.jpg'">
                 <div class="hero-text">
                     <h1>${this.currentSerie.title}</h1>
                     <div class="hero-meta">
@@ -305,29 +306,133 @@ class SerieDetails {
         `;
     }
 
+    // 🆕 SISTEMA DE RECOMENDACIONES MEJORADO
+    getSimilarSeries() {
+        if (!this.currentSerie) return [];
+        
+        const currentSerie = this.currentSerie;
+        const scoredSeries = [];
+        
+        this.series.forEach(serie => {
+            if (serie.id === currentSerie.id) return;
+            
+            let score = 0;
+            
+            // 🎯 PUNTUACIÓN POR GÉNEROS COMPARTIDOS (Peso: 40%)
+            const sharedGenres = currentSerie.genre.filter(genre => 
+                serie.genre.includes(genre)
+            ).length;
+            score += sharedGenres * 40;
+            
+            // 🎯 PUNTUACIÓN POR ESTUDIO (Peso: 20%)
+            if (currentSerie.studio && serie.studio === currentSerie.studio) {
+                score += 20;
+            }
+            
+            // 🎯 PUNTUACIÓN POR AÑO (Series más recientes) (Peso: 15%)
+            const yearDiff = Math.abs(currentSerie.year - serie.year);
+            if (yearDiff <= 2) score += 15;
+            else if (yearDiff <= 5) score += 10;
+            else if (yearDiff <= 10) score += 5;
+            
+            // 🎯 PUNTUACIÓN POR TIPO (Película/Serie) (Peso: 15%)
+            const currentIsMovie = this.isMovie(currentSerie);
+            const serieIsMovie = this.isMovie(serie);
+            if (currentIsMovie === serieIsMovie) {
+                score += 15;
+            }
+            
+            // 🎯 PUNTUACIÓN POR POPULARIDAD (Peso: 10%)
+            // Basado en wishlist (series en más listas son más populares)
+            const wishlistManager = new WishlistManager();
+            if (wishlistManager.isInWishlist(serie.id)) {
+                score += 10;
+            }
+            
+            if (score > 0) {
+                scoredSeries.push({
+                    serie: serie,
+                    score: score,
+                    sharedGenres: sharedGenres
+                });
+            }
+        });
+        
+        // Ordenar por puntuación y tomar las mejores 4
+        return scoredSeries
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 4)
+            .map(item => item.serie);
+    }
+
     renderSimilarSeries() {
         const similarContainer = document.getElementById('similarSeries');
         const similarSeries = this.getSimilarSeries();
         
         if (similarSeries.length === 0) {
-            similarContainer.innerHTML = '';
+            similarContainer.innerHTML = `
+                <div class="no-similar">
+                    <div class="no-similar-icon">🎯</div>
+                    <h3>No hay recomendaciones disponibles</h3>
+                    <p>Explora el catálogo para descubrir más series</p>
+                    <a href="../index.html" class="btn-primary" style="margin-top: 1rem;">
+                        Explorar Catálogo
+                    </a>
+                </div>
+            `;
             return;
         }
 
+        // 🆕 CALCULAR PORCENTAJE DE SIMILITUD
+        const getSimilarityPercentage = (serie) => {
+            const sharedGenres = this.currentSerie.genre.filter(genre => 
+                serie.genre.includes(genre)
+            ).length;
+            const totalGenres = Math.max(this.currentSerie.genre.length, serie.genre.length);
+            return Math.round((sharedGenres / totalGenres) * 100);
+        };
+
         similarContainer.innerHTML = `
-            <h2>Series Similares</h2>
+            <div class="similar-section-header">
+                <h2>Series que podrían gustarte</h2>
+                <p>Basado en géneros, estudio y popularidad</p>
+            </div>
             <div class="similar-grid">
-                ${similarSeries.map(serie => `
-                    <a href="serie.html?id=${serie.id}" class="similar-card">
-                        <img src="../${serie.poster}" 
-                             alt="${serie.title}" 
-                             class="similar-poster">
-                        <div class="similar-info">
-                            <div class="similar-title">${serie.title}</div>
-                            <div class="similar-year">${serie.year}</div>
-                        </div>
-                    </a>
-                `).join('')}
+                ${similarSeries.map(serie => {
+                    const similarity = getSimilarityPercentage(serie);
+                    const isMovie = this.isMovie(serie);
+                    const movieInfo = this.getMovieInfo(serie);
+                    
+                    return `
+                        <a href="serie.html?id=${serie.id}" class="similar-card">
+                            <div class="similar-card-header">
+                                <img src="../${serie.poster}" 
+                                     alt="${serie.title}" 
+                                     class="similar-poster"
+                                     onerror="this.src='../assets/images/placeholder.jpg'">
+                                <div class="similarity-badge">
+                                    ${similarity}% similar
+                                </div>
+                            </div>
+                            <div class="similar-info">
+                                <div class="similar-title">${serie.title}</div>
+                                <div class="similar-meta">
+                                    <span class="similar-year">${serie.year}</span>
+                                    <span class="similar-type">${movieInfo.display}</span>
+                                </div>
+                                <div class="similar-genres">
+                                    ${serie.genre.slice(0, 2).map(genre => 
+                                        `<span class="similar-genre-tag">${this.getGenreDisplayName(genre)}</span>`
+                                    ).join('')}
+                                    ${serie.genre.length > 2 ? 
+                                        `<span class="similar-genre-more">+${serie.genre.length - 2}</span>` : 
+                                        ''
+                                    }
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                }).join('')}
             </div>
         `;
     }
@@ -588,17 +693,6 @@ class SerieDetails {
                 newsBadge.classList.remove('visible');
             }
         }
-    }
-
-    getSimilarSeries() {
-        if (!this.currentSerie) return [];
-        
-        return this.series
-            .filter(serie => 
-                serie.id !== this.currentSerie.id && 
-                serie.genre.some(genre => this.currentSerie.genre.includes(genre))
-            )
-            .slice(0, 4);
     }
 
     getGenreDisplayName(genre) {
