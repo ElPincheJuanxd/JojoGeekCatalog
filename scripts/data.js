@@ -662,6 +662,7 @@ const seriesData = [
     {
         id: 70,
         title: "Blue Lock",
+        franchise: "Blue Lock",
         poster: "./assets/images/series/blue-lock.jpg",
         year: "2022-2023",
         genre: ["Deporte", "Psicológico", "Shonen"],
@@ -672,6 +673,7 @@ const seriesData = [
     {
         id: 71,
         title: "Blue Lock: Episode Nagi",
+        franchise: "Blue Lock",
         poster: "./assets/images/series/blue-lock-episode-nagi.jpg",
         year: "2024",
         genre: ["Deporte", "Película"],
