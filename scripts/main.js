@@ -245,6 +245,9 @@ class OptimizedSeriesCatalog {
         // 🆕 CACHE DE IMÁGENES OPTIMIZADAS
         this.optimizedCache = new Map();
         
+        // 🆕 AGREGAR TIMEOUT PARA BÚSQUEDA OPTIMIZADA
+        this.searchTimeout = null;
+        
         this.sortSeriesAlphabetically();
         this.filteredSeries = [...this.series];
         this.activeGenreFilters = new Set(['all']);
@@ -380,7 +383,39 @@ class OptimizedSeriesCatalog {
             'deporte': 'Deporte',
             'historico': 'Histórico',
             'psicologico': 'Psicológico',
-            'misterio': 'Misterio'
+            'misterio': 'Misterio',
+            // 🆕 NUEVOS GÉNEROS
+            'videojuegos': 'Videojuegos',
+            'romance': 'Romance',
+            'thriller': 'Thriller',
+            'pelicula': 'Película',
+            'película': 'Película',
+            'escolares': 'Escolares',
+            'sobrenatural': 'Sobrenatural',
+            'shonen': 'Shonen',
+            'isekai': 'Isekai',
+            'harem': 'Harem',
+            'recuentos de la vida': 'Recuentos de la vida',
+            'artes marciales': 'Artes Marciales',
+            'shoujo': 'Shoujo',
+            'suspenso': 'Suspenso',
+            'superpoderes': 'Superpoderes',
+            'musica': 'Música',
+            'música': 'Música',
+            'supervivencia': 'Supervivencia',
+            'parodia': 'Parodia',
+            'mecha': 'Mecha',
+            'musical': 'Musical',
+            'cocina': 'Cocina',
+            'superheroes': 'Superhéroes',
+            'superhéroes': 'Superhéroes',
+            'ecchi': 'Ecchi',
+            'manwhas': 'Manwhas',
+            'post-apocaliptico': 'Post-apocalíptico',
+            'post-apocalíptico': 'Post-apocalíptico',
+            'monstruos': 'Monstruos',
+            'filosofico': 'Filosófico',
+            'filosófico': 'Filosófico'
         };
         return names[genre] || genre;
     }
@@ -766,21 +801,37 @@ class OptimizedSeriesCatalog {
         this.renderSeries();
     }
 
+    // 🆕 BÚSQUEDA OPTIMIZADA CON DEBOUNCE
     searchSeries(query) {
-        this.searchTerm = query.toLowerCase().trim();
+        // 🆕 DEBOUNCE - Esperar que el usuario termine de escribir
+        clearTimeout(this.searchTimeout);
         
-        if (this.searchTerm === '') {
-            this.applyFilters();
-        } else {
-            this.filteredSeries = this.series.filter(serie =>
-                serie.title.toLowerCase().includes(this.searchTerm) ||
-                serie.description.toLowerCase().includes(this.searchTerm) ||
-                serie.genre.some(g => g.includes(this.searchTerm))
-            );
-            // 🆕 ORDENAR RESULTADOS DE BÚSQUEDA ALFABÉTICAMENTE
-            this.filteredSeries.sort((a, b) => a.title.localeCompare(b.title));
-            this.renderSeries();
-        }
+        this.searchTimeout = setTimeout(() => {
+            this.searchTerm = query.toLowerCase().trim();
+            
+            if (this.searchTerm === '') {
+                this.applyFilters();
+            } else {
+                // 🆕 BÚSQUEDA OPTIMIZADA - Solo en título y géneros
+                this.filteredSeries = this.series.filter(serie => {
+                    // Buscar solo en título (primero) - más rápido
+                    if (serie.title.toLowerCase().includes(this.searchTerm)) {
+                        return true;
+                    }
+                    
+                    // Luego en géneros (segundo)
+                    if (serie.genre.some(g => g.includes(this.searchTerm))) {
+                        return true;
+                    }
+                    
+                    return false;
+                });
+                
+                // 🆕 ORDENAR RESULTADOS DE BÚSQUEDA ALFABÉTICAMENTE
+                this.filteredSeries.sort((a, b) => a.title.localeCompare(b.title));
+                this.renderSeries();
+            }
+        }, 300); // 🆕 Esperar 300ms después de que el usuario deje de escribir
     }
 
     toggleFiltersPanel() {
@@ -838,8 +889,17 @@ class OptimizedSeriesCatalog {
         });
 
         const searchInput = document.getElementById('searchInput');
+        
+        // 🆕 EVENTO OPTIMIZADO
         searchInput.addEventListener('input', (e) => {
             this.searchSeries(e.target.value);
+        });
+
+        // 🆕 LIMPIAR TIMEOUT AL SALIR DE LA PÁGINA
+        window.addEventListener('beforeunload', () => {
+            if (this.searchTimeout) {
+                clearTimeout(this.searchTimeout);
+            }
         });
 
         window.addEventListener('wishlistUpdated', () => {
