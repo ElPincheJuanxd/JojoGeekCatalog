@@ -44,7 +44,7 @@ const seriesData = [
         title: "Bleach",
         poster: "./assets/images/series/bleach.jpg",
         year: "2004-2012",
-        genre: ["Acción", "Aventura", "Fantasía"],
+        genre: ["Acción", "Aventura", "Fantasía", "Sobrenatural", "Shonen"],
         seasons: 16,
         studio: "Studio Pierrot",
         description: "Ichigo Kurosaki, un estudiante que puede ver fantasmas, obtiene los poderes de un Shinigami (Dios de la Muerte) de Rukia Kuchiki. Debe proteger a los humanos de los espíritus malignos Hollows y guiar las almas al más allá."
@@ -204,7 +204,7 @@ const seriesData = [
         title: "JoJo's Bizarre Adventure",
         poster: "./assets/images/series/jojo-bizarre.jpg",
         year: "2012-2022",
-        genre: ["Acción", "Aventura", "Fantasía","Seinen"],
+        genre: ["Acción", "Aventura", "Fantasía","Seinen", "Sobrenatural", "Comedia"],
         seasons: 6,
         studio: "David Production",
         description: "La saga de la familia Joestar a través de generaciones, cada una con un protagonista diferente y batallas usando Stands y habilidades únicas."
@@ -654,7 +654,7 @@ const seriesData = [
         title: "Ashita no Joe",
         poster: "./assets/images/series/ashita-no-joe.jpg",
         year: "1970-1971",
-        genre: ["Deporte", "Drama", "Shonen"],
+        genre: ["Deporte", "Drama", "Shonen", "Acción"],
         seasons: 2,
         studio: "Mushi Production",
         description: "Joe Yabuki, un joven delincuente sin rumbo, descubre su pasión por el boxeo bajo la tutela del ex boxeador Danpei. La serie sigue su transformación de un chico problemático a un boxeador profesional, enfrentando numerosos desafíos dentro y fuera del ring en esta obra maestra del anime."
@@ -676,7 +676,7 @@ const seriesData = [
         franchise: "Blue Lock",
         poster: "./assets/images/series/blue-lock-episode-nagi.jpg",
         year: "2024",
-        genre: ["Deporte", "Película"],
+        genre: ["Deporte", "Película", "Psicológico"],
         seasons: 1,
         studio: "Eight Bit",
         description: "Película que explora la perspectiva de Seishiro Nagi, uno de los talentos más prometedores de Blue Lock. La película muestra su viaje desde ser un estudiante desinteresado hasta convertirse en un genio del fútbol, revelando sus motivaciones y su rivalidad con Reo Mikage."
@@ -706,7 +706,7 @@ const seriesData = [
         title: "Hajime no Ippo",
         poster: "./assets/images/series/hajime-no-ippo.jpg",
         year: "2000-2002",
-        genre: ["Deporte", "Comedia", "Drama", "Shonen"],
+        genre: ["Deporte", "Comedia", "Drama", "Shonen", "Acción"],
         seasons: 3,
         studio: "Madhouse",
         description: "Ippo Makunouchi, un estudiante tímido que sufre bullying, descubre el boxeo cuando es salvado por el campeón Mamoru Takamura. Bajo el entrenamiento del gimnasio Kamogawa, Ippo se transforma en un boxeador profesional mientras enfrenta poderosos oponentes y forja amistades duraderas."
@@ -734,6 +734,7 @@ const seriesData = [
     {
         id: 77,
         title: "Slam Dunk",
+        franchise: "Slam Dunk",
         poster: "./assets/images/series/slam-dunk.jpg",
         year: "1993-1996",
         genre: ["Deporte", "Comedia", "Drama", "Shonen"],
@@ -744,9 +745,10 @@ const seriesData = [
     {
         id: 78,
         title: "The First Slam Dunk",
+        franchise: "Slam Dunk",
         poster: "./assets/images/series/the-real-slam-dunk.jpg",
         year: "2022",
-        genre: ["Deporte", "Película", "Drama"],
+        genre: ["Deporte", "Película", "Drama", "Comedia", "Shonen"],
         seasons: 1,
         studio: "Toei Animation",
         description: "Película que continúa la historia de Slam Dunk, centrándose en el partido crucial entre los Shohoku y los campeones nacionales, Sannoh Kogyo. La película explora el pasado de Ryota Miyagi y ofrece una experiencia cinematográfica inmersiva con animación moderna."
@@ -2209,7 +2211,7 @@ const noticiasData = [
       {
         id: 1,
         titulo: "Invencible Temporada 4 Confirmada para 2026",
-        tipo: "noticia",
+        tipo: "trailer",
         imagen: "./assets/images/noticias/invincible-season-4-Return.jpg",
         resumen: "Mark Grayson regresa con más acción y dilemas cósmicos en la nueva temporada programada para 2026",
         contenido: `Amazon Prime Video ha confirmado oficialmente el renovado de Invencible para una cuarta temporada, programada para estrenarse en 2026.
@@ -2219,7 +2221,7 @@ La nueva temporada continuará adaptando el aclamado cómic de Robert Kirkman, C
 "Estamos emocionados de llevar a los fans más profundamente en el universo de Invencible", declaró Kirkman. "La temporada 4 explorará territorios que cambiarán fundamentalmente a nuestros personajes y el mundo que habitan".
 
 La producción mantendrá el elenco principal de voces, incluyendo a Steven Yeun como Mark Grayson/Invencible, J.K. Simmons como Nolan Grayson/Omni-Man y Sandra Oh como Debbie Grayson.`,
-        videoId: null,
+        videoId: "uGyE1jFPa7Q",
         fecha: "2025-01-15",
         seriesRelacionadas: [126],
         destacada: true,
@@ -2228,7 +2230,7 @@ La producción mantendrá el elenco principal de voces, incluyendo a Steven Yeun
     {
     id: 2,
     titulo: "¡La Leyenda Cobra Vida! 'Steel Ball Run' Confirmada como Serie Anime Oficial",
-    tipo: "noticia", 
+    tipo: "trailer", 
     imagen: "./assets/images/noticias/steel-ball-run-anuncio.jpg",
     resumen: "Warner Bros. Japan y David Production anuncian oficialmente la adaptación al anime de JoJo's Bizarre Adventure: Steel Ball Run.",
     contenido: `Tokio, Japón – Warner Bros. Japan y David Production han confirmado oficialmente la adaptación al anime de JoJo's Bizarre Adventure: Steel Ball Run, la aclamada Parte 7 del manga de Hirohiko Araki.
@@ -2238,57 +2240,78 @@ La serie marcará un nuevo comienzo en el universo JoJo, transportándonos al a�
 El anuncio incluyó un teaser tráiler que muestra los vastos paisajes desérticos y el sistema de poderes "Spin" que reemplaza a los Hamon. La producción enfrenta el desafío de adaptar las complejas batallas con Stands y las escenas de carrera ecuestre, considerándose un formato de temporadas largas para respetar los 24 volúmenes del manga original.
 
 La noticia ha generado euforia en redes sociales, con fans celebrando este anuncio largamente esperado que promete ser una de las experiencias anime más ambiciosas de los próximos años.`,
-    videoId: null,
-    fecha: "2025-01-20",
+    videoId: "93QIhAbxmdc",
+    fecha: "2026-03-10",
     seriesRelacionadas: [21],
-    destacada: true,
+    destacada: false,
     vistas: 0
 },
 {
     id: 3,
     titulo: "Baki-Dou Llegará a Netflix en 2026 con Miyamoto Musashi como Nuevo Rival",
-    tipo: "noticia", 
+    tipo: "trailer", 
     imagen: "./assets/images/noticias/baki-dou-netflix.jpg",
     resumen: "La nueva temporada Baki-Dou se estrenará en Netflix en 2026, presentando al legendario espadachín Miyamoto Musashi como el nuevo antagonista.",
     contenido: `Netflix ha confirmado oficialmente que Baki-Dou llegará a su plataforma en 2026, continuando la épica saga de artes marciales tras la gran pelea entre Baki Hanma y su padre Yujiro.
 
 La nueva temporada, producida una vez más por TMS Entertainment, introducirá a uno de los antagonistas más esperados: Miyamoto Musashi. El legendario espadachín japonés será revivido a través de un proceso de clonación utilizando tejido de su espina dorsal, infundido con su alma y recuerdos originales.
 
-**La Trama: Un Guerrero Legendario en la Era Moderna**
+*La Trama: Un Guerrero Legendario en la Era Moderna*
 
 Tras la conclusión de la batalla padre-hijo, Baki y los demás luchadores enfrentan un vacío y aburrimiento insoportable. Esta paz se rompe cuando Musashi es liberado en el mundo moderno, representando una amenaza letal que desafiará a los combatientes más fuertes del planeta.
 
 El encuentro entre las técnicas de lucha modernas y el estilo de espada mortal de Musashi promete algunas de las batallas más intensas y sangrientas de la franquicia hasta la fecha.
 
 Los fans pueden esperar la misma acción brutal y sobrehumana que caracteriza a la serie, ahora con el añadido de un rival histórico que pondrá a prueba los límites de todos los luchadores.`,
-    videoId: null,
+    videoId: "EuO7vr7b2m4",
     fecha: "2025-01-20",
     seriesRelacionadas: [6], // ID de Baki
-    destacada: true,
+    destacada: false,
     vistas: 0
 },
 {
     id: 4,
     titulo: "Jujutsu Kaisen Temporada 3 Confirmada para Enero 2026: Adaptará el Arco 'Culling Game'",
-    tipo: "noticia", 
+    tipo: "trailer", 
     imagen: "./assets/images/noticias/jujutsu-kaisen-season-3.jpg",
     resumen: "La tercera temporada de Jujutsu Kaisen se estrenará en enero de 2026 y adaptará el intenso arco del 'Juego de la Exterminación'.",
     contenido: `Studio MAPPA ha confirmado oficialmente que la tercera temporada de Jujutsu Kaisen se estrenará en enero de 2026, adaptando el esperado arco del "Culling Game" (Juego de la Exterminación).
 
 La producción ya está en marcha, con los actores de voz grabando sus diálogos. La temporada cubrirá los arcos "Exterminio de Itadori", "Preparación Perfecta" y el inicio del "Culling Game".
 
-**Tras los Eventos de Shibuya**
+*Tras los Eventos de Shibuya*
 
 La trama continúa después del devastador Incidente de Shibuya: con Satoru Gojo sellado y los hechiceros diezmados, el villano Kenjaku inicia un mortal battle royale que se desarrolla en múltiples colonias por todo Japón.
 
 Yuji Itadori y Megumi Fushiguro se adentran en el juego para rescatar a Tsumiki, mientras Yuta Okkotsu regresa con la misión de ejecutar a Yuji, pero también para ayudar a liberar a Gojo con la ayuda de Hana Kurusu, poseída por el antiguo hechicero "Ángel".
 
-**Avance en Cines**
+*Avance en Cines*
 
 Los fans podrán ver un adelanto en noviembre de 2025 con el lanzamiento de una película de compilación que incluirá los dos primeros episodios de la temporada 3.`,
-    videoId: null,
+    videoId: "RYI-WG_HFV8",
     fecha: "2025-01-20",
     seriesRelacionadas: [135], // ID de Jujutsu Kaisen
+    destacada: true,
+    vistas: 0
+},
+{
+    id: 5,
+    titulo: "Shuumatsu no Valkyrie Temporada 3 Confirmada para 2026",
+    tipo: "trailer", 
+    imagen: "./assets/images/noticias/shuumatsu-no-valkyrie-season-3.jpg",
+    resumen: "El torneo divino continúa con nuevos combates épicos entre humanos y dioses programados para 2026",
+    contenido: `Netflix ha anunciado oficialmente la tercera temporada de Shuumatsu no Valkyrie (Record of Ragnarok), programada para estrenarse en 2026.
+
+La nueva temporada continuará el épico torneo donde 13 dioses se enfrentan a 13 humanos en combates a vida o muerte para decidir el destino de la humanidad. Basada en el manga de Shinya Umemura y Takumi Fukui, esta temporada promete adaptar algunos de los encuentros más esperados por los fans.
+
+"Los combates se intensificarán como nunca antes", comentó el director. "Estamos preparando animación de la más alta calidad para hacer justicia a las batallas cósmicas que están por venir".
+
+La producción mantendrá el estilo visual característico de la serie mientras introduce nuevos y poderosos contendientes tanto del panteón divino como de la historia humana, cada uno con habilidades únicas y técnicas devastadoras.
+
+Entre los combates confirmados se incluyen enfrentamientos legendarios que los fans del manga han estado esperando ansiosamente, con técnicas divinas y humanas que desafían los límites de la imaginación.`,
+    videoId: "5ySabzYxfFQ",
+    fecha: "2025-01-25",
+    seriesRelacionadas: [4],
     destacada: true,
     vistas: 0
 }
