@@ -306,54 +306,106 @@ class SerieDetails {
         `;
     }
 
-    // 🆕 SISTEMA DE RECOMENDACIONES MEJORADO
+    // 🆕 MÉTODO MEJORADO PARA DETECTAR FRANQUICIAS
+    detectFranchise(serie) {
+        // 🆕 PRIMERO: Verificar si tiene campo franchise explícito
+        if (serie.franchise) {
+            return serie.franchise;
+        }
+        
+        // 🆕 SEGUNDO: Detección automática por título
+        const franchisePatterns = [
+            { pattern: /berserk/i, franchise: 'Berserk' },
+            { pattern: /attack on titan|shingeki no kyojin/i, franchise: 'Attack on Titan' },
+            { pattern: /naruto/i, franchise: 'Naruto' },
+            { pattern: /one piece/i, franchise: 'One Piece' },
+            { pattern: /dragon ball|dragonball/i, franchise: 'Dragon Ball' },
+            { pattern: /bleach/i, franchise: 'Bleach' },
+            { pattern: /one punch man/i, franchise: 'One Punch Man' },
+            { pattern: /my hero academia|boku no hero/i, franchise: 'My Hero Academia' },
+            { pattern: /demon slayer|kimetsu no yaiba/i, franchise: 'Demon Slayer' },
+            { pattern: /jujutsu kaisen/i, franchise: 'Jujutsu Kaisen' },
+            { pattern: /chainsaw man/i, franchise: 'Chainsaw Man' },
+            { pattern: /vinland saga/i, franchise: 'Vinland Saga' },
+            { pattern: /tokyo revengers/i, franchise: 'Tokyo Revengers' },
+            { pattern: /spy x family/i, franchise: 'Spy x Family' },
+            { pattern: /haikyuu|haikyu/i, franchise: 'Haikyuu' },
+            { pattern: /hunter x hunter/i, franchise: 'Hunter x Hunter' },
+            { pattern: /fullmetal alchemist/i, franchise: 'Fullmetal Alchemist' },
+            { pattern: /fate\/stay night|fate zero/i, franchise: 'Fate' },
+            { pattern: /evangelion/i, franchise: 'Evangelion' },
+            { pattern: /cowboy bebop/i, franchise: 'Cowboy Bebop' },
+            { pattern: /death note/i, franchise: 'Death Note' },
+            { pattern: /code geass/i, franchise: 'Code Geass' },
+            { pattern: /steins;gate/i, franchise: 'Steins;Gate' },
+            { pattern: /re:zero/i, franchise: 'Re:Zero' },
+            { pattern: /konosuba/i, franchise: 'KonoSuba' },
+            { pattern: /overlord/i, franchise: 'Overlord' },
+            { pattern: /that time i got reincarnated as a slime|tensura/i, franchise: 'Tensei Shitara Slime' },
+            { pattern: /mushoku tensei/i, franchise: 'Mushoku Tensei' },
+            { pattern: /jojo|jojo's bizarre adventure/i, franchise: "JoJo's Bizarre Adventure" },
+            { pattern: /sailor moon/i, franchise: 'Sailor Moon' },
+            { pattern: /pokémon|pokemon/i, franchise: 'Pokémon' },
+            { pattern: /digimon/i, franchise: 'Digimon' },
+            { pattern: /gundam/i, franchise: 'Gundam' },
+            { pattern: /macross/i, franchise: 'Macross' },
+            { pattern: /saint seiya|caballeros del zodiaco/i, franchise: 'Saint Seiya' },
+            { pattern: /solo leveling/i, franchise: 'Solo Leveling' },
+            { pattern: /the rising of the shield hero|shield hero/i, franchise: 'The Rising of the Shield Hero' }
+        ];
+        
+        for (const franchise of franchisePatterns) {
+            if (franchise.pattern.test(serie.title)) {
+                return franchise.franchise;
+            }
+        }
+        
+        return null;
+    }
+
+    // 🆕 SISTEMA DE RECOMENDACIONES MEJORADO CON FRANQUICIAS
     getSimilarSeries() {
         if (!this.currentSerie) return [];
         
         const currentSerie = this.currentSerie;
         const scoredSeries = [];
         
+        // 🆕 DETECTAR SI LA SERIE ACTUAL PERTENECE A UNA FRANQUICIA
+        const currentFranchise = this.detectFranchise(currentSerie);
+        
         this.series.forEach(serie => {
             if (serie.id === currentSerie.id) return;
             
             let score = 0;
             
-            // 🎯 PUNTUACIÓN POR GÉNEROS COMPARTIDOS (Peso: 40%)
+            // 🆕 PUNTUACIÓN POR MISMA FRANQUICIA (Peso: 60%) - MÁS IMPORTANTE
+            const serieFranchise = this.detectFranchise(serie);
+            if (currentFranchise && serieFranchise && currentFranchise === serieFranchise) {
+                score += 60;
+            }
+            
+            // 🆕 PUNTUACIÓN POR GÉNEROS COMPARTIDOS (Peso: 25%)
             const sharedGenres = currentSerie.genre.filter(genre => 
                 serie.genre.includes(genre)
             ).length;
-            score += sharedGenres * 40;
+            score += sharedGenres * 5; // 5 puntos por género compartido
             
-            // 🎯 PUNTUACIÓN POR ESTUDIO (Peso: 20%)
+            // 🆕 PUNTUACIÓN POR ESTUDIO (Peso: 10%)
             if (currentSerie.studio && serie.studio === currentSerie.studio) {
-                score += 20;
-            }
-            
-            // 🎯 PUNTUACIÓN POR AÑO (Series más recientes) (Peso: 15%)
-            const yearDiff = Math.abs(currentSerie.year - serie.year);
-            if (yearDiff <= 2) score += 15;
-            else if (yearDiff <= 5) score += 10;
-            else if (yearDiff <= 10) score += 5;
-            
-            // 🎯 PUNTUACIÓN POR TIPO (Película/Serie) (Peso: 15%)
-            const currentIsMovie = this.isMovie(currentSerie);
-            const serieIsMovie = this.isMovie(serie);
-            if (currentIsMovie === serieIsMovie) {
-                score += 15;
-            }
-            
-            // 🎯 PUNTUACIÓN POR POPULARIDAD (Peso: 10%)
-            // Basado en wishlist (series en más listas son más populares)
-            const wishlistManager = new WishlistManager();
-            if (wishlistManager.isInWishlist(serie.id)) {
                 score += 10;
             }
+            
+            // 🆕 PUNTUACIÓN POR AÑO (Series más recientes) (Peso: 5%)
+            const yearDiff = Math.abs(currentSerie.year - serie.year);
+            if (yearDiff <= 2) score += 5;
+            else if (yearDiff <= 5) score += 3;
             
             if (score > 0) {
                 scoredSeries.push({
                     serie: serie,
                     score: score,
-                    sharedGenres: sharedGenres
+                    sharedGenres: sharedGenres,
+                    sameFranchise: currentFranchise && serieFranchise && currentFranchise === serieFranchise
                 });
             }
         });
@@ -374,7 +426,7 @@ class SerieDetails {
                 <div class="no-similar">
                     <div class="no-similar-icon">🎯</div>
                     <h3>No hay recomendaciones disponibles</h3>
-                    <p>Explora el catálogo para descubrir más series</p>
+                    <p>Explora el catálogo para descubrir más contenido</p>
                     <a href="../index.html" class="btn-primary" style="margin-top: 1rem;">
                         Explorar Catálogo
                     </a>
@@ -383,23 +435,36 @@ class SerieDetails {
             return;
         }
 
-        // 🆕 CALCULAR PORCENTAJE DE SIMILITUD
-        const getSimilarityPercentage = (serie) => {
+        // 🆕 DETECTAR FRANQUICIA ACTUAL
+        const currentFranchise = this.detectFranchise(this.currentSerie);
+        
+        // 🆕 CALCULAR PORCENTAJE DE SIMILITUD MEJORADO
+        const getSimilarityInfo = (serie) => {
             const sharedGenres = this.currentSerie.genre.filter(genre => 
                 serie.genre.includes(genre)
             ).length;
             const totalGenres = Math.max(this.currentSerie.genre.length, serie.genre.length);
-            return Math.round((sharedGenres / totalGenres) * 100);
+            const genreSimilarity = Math.round((sharedGenres / totalGenres) * 100);
+            
+            // 🆕 VERIFICAR SI ES DE LA MISMA FRANQUICIA
+            const serieFranchise = this.detectFranchise(serie);
+            const isSameFranchise = currentFranchise && serieFranchise && currentFranchise === serieFranchise;
+            
+            return {
+                similarity: genreSimilarity,
+                isSameFranchise: isSameFranchise,
+                franchiseName: currentFranchise
+            };
         };
 
         similarContainer.innerHTML = `
             <div class="similar-section-header">
-                <h2>Series que podrían gustarte</h2>
-                <p>Basado en géneros, estudio y popularidad</p>
+                <h2>${currentFranchise ? `Contenido de ${currentFranchise}` : 'Contenido que podría gustarte'}</h2>
+                <p>${currentFranchise ? 'Series y películas relacionadas' : 'Basado en géneros, estudio y popularidad'}</p>
             </div>
             <div class="similar-grid">
                 ${similarSeries.map(serie => {
-                    const similarity = getSimilarityPercentage(serie);
+                    const similarityInfo = getSimilarityInfo(serie);
                     const isMovie = this.isMovie(serie);
                     const movieInfo = this.getMovieInfo(serie);
                     
@@ -410,8 +475,8 @@ class SerieDetails {
                                      alt="${serie.title}" 
                                      class="similar-poster"
                                      onerror="this.src='../assets/images/placeholder.jpg'">
-                                <div class="similarity-badge">
-                                    ${similarity}% similar
+                                <div class="similarity-badge ${similarityInfo.isSameFranchise ? 'franchise-badge' : ''}">
+                                    ${similarityInfo.isSameFranchise ? 'Misma franquicia' : `${similarityInfo.similarity}% similar`}
                                 </div>
                             </div>
                             <div class="similar-info">
@@ -429,6 +494,12 @@ class SerieDetails {
                                         ''
                                     }
                                 </div>
+                                ${similarityInfo.isSameFranchise ? `
+                                    <div class="franchise-indicator">
+                                        <span class="franchise-dot"></span>
+                                        Relacionado con ${similarityInfo.franchiseName}
+                                    </div>
+                                ` : ''}
                             </div>
                         </a>
                     `;
@@ -708,7 +779,38 @@ class SerieDetails {
             'deporte': 'Deporte',
             'historico': 'Histórico',
             'psicologico': 'Psicológico',
-            'misterio': 'Misterio'
+            'misterio': 'Misterio',
+            'videojuegos': 'Videojuegos',
+            'romance': 'Romance',
+            'thriller': 'Thriller',
+            'pelicula': 'Película',
+            'película': 'Película',
+            'escolares': 'Escolares',
+            'sobrenatural': 'Sobrenatural',
+            'shonen': 'Shonen',
+            'isekai': 'Isekai',
+            'harem': 'Harem',
+            'recuentos de la vida': 'Recuentos de la vida',
+            'artes marciales': 'Artes Marciales',
+            'shoujo': 'Shoujo',
+            'suspenso': 'Suspenso',
+            'superpoderes': 'Superpoderes',
+            'musica': 'Música',
+            'música': 'Música',
+            'supervivencia': 'Supervivencia',
+            'parodia': 'Parodia',
+            'mecha': 'Mecha',
+            'musical': 'Musical',
+            'cocina': 'Cocina',
+            'superheroes': 'Superhéroes',
+            'superhéroes': 'Superhéroes',
+            'ecchi': 'Ecchi',
+            'manwhas': 'Manwhas',
+            'post-apocaliptico': 'Post-apocalíptico',
+            'post-apocalíptico': 'Post-apocalíptico',
+            'monstruos': 'Monstruos',
+            'filosofico': 'Filosófico',
+            'filosófico': 'Filosófico'
         };
         return names[genre] || genre;
     }
