@@ -1,2 +1,0 @@
-# JojoGeekCatalog
-Porque si
