@@ -705,7 +705,7 @@ const seriesData = [
         id: 74,
         title: "Hajime no Ippo",
         poster: "./assets/images/series/hajime-no-ippo.jpg",
-        year: "2000-2002",
+        year: "2000-2014",
         genre: ["Deporte", "Comedia", "Drama", "Shonen", "Acción"],
         seasons: 3,
         studio: "Madhouse",
@@ -1286,6 +1286,7 @@ const seriesData = [
     {
         id: 132,
         title: "Hokuto no Ken",
+        franchise: "Hokuto no Ken",
         poster: "./assets/images/series/hokuto-no-ken-old.jpg",
         year: "1984-1987",
         genre: ["Acción", "Aventura", "Post-apocalíptico", "Shonen"],
@@ -1646,11 +1647,13 @@ const seriesData = [
     {
         id: 168,
         title: "Hokuto no Ken Movies",
+        franchise: "Hokuto no Ken",
         poster: "./assets/images/series/hokuto-no-ken-movies.jpg",
-        year: "1986",
+        year: "2006-2008",
         genre: ["Acción", "Película", "Post-apocalíptico", "Shonen"],
         seasons: 1,
-        studio: "Toei Animation",
+        parts: 5,
+        studio: "TMS Entertainment",
         description: "Adaptación cinematográfica del clásico manga donde Kenshiro recorre la Tierra post-apocalíptica usando su arte marcial mortal Hokuto Shinken para proteger a los inocentes y enfrentar a sus hermanos adoptivos."
     },
     {
