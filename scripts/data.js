@@ -314,7 +314,7 @@ const seriesData = [
         title: "Attack on Titan",
         poster: "./assets/images/series/attack-on-titan.jpg",
         year: "2013-2023",
-        genre: ["Acción", "Drama", "Fantasía"],
+        genre: ["Acción", "Drama", "Fantasía", "Post-apocalíptico"],
         seasons: 4,
         studio: "Wit Studio / MAPPA",
         description: "La humanidad vive en ciudades amuralladas protegiéndose de Titanes gigantes. Eren Yeager se une al ejército para vengar a su madre."
@@ -365,7 +365,7 @@ const seriesData = [
         poster: "./assets/images/series/van-helsing.jpg",
         year: "2006-2010",
         genre: ["Acción", "Horror", "Fantasía"],
-        seasons: 5,
+        seasons: 1,
         studio: "Madhouse",
         description: "Gira en torno a la Orden de Caballeros Protestantes Reales, una organización que fundó Abraham Van Hellsing y que a día de hoy está en manos de sus descendientes. El fin de esta organización es proteger a la Reina y al país de las amenazas sobrenaturales. El actual director de la asociación, Sir Integra Fairbrook Wingates Hellsing, es el último miembro vivo de su familia; por ello, es ayudada en su labor por Walter C. Dornez, el poderoso vampiro Alucard y la ex – policía Seras Victoria."
     },
@@ -1289,7 +1289,7 @@ const seriesData = [
         franchise: "Hokuto no Ken",
         poster: "./assets/images/series/hokuto-no-ken-old.jpg",
         year: "1984-1987",
-        genre: ["Acción", "Aventura", "Post-apocalíptico", "Shonen"],
+        genre: ["Acción", "Aventura", "Shonen"],
         seasons: 2,
         studio: "Toei Animation",
         description: "Kenshiro, maestro del arte marcial Hokuto Shinken, recorre la Tierra post-apocalíptica para rescatar a su novia secuestrada, enfrentándose a guerreros despiadados en un mundo devastado."
