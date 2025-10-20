@@ -1998,10 +1998,10 @@ const seriesData = [
         id: 212,
         title: "Rocky Saga",
         poster: "./assets/images/series/rocky.jpg",
-        year: "1976-2018",
+        year: "1976-2006",
         genre: ["Drama", "Deporte", "Acción", "Película"],
         seasons: 1,
-        parts: 9,
+        parts: 6,
         studio: "Metro-Goldwyn-Mayer",
         description: "La inspiradora saga boxística que sigue la vida de Rocky Balboa, desde su humilde comienzo como matón de Philadelphia hasta convertirse en campeón mundial y leyenda. Una historia sobre perseverancia, amor, amistad y la lucha por alcanzar los sueños contra todo pronóstico."
     },
