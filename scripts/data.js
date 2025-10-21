@@ -2260,7 +2260,7 @@ const seriesData = [
     {
         id: 236,
         title: "I Want to Eat Your Pancreas",
-        poster: "./assets/images/series/i-want-to-eat-your-pancreas.jpg",
+        poster: "./assets/images/series/i-want-to-eat-your-peancreas.jpg",
         year: "2018",
         genre: ["Película", "Romance", "Drama"],
         seasons: 1,
