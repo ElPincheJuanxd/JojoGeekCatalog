@@ -218,12 +218,12 @@ class CatalogStateManager {
     }
 }
 
-// 🚀 CATÁLOGO ULTRA-OPTIMIZADO
+// 🚀 CATÁLOGO ULTRA-OPTIMIZADO CON COMPRESIÓN
 class UltraOptimizedSeriesCatalog {
     constructor() {
         this.series = seriesData;
         
-        // 🆕 CACHE MEJORADO - Solo cache simple
+        // Cache mejorado con compresión
         this.imageCache = new Map();
         this.searchTimeout = null;
         this.lazyLoadingObserver = null;
@@ -238,16 +238,15 @@ class UltraOptimizedSeriesCatalog {
         this.searchTerm = '';
         this.stateManager = new CatalogStateManager();
         
-        // 🆕 OPTIMIZACIÓN: Precargar datos críticos
-        this.preloadCriticalData();
+        // Inicializar compresión de imágenes
+        this.setupImageCompression();
         this.init();
     }
 
-    // 🆕 PRECARGAR DATOS CRÍTICOS
-    preloadCriticalData() {
-        // Precargar estados de wishlist y viewing states
-        this.wishlistManager.loadWishlist();
-        this.viewingStateManager.loadViewingStates();
+    // 🆕 CONFIGURAR COMPRESIÓN DE IMÁGENES
+    setupImageCompression() {
+        // El ImageManager se inicializa automáticamente
+        console.log('🖼️ Sistema de compresión inicializado');
     }
 
     isMovie(serie) {
@@ -398,11 +397,10 @@ class UltraOptimizedSeriesCatalog {
         return names[genre] || genre;
     }
 
-    // 🆕 RENDERIZADO ULTRA-OPTIMIZADO
+    // 🆕 RENDERIZADO CON COMPRESIÓN
     renderSeries() {
         const grid = document.getElementById('seriesGrid');
         
-        // 🆕 LIMPIAR OBSERVER ANTERIOR
         if (this.lazyLoadingObserver) {
             this.lazyLoadingObserver.disconnect();
         }
@@ -412,7 +410,6 @@ class UltraOptimizedSeriesCatalog {
             return;
         }
 
-        // 🆕 USAR FRAGMENT PARA RENDERIZADO MÁS RÁPIDO
         const fragment = document.createDocumentFragment();
         
         this.filteredSeries.forEach(serie => {
@@ -423,11 +420,9 @@ class UltraOptimizedSeriesCatalog {
         grid.innerHTML = '';
         grid.appendChild(fragment);
 
-        // 🆕 INICIALIZAR LAZY LOADING OPTIMIZADO
         this.initializeOptimizedLazyLoading();
     }
 
-    // 🆕 CREAR CARD OPTIMIZADA
     createSerieCard(serie) {
         const card = document.createElement('div');
         card.className = 'serie-card';
@@ -436,11 +431,6 @@ class UltraOptimizedSeriesCatalog {
         const viewingState = this.viewingStateManager.getViewingState(serie.id);
         const hasProgress = this.viewingStateManager.hasProgress(serie.id);
         const isMovie = this.isMovie(serie);
-        
-        // 🆕 CARGAR IMAGEN DIRECTAMENTE SIN CACHE COMPLEJO
-        const finalSrc = this.imageCache.has(serie.poster) ? 
-                        this.imageCache.get(serie.poster) : 
-                        './assets/images/placeholder.jpg';
         
         card.innerHTML = `
             <div class="status-indicator-card ${viewingState} ${hasProgress ? 'has-progress' : ''}" 
@@ -456,10 +446,10 @@ class UltraOptimizedSeriesCatalog {
                 </svg>
             </button>
             
-            <img src="${finalSrc}" 
+            <img src="./assets/images/placeholder.jpg" 
                  data-src="${serie.poster}" 
                  alt="${serie.title}" 
-                 class="serie-poster ${this.imageCache.has(serie.poster) ? 'loaded' : 'lazy'}"
+                 class="serie-poster lazy"
                  width="300" 
                  height="450"
                  loading="lazy">
@@ -473,7 +463,6 @@ class UltraOptimizedSeriesCatalog {
             </div>
         `;
 
-        // 🆕 EVENTOS OPTIMIZADOS - Delegación de eventos
         card.addEventListener('click', (e) => {
             if (!e.target.closest('.wishlist-btn-card') && !e.target.closest('.status-indicator-card')) {
                 this.showSerieDetails(serie);
@@ -489,18 +478,17 @@ class UltraOptimizedSeriesCatalog {
         return card;
     }
 
-    // 🆕 LAZY LOADING ULTRA-OPTIMIZADO
+    // 🆕 LAZY LOADING CON COMPRESIÓN
     initializeOptimizedLazyLoading() {
         const lazyImages = document.querySelectorAll('.serie-poster.lazy');
         
         if (lazyImages.length === 0) return;
 
-        // 🆕 OBSERVER MÁS EFICIENTE
         this.lazyLoadingObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    this.loadImageSimple(img);
+                    this.loadImageWithCompression(img);
                     this.lazyLoadingObserver.unobserve(img);
                 }
             });
@@ -512,60 +500,42 @@ class UltraOptimizedSeriesCatalog {
         lazyImages.forEach(img => this.lazyLoadingObserver.observe(img));
     }
 
-    // 🆕 CARGA SIMPLE DE IMÁGENES - SIN OPTIMIZACIÓN COMPLEJA
-    async loadImageSimple(img) {
+    // 🆕 CARGA CON COMPRESIÓN
+    async loadImageWithCompression(img) {
         const src = img.getAttribute('data-src');
         
-        if (this.imageCache.has(src)) {
-            img.src = this.imageCache.get(src);
-            img.classList.remove('lazy');
-            img.classList.add('loaded');
-            return;
-        }
-
         try {
-            // 🆕 CARGAR DIRECTAMENTE SIN OPTIMIZACIÓN (más rápido)
-            await new Promise((resolve, reject) => {
-                const tempImg = new Image();
-                tempImg.onload = () => {
-                    this.imageCache.set(src, src);
-                    img.src = src;
+            // Usar el sistema de compresión
+            if (window.optimizedImageManager) {
+                await window.optimizedImageManager.loadWithCompression(img);
+            } else {
+                // Fallback: carga normal
+                img.src = src;
+                img.onload = () => {
                     img.classList.remove('lazy');
                     img.classList.add('loaded');
-                    resolve();
                 };
-                tempImg.onerror = reject;
-                tempImg.src = src;
-            });
+            }
         } catch (error) {
-            console.warn('❌ Error cargando imagen:', src);
-            // Mantener placeholder
+            console.warn('❌ Error cargando imagen comprimida:', src, error);
+            // Fallback a carga normal
+            img.src = src;
         }
     }
 
-    // 🆕 MÉTODO TOGGLEWISHLIST CORREGIDO - ACTUALIZACIÓN INMEDIATA
     toggleWishlist(serieId, button) {
         const wasInWishlist = this.wishlistManager.isInWishlist(serieId);
         
         if (wasInWishlist) {
             this.wishlistManager.removeFromWishlist(serieId);
-            
-            // 🆕 CORRECCIÓN: Actualización visual inmediata al QUITAR
             button.classList.remove('active');
             button.style.background = 'rgba(0, 0, 0, 0.7)';
-            
-            console.log('❌ Serie removida de wishlist:', serieId);
         } else {
             this.wishlistManager.addToWishlist(serieId);
-            
-            // 🆕 CORRECCIÓN: Actualización visual inmediata al AGREGAR
             button.classList.add('active');
             button.style.background = 'var(--accent)';
-            
-            console.log('✅ Serie agregada a wishlist:', serieId);
         }
         
-        // 🆕 ANIMACIÓN MÁS CLARA
         button.style.transform = 'scale(1.1)';
         setTimeout(() => {
             button.style.transform = 'scale(1)';
@@ -617,7 +587,6 @@ class UltraOptimizedSeriesCatalog {
         this.updateChipsActiveState('status');
     }
 
-    // 🆕 MÉTODO MEJORADO PARA ACTUALIZAR CHIPS
     updateChipsActiveState(type) {
         const chips = document.querySelectorAll(`.filter-chip[data-type="${type}"]`);
         chips.forEach(chip => {
@@ -630,10 +599,8 @@ class UltraOptimizedSeriesCatalog {
                 isActive = this.activeStatusFilters.has(value);
             }
             
-            // 🆕 ACTUALIZACIÓN VISUAL INMEDIATA
             chip.classList.toggle('active', isActive);
             
-            // 🆕 CAMBIO DE COLOR INMEDIATO
             if (isActive) {
                 chip.style.background = 'var(--accent)';
                 chip.style.color = 'white';
@@ -666,7 +633,6 @@ class UltraOptimizedSeriesCatalog {
         this.renderSeries();
     }
 
-    // 🆕 BÚSQUEDA MÁS RÁPIDA
     searchSeries(query) {
         clearTimeout(this.searchTimeout);
         
@@ -676,7 +642,6 @@ class UltraOptimizedSeriesCatalog {
             if (this.searchTerm === '') {
                 this.applyFilters();
             } else {
-                // 🆕 BÚSQUEDA MÁS EFICIENTE
                 this.filteredSeries = this.series.filter(serie => 
                     serie.title.toLowerCase().includes(this.searchTerm) ||
                     serie.genre.some(g => g.includes(this.searchTerm))
@@ -747,7 +712,6 @@ class UltraOptimizedSeriesCatalog {
             this.searchSeries(e.target.value);
         });
 
-        // 🆕 LIMPIAR RECURSOS
         window.addEventListener('beforeunload', () => {
             if (this.searchTimeout) {
                 clearTimeout(this.searchTimeout);
@@ -897,11 +861,61 @@ function updateNewsBadge() {
     }
 }
 
+// 🆕 REGISTRO DE SERVICE WORKER
+async function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register('./sw.js');
+            console.log('✅ Service Worker registrado:', registration);
+            
+            registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                console.log('🔄 Nuevo Service Worker encontrado:', newWorker);
+            });
+        } catch (error) {
+            console.error('❌ Error registrando Service Worker:', error);
+        }
+    }
+}
+
+// 🆕 DEBUG HELPERS
+window.clearImageCache = async () => {
+    if ('caches' in window) {
+        await caches.delete('jojo-images-1.0');
+        await caches.delete('jojo-cache-1.0');
+        console.log('🗑️ Cache de imágenes limpiado');
+        location.reload();
+    }
+};
+
+window.getCacheSize = async () => {
+    if ('caches' in window) {
+        const cache = await caches.open('jojo-images-1.0');
+        const keys = await cache.keys();
+        let totalSize = 0;
+        
+        for (const request of keys) {
+            const response = await cache.match(request);
+            if (response) {
+                const blob = await response.blob();
+                totalSize += blob.size;
+            }
+        }
+        
+        console.log(`💾 Tamaño del cache: ${(totalSize / 1024 / 1024).toFixed(2)} MB`);
+        console.log(`📸 Imágenes cacheadas: ${keys.length}`);
+        return totalSize;
+    }
+};
+
 // 🚀 INICIALIZACIÓN OPTIMIZADA
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Inicializando Catálogo Ultra-Optimizado...');
     
-    // 🆕 USAR LA VERSIÓN ULTRA-OPTIMIZADA
+    // Registrar Service Worker para cache permanente
+    registerServiceWorker();
+    
+    // Inicializar sistemas
     new UltraOptimizedSeriesCatalog();
     new GlobalWishlistManager();
     new AboutPanelManager();
