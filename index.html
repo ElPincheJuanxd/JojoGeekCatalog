@@ -26,7 +26,6 @@
                     </svg>
                 </button>
                 
-                <!-- 🆕 ENLACE DE NOTICIAS CORREGIDO -->
                 <a href="pages/noticias.html" class="noticias-toggle" id="noticiasToggle">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" 
@@ -43,7 +42,6 @@
                     <span class="wishlist-count" id="wishlistCount">0</span>
                 </a>
 
-                <!-- 🆕 BOTÓN ACERCA DE / CONTACTO -->
                 <button class="about-toggle" id="aboutToggle">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" 
@@ -55,24 +53,18 @@
             </div>
         </nav>
 
-        <!-- Panel de Filtros con Chips -->
         <div class="filters-chips-panel" id="filtersChipsPanel">
             <div class="filters-section">
                 <h4 class="filters-section-title">Género</h4>
-                <div class="chips-container" id="genreChips">
-                    <!-- Chips se generarán dinámicamente -->
-                </div>
+                <div class="chips-container" id="genreChips"></div>
             </div>
             
             <div class="filters-section">
                 <h4 class="filters-section-title">Estado</h4>
-                <div class="chips-container" id="statusChips">
-                    <!-- Chips se generarán dinámicamente -->
-                </div>
+                <div class="chips-container" id="statusChips"></div>
             </div>
         </div>
 
-        <!-- 🆕 PANEL ACERCA DE / CONTACTO - REORGANIZADO -->
         <div class="about-panel" id="aboutPanel">
             <div class="about-content">
                 <div class="about-header">
@@ -86,7 +78,6 @@
                 </div>
                 
                 <div class="about-sections">
-                    <!-- SECCIÓN INFORMACIÓN DEL SITIO -->
                     <div class="about-section">
                         <h4>ℹ️ Acerca del Catálogo</h4>
                         <div class="site-info">
@@ -99,12 +90,10 @@
                                 <li>⚡ Optimización avanzada de imágenes</li>
                             </ul>
                             
-                            <!-- 🆕 VERSIÓN CON REGISTRO DE CAMBIOS MEJORADO -->
                             <div class="version-info">
-                                <strong>Versión 1.1.0</strong>
+                                <strong>Versión 2.0.0</strong>
                                 <span>Actualizado: Octubre 2025</span>
                                 
-                                <!-- 🆕 REGISTRO DE CAMBIOS -->
                                 <div class="changelog">
                                     <strong>📝 Registro de cambios:</strong>
                                     <ul class="changelog-list">
@@ -117,7 +106,6 @@
                         </div>
                     </div>
 
-                    <!-- SECCIÓN NEGOCIO -->
                     <div class="about-section">
                         <h4>🏪 Información:</h4>
                         <div class="business-info">
@@ -153,19 +141,14 @@
                         </div>
                     </div>
 
-                    <!-- SECCIÓN CREADOR -->
                     <div class="about-section">
                         <h4>Créditos:</h4>
                         <div class="creator-info">
                             <div class="creator-details">
                                 <strong>Desarrollado Por:</strong>
                                 <p> A :I</p>
-                                
                                 <strong>Mención Especial:</strong>
-                                
                                 <p> El pinche Juan</p>
-                                
-                                
                                 <div class="creator-links">
                                     <a href="https://chat.whatsapp.com/JsiBEty4A0H0IVymWXsyQ7" class="contact-link" target="_blank">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -193,37 +176,43 @@
             <p>Encuentra tus favoritas y descubre nuevas</p>
         </section>
 
-        <!-- 🆕 GRID MODIFICADO PARA LAZY LOADING -->
-        <section class="series-grid" id="seriesGrid">
-            <!-- Las series se cargarán aquí dinámicamente con lazy loading -->
-        </section>
+        <section class="series-grid" id="seriesGrid"></section>
     </main>
 
     <footer>
-        <p>&copy; 2025 JoJo Geek Catalog </p>
+        <p>&copy; 2025 JoJo Geek Catalog</p>
     </footer>
 
-    <!-- 🆕 OVERLAY PARA CERRAR PANEL -->
     <div class="about-overlay" id="aboutOverlay"></div>
 
-    <!-- 🆕 SCRIPTS EN ORDEN CORRECTO -->
     <script src="scripts/image-optimizer.js"></script>
     <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
 
-    <!-- 🆕 SCRIPT DE INICIALIZACIÓN DEL SERVICE WORKER -->
     <script>
-        // Registrar Service Worker para cache permanente
+        // ✅ SERVICE WORKER MEJORADO - Cache Persistente entre páginas
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', async () => {
                 try {
-                    const registration = await navigator.serviceWorker.register('./sw.js');
-                    console.log('✅ Service Worker registrado con éxito:', registration);
+                    const registration = await navigator.serviceWorker.register('/sw.js');
+                    console.log('✅ Service Worker registrado:', registration);
                     
-                    // Debug helpers para la consola
-                    window.getCacheSize = async () => {
+                    // 🔄 Forzar actualización inmediata
+                    if (registration.waiting) {
+                        registration.waiting.postMessage('skipWaiting');
+                        console.log('🔄 Service Worker actualizado');
+                    }
+                    
+                    // 📊 Monitorizar estado del cache
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        console.log('🆕 Nueva versión del Service Worker encontrada:', newWorker);
+                    });
+
+                    // 🛠️ DEBUG HELPERS MEJORADOS
+                    window.getCacheStatus = async () => {
                         if ('caches' in window) {
-                            const cache = await caches.open('jojo-images-1.0');
+                            const cache = await caches.open('jojo-images-2.0');
                             const keys = await cache.keys();
                             let totalSize = 0;
                             
@@ -235,61 +224,55 @@
                                 }
                             }
                             
-                            console.log(`💾 Tamaño del cache: ${(totalSize / 1024 / 1024).toFixed(2)} MB`);
-                            console.log(`📸 Imágenes cacheadas: ${keys.length}`);
-                            keys.forEach(key => console.log('  -', key.url.split('/').pop()));
-                            return totalSize;
+                            const stats = {
+                                count: keys.length,
+                                size: (totalSize / 1024 / 1024).toFixed(2) + ' MB',
+                                images: keys.map(k => k.url.split('/').pop())
+                            };
+                            
+                            console.log('💾 Estado del Cache:', stats);
+                            return stats;
                         }
+                        return { error: 'Cache API no disponible' };
                     };
 
-                    window.clearImageCache = async () => {
+                    window.clearAllCache = async () => {
                         if ('caches' in window) {
-                            await caches.delete('jojo-images-1.0');
-                            await caches.delete('jojo-cache-1.0');
-                            console.log('🗑️ Cache de imágenes limpiado');
+                            const cacheNames = await caches.keys();
+                            for (const cacheName of cacheNames) {
+                                if (cacheName.startsWith('jojo-')) {
+                                    await caches.delete(cacheName);
+                                    console.log('🗑️ Eliminado:', cacheName);
+                                }
+                            }
+                            console.log('✅ Todo el cache limpiado');
                             location.reload();
                         }
                     };
 
-                    window.getCompressionStats = () => {
-                        if (window.optimizedImageManager) {
-                            return window.optimizedImageManager.getStats();
-                        }
-                        return { error: 'Image manager no disponible' };
-                    };
-
-                    console.log('🚀 Sistemas de cache y compresión inicializados');
-                    console.log('💡 Usa getCacheSize() en la consola para ver estadísticas');
+                    console.log('🚀 Sistema de cache persistente activado');
+                    console.log('💡 Comandos disponibles: getCacheStatus(), clearAllCache()');
                     
                 } catch (error) {
-                    console.log('❌ Service Worker no disponible:', error);
+                    console.error('❌ Error con Service Worker:', error);
                 }
             });
-        } else {
-            console.log('ℹ️ Service Worker no soportado en este navegador');
         }
 
-        // Función global para verificar estado de sistemas
+        // 🔍 Verificar sistemas al cargar
         window.checkSystems = () => {
             console.log('🔍 Estado de sistemas:');
             console.log('- Service Worker:', 'serviceWorker' in navigator ? '✅ Soportado' : '❌ No soportado');
-            console.log('- Image Optimizer:', window.optimizedImageManager ? '✅ Activo' : '❌ Inactivo');
             console.log('- Cache API:', 'caches' in window ? '✅ Disponible' : '❌ No disponible');
-            
-            if (window.optimizedImageManager) {
-                const stats = window.optimizedImageManager.getStats();
-                console.log('- Compresión:', stats.enabled ? '✅ Activada' : '❌ Desactivada');
-                console.log('- Imágenes comprimidas:', stats.totalCompressed);
-            }
+            console.log('- Image Optimizer:', window.optimizedImageManager ? '✅ Activo' : '❌ Inactivo');
         };
 
-        // Verificar sistemas al cargar
+        // Ejecutar verificación
         setTimeout(() => {
             window.checkSystems();
-        }, 1000);
+        }, 2000);
     </script>
 
-    <!-- 🆕 ESTILOS PARA EL REGISTRO DE CAMBIOS -->
     <style>
         .changelog {
             margin-top: 1rem;
@@ -327,7 +310,6 @@
             font-weight: bold;
         }
 
-        /* Mejora el contenedor de versión para acomodar el changelog */
         .version-info {
             background: var(--bg-primary);
             padding: 1.2rem;
