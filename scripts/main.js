@@ -218,12 +218,11 @@ class CatalogStateManager {
     }
 }
 
-// 🚀 CATÁLOGO ULTRA-OPTIMIZADO CON COMPRESIÓN
+// 🚀 CATÁLOGO ULTRA-OPTIMIZADO CON NUEVO SISTEMA DE CACHE
 class UltraOptimizedSeriesCatalog {
     constructor() {
         this.series = seriesData;
         
-        // Cache mejorado con compresión
         this.imageCache = new Map();
         this.searchTimeout = null;
         this.lazyLoadingObserver = null;
@@ -238,15 +237,7 @@ class UltraOptimizedSeriesCatalog {
         this.searchTerm = '';
         this.stateManager = new CatalogStateManager();
         
-        // Inicializar compresión de imágenes
-        this.setupImageCompression();
         this.init();
-    }
-
-    // 🆕 CONFIGURAR COMPRESIÓN DE IMÁGENES
-    setupImageCompression() {
-        // El ImageManager se inicializa automáticamente
-        console.log('🖼️ Sistema de compresión inicializado');
     }
 
     isMovie(serie) {
@@ -397,7 +388,7 @@ class UltraOptimizedSeriesCatalog {
         return names[genre] || genre;
     }
 
-    // 🆕 RENDERIZADO CON COMPRESIÓN
+    // 🆕 RENDERIZADO CON NUEVO SISTEMA DE CACHE
     renderSeries() {
         const grid = document.getElementById('seriesGrid');
         
@@ -420,6 +411,7 @@ class UltraOptimizedSeriesCatalog {
         grid.innerHTML = '';
         grid.appendChild(fragment);
 
+        // 🆕 USAR EL NUEVO SISTEMA DE LAZY LOADING
         this.initializeOptimizedLazyLoading();
     }
 
@@ -478,49 +470,17 @@ class UltraOptimizedSeriesCatalog {
         return card;
     }
 
-    // 🆕 LAZY LOADING CON COMPRESIÓN
+    // 🆕 LAZY LOADING OPTIMIZADO - DELEGADO AL NUEVO SISTEMA
     initializeOptimizedLazyLoading() {
-        const lazyImages = document.querySelectorAll('.serie-poster.lazy');
+        console.log('✅ Lazy loading optimizado activado');
         
-        if (lazyImages.length === 0) return;
-
-        this.lazyLoadingObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    this.loadImageWithCompression(img);
-                    this.lazyLoadingObserver.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: '100px',
-            threshold: 0.01
-        });
-
-        lazyImages.forEach(img => this.lazyLoadingObserver.observe(img));
-    }
-
-    // 🆕 CARGA CON COMPRESIÓN
-    async loadImageWithCompression(img) {
-        const src = img.getAttribute('data-src');
-        
-        try {
-            // Usar el sistema de compresión
-            if (window.optimizedImageManager) {
-                await window.optimizedImageManager.loadWithCompression(img);
-            } else {
-                // Fallback: carga normal
-                img.src = src;
-                img.onload = () => {
-                    img.classList.remove('lazy');
-                    img.classList.add('loaded');
-                };
+        // El OptimizedImageLoader se encarga automáticamente
+        // Solo nos aseguramos de que observe las imágenes existentes
+        setTimeout(() => {
+            if (window.optimizedImageLoader) {
+                window.optimizedImageLoader.observeLazyImages();
             }
-        } catch (error) {
-            console.warn('❌ Error cargando imagen comprimida:', src, error);
-            // Fallback a carga normal
-            img.src = src;
-        }
+        }, 100);
     }
 
     toggleWishlist(serieId, button) {
@@ -861,61 +821,10 @@ function updateNewsBadge() {
     }
 }
 
-// 🆕 REGISTRO DE SERVICE WORKER
-async function registerServiceWorker() {
-    if ('serviceWorker' in navigator) {
-        try {
-            const registration = await navigator.serviceWorker.register('./sw.js');
-            console.log('✅ Service Worker registrado:', registration);
-            
-            registration.addEventListener('updatefound', () => {
-                const newWorker = registration.installing;
-                console.log('🔄 Nuevo Service Worker encontrado:', newWorker);
-            });
-        } catch (error) {
-            console.error('❌ Error registrando Service Worker:', error);
-        }
-    }
-}
-
-// 🆕 DEBUG HELPERS
-window.clearImageCache = async () => {
-    if ('caches' in window) {
-        await caches.delete('jojo-images-1.0');
-        await caches.delete('jojo-cache-1.0');
-        console.log('🗑️ Cache de imágenes limpiado');
-        location.reload();
-    }
-};
-
-window.getCacheSize = async () => {
-    if ('caches' in window) {
-        const cache = await caches.open('jojo-images-1.0');
-        const keys = await cache.keys();
-        let totalSize = 0;
-        
-        for (const request of keys) {
-            const response = await cache.match(request);
-            if (response) {
-                const blob = await response.blob();
-                totalSize += blob.size;
-            }
-        }
-        
-        console.log(`💾 Tamaño del cache: ${(totalSize / 1024 / 1024).toFixed(2)} MB`);
-        console.log(`📸 Imágenes cacheadas: ${keys.length}`);
-        return totalSize;
-    }
-};
-
 // 🚀 INICIALIZACIÓN OPTIMIZADA
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Inicializando Catálogo Ultra-Optimizado...');
+    console.log('🚀 Inicializando Catálogo con Nuevo Sistema de Cache...');
     
-    // Registrar Service Worker para cache permanente
-    registerServiceWorker();
-    
-    // Inicializar sistemas
     new UltraOptimizedSeriesCatalog();
     new GlobalWishlistManager();
     new AboutPanelManager();
