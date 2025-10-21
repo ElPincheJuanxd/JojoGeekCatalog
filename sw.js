@@ -1,93 +1,133 @@
-// sw.js - Service Worker para Cache Permanente + Compresión
-const CACHE_VERSION = '1.0';
+// sw.js - SERVICE WORKER DEFINITIVO para rutas relativas y absolutas
+const CACHE_VERSION = '2.1';
 const CACHE_NAME = `jojo-cache-${CACHE_VERSION}`;
 const IMAGE_CACHE = `jojo-images-${CACHE_VERSION}`;
 
-// Precaché de imágenes críticas
+// Precaché con rutas ABSOLUTAS
 const PRECACHE_IMAGES = [
-  './assets/images/placeholder.jpg',
-  './assets/images/logo.webp'
+    '/assets/images/placeholder.jpg'
 ];
 
-// Estrategias de compresión por tipo de imagen
-const COMPRESSION_PROFILES = {
-  'poster': { width: 400, height: 600, quality: 0.5, format: 'webp' },
-  'news': { width: 600, height: 400, quality: 0.6, format: 'webp' },
-  'avatar': { width: 80, height: 80, quality: 0.7, format: 'webp' },
-  'default': { width: 800, height: 600, quality: 0.6, format: 'webp' }
-};
-
 self.addEventListener('install', (event) => {
-  console.log('🚀 Service Worker instalándose...');
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(PRECACHE_IMAGES))
-      .then(() => self.skipWaiting())
-  );
+    console.log('🚀 Service Worker instalándose...');
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(PRECACHE_IMAGES))
+            .then(() => self.skipWaiting())
+    );
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('🔥 Service Worker activado');
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (!cacheName.startsWith('jojo-') || 
-              (cacheName !== CACHE_NAME && cacheName !== IMAGE_CACHE)) {
-            console.log('🗑️ Eliminando cache antiguo:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
-  );
+    console.log('🔥 Service Worker activado');
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName.startsWith('jojo-') && cacheName !== CACHE_NAME && cacheName !== IMAGE_CACHE) {
+                        console.log('🗑️ Eliminando cache antiguo:', cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        }).then(() => self.clients.claim())
+    );
 });
 
-self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
-  
-  // Solo manejar imágenes de nuestros assets
-  if (!url.pathname.match(/\.(jpg|jpeg|png|webp|gif)$/i) || 
-      !url.pathname.includes('/assets/')) {
-    return;
-  }
+// 🆕 FUNCIÓN PARA CONVERTIR RUTAS RELATIVAS A ABSOLUTAS
+function normalizeImageUrl(request) {
+    const requestUrl = request.url;
+    const baseUrl = self.location.origin;
+    
+    // Si ya es una URL absoluta (empieza con http o /), dejarla tal cual
+    if (requestUrl.startsWith('http') || requestUrl.startsWith('/')) {
+        return request;
+    }
+    
+    // Si es ruta relativa (./assets/...), convertir a absoluta
+    if (requestUrl.includes('./assets/')) {
+        // Extraer la parte después de ./
+        const relativePath = requestUrl.split('./')[1];
+        const absoluteUrl = baseUrl + '/' + relativePath;
+        
+        console.log('🔄 Normalizando ruta:', requestUrl, '→', absoluteUrl);
+        return new Request(absoluteUrl);
+    }
+    
+    // Para otros casos, devolver la request original
+    return request;
+}
 
-  event.respondWith(
-    handleImageRequest(event.request)
-  );
+self.addEventListener('fetch', (event) => {
+    const request = event.request;
+    const url = new URL(request.url);
+    
+    // Solo manejar imágenes
+    const isImage = url.pathname.match(/\.(jpg|jpeg|png|webp|gif)$/i) || 
+                   request.url.match(/\.(jpg|jpeg|png|webp|gif)$/i);
+    
+    if (!isImage) return;
+    
+    // 🆕 NORMALIZAR la URL (convertir rutas relativas a absolutas)
+    const normalizedRequest = normalizeImageUrl(request);
+    
+    console.log('🖼️ Procesando imagen:', normalizedRequest.url);
+    event.respondWith(handleImageRequest(normalizedRequest));
 });
 
 async function handleImageRequest(request) {
-  const cache = await caches.open(IMAGE_CACHE);
-  const cachedResponse = await cache.match(request);
-  
-  if (cachedResponse) {
-    console.log('📸 Sirviendo del cache:', getFileName(request.url));
-    return cachedResponse;
-  }
+    const cache = await caches.open(IMAGE_CACHE);
+    
+    try {
+        // 1. PRIMERO buscar en cache
+        const cachedResponse = await cache.match(request);
+        if (cachedResponse) {
+            console.log('📸 Sirviendo del cache:', getFileName(request.url));
+            return cachedResponse;
+        }
 
-  try {
-    // Cargar de red
-    const networkResponse = await fetch(request);
-    
-    if (networkResponse.status === 200) {
-      // Clonar la respuesta para cachear
-      const responseToCache = networkResponse.clone();
-      
-      // Guardar en cache (sin comprimir para mantener calidad)
-      cache.put(request, responseToCache);
-      console.log('💾 Guardado en cache:', getFileName(request.url));
+        // 2. SI NO ESTÁ EN CACHE, cargar de net
+        console.log('🌐 Cargando de red:', getFileName(request.url));
+        const networkResponse = await fetch(request);
+        
+        if (networkResponse.status === 200) {
+            // 3. GUARDAR en cache para futuras peticiones
+            const responseToCache = networkResponse.clone();
+            cache.put(request, responseToCache)
+                .then(() => {
+                    console.log('💾 Guardado en cache:', getFileName(request.url));
+                });
+        }
+        
+        return networkResponse;
+        
+    } catch (error) {
+        console.error('❌ Error cargando imagen:', getFileName(request.url), error);
+        
+        // 4. FALLBACK: placeholder
+        try {
+            const placeholder = await caches.match('/assets/images/placeholder.jpg');
+            if (placeholder) {
+                console.log('🔄 Sirviendo placeholder para:', getFileName(request.url));
+                return placeholder;
+            }
+        } catch (fallbackError) {
+            console.error('❌ Fallback también falló:', fallbackError);
+        }
+        
+        return new Response('Image not available', { 
+            status: 404,
+            headers: { 'Content-Type': 'text/plain' }
+        });
     }
-    
-    return networkResponse;
-  } catch (error) {
-    console.error('❌ Error cargando imagen:', getFileName(request.url), error);
-    // Fallback a placeholder
-    const placeholder = await caches.match('./assets/images/placeholder.jpg');
-    return placeholder || new Response('Image error', { status: 404 });
-  }
 }
 
 function getFileName(url) {
-  return url.split('/').pop();
+    return url.split('/').pop() || 'unknown';
 }
+
+// Manejar mensajes para actualizaciones
+self.addEventListener('message', (event) => {
+    if (event.data === 'skipWaiting') {
+        self.skipWaiting();
+    }
+});
