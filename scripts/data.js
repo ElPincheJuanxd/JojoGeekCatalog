@@ -986,7 +986,7 @@ const seriesData = [
     {
         id: 102,
         title: "Buddy Daddies",
-        poster: "./assets/images/series/buddy-daddies.jpeg",
+        poster: "./assets/images/series/buddy-daddies.jpg",
         year: "2023",
         genre: ["Comedia", "Acción", "Recuentos de la vida"],
         seasons: 1,
@@ -1417,7 +1417,7 @@ const seriesData = [
     {
         id: 145,
         title: "One Piece",
-        poster: "./assets/images/series/one-piece.jpeg",
+        poster: "./assets/images/series/one-piece.jpg",
         year: "1999-presente",
         genre: ["Aventura", "Acción", "Fantasía", "Comedia", "Shonen"],
         seasons: 20,
@@ -1437,7 +1437,7 @@ const seriesData = [
     {
         id: 147,
         title: "Ragna Crimson",
-        poster: "./assets/images/series/ragna-crimson.jpeg",
+        poster: "./assets/images/series/ragna-crimson.jpg",
         year: "2023-2024",
         genre: ["Acción", "Fantasía", "Drama", "Shonen"],
         seasons: 1,
@@ -1507,7 +1507,7 @@ const seriesData = [
     {
         id: 154,
         title: "Dandadan",
-        poster: "./assets/images/series/dadadan.jpeg",
+        poster: "./assets/images/series/dadadan.jpg",
         year: "2024-2025",
         genre: ["Acción", "Comedia", "Sobrenatural", "Ciencia Ficción", "Shonen"],
         seasons: 2,
