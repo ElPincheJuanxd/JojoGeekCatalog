@@ -1287,7 +1287,7 @@ const seriesData = [
         id: 132,
         title: "Hokuto no Ken",
         franchise: "Hokuto no Ken",
-        poster: "./assets/images/series/hokuto-no-ken-old.jpg",
+        poster: "./assets/images/series/hokuto-no-ken.jpg",
         year: "1984-1987",
         genre: ["Acción", "Aventura", "Shonen"],
         seasons: 2,
