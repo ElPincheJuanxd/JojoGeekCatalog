@@ -91,15 +91,16 @@
                             </ul>
                             
                             <div class="version-info">
-                                <strong>Versión 2.0.0</strong>
+                                <strong>Versión 2.1.0</strong>
                                 <span>Actualizado: Octubre 2025</span>
                                 
                                 <div class="changelog">
                                     <strong>📝 Registro de cambios:</strong>
                                     <ul class="changelog-list">
-                                        <li>✅ Se ha mejorado el sistema de compresión de imágenes para que los tiempos de carga sean más rápidos</li>
-                                        <li>✅ Se ha mejorado el sistema de caché de imágenes</li>
-                                        <li>✅ Optimizaciones varias y solución de errores menores</li>
+                                        <li>✅ Nuevo sistema de caché simple y efectivo</li>
+                                        <li>✅ Carga instantánea de imágenes entre páginas</li>
+                                        <li>✅ Cache persistente en memoria y localStorage</li>
+                                        <li>✅ Optimizaciones de rendimiento</li>
                                     </ul>
                                 </div>
                             </div>
@@ -185,92 +186,47 @@
 
     <div class="about-overlay" id="aboutOverlay"></div>
 
-    <script src="scripts/image-optimizer.js"></script>
+    <!-- 🚀 NUEVO SISTEMA DE CACHE - ORDEN CORRECTO -->
+    <script src="scripts/simple-cache.js"></script>
+    <script src="scripts/optimized-image-loader.js"></script>
     <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
 
     <script>
-        // ✅ SERVICE WORKER MEJORADO - Cache Persistente entre páginas
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', async () => {
-                try {
-                    const registration = await navigator.serviceWorker.register('/sw.js');
-                    console.log('✅ Service Worker registrado:', registration);
-                    
-                    // 🔄 Forzar actualización inmediata
-                    if (registration.waiting) {
-                        registration.waiting.postMessage('skipWaiting');
-                        console.log('🔄 Service Worker actualizado');
-                    }
-                    
-                    // 📊 Monitorizar estado del cache
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        console.log('🆕 Nueva versión del Service Worker encontrada:', newWorker);
-                    });
-
-                    // 🛠️ DEBUG HELPERS MEJORADOS
-                    window.getCacheStatus = async () => {
-                        if ('caches' in window) {
-                            const cache = await caches.open('jojo-images-2.0');
-                            const keys = await cache.keys();
-                            let totalSize = 0;
-                            
-                            for (const request of keys) {
-                                const response = await cache.match(request);
-                                if (response) {
-                                    const blob = await response.blob();
-                                    totalSize += blob.size;
-                                }
-                            }
-                            
-                            const stats = {
-                                count: keys.length,
-                                size: (totalSize / 1024 / 1024).toFixed(2) + ' MB',
-                                images: keys.map(k => k.url.split('/').pop())
-                            };
-                            
-                            console.log('💾 Estado del Cache:', stats);
-                            return stats;
-                        }
-                        return { error: 'Cache API no disponible' };
-                    };
-
-                    window.clearAllCache = async () => {
-                        if ('caches' in window) {
-                            const cacheNames = await caches.keys();
-                            for (const cacheName of cacheNames) {
-                                if (cacheName.startsWith('jojo-')) {
-                                    await caches.delete(cacheName);
-                                    console.log('🗑️ Eliminado:', cacheName);
-                                }
-                            }
-                            console.log('✅ Todo el cache limpiado');
-                            location.reload();
-                        }
-                    };
-
-                    console.log('🚀 Sistema de cache persistente activado');
-                    console.log('💡 Comandos disponibles: getCacheStatus(), clearAllCache()');
-                    
-                } catch (error) {
-                    console.error('❌ Error con Service Worker:', error);
-                }
-            });
-        }
-
-        // 🔍 Verificar sistemas al cargar
-        window.checkSystems = () => {
-            console.log('🔍 Estado de sistemas:');
-            console.log('- Service Worker:', 'serviceWorker' in navigator ? '✅ Soportado' : '❌ No soportado');
-            console.log('- Cache API:', 'caches' in window ? '✅ Disponible' : '❌ No disponible');
-            console.log('- Image Optimizer:', window.optimizedImageManager ? '✅ Activo' : '❌ Inactivo');
+        // ✅ SISTEMA DE CACHE SIMPLE - SIN SERVICE WORKER
+        console.log('🚀 Sistema de cache simple inicializado');
+        
+        // 🛠️ DEBUG HELPERS
+        window.getCacheStats = () => {
+            if (window.simpleImageCache) {
+                const stats = window.simpleImageCache.getStats();
+                console.log('💾 Estadísticas del Cache:', stats);
+                return stats;
+            }
+            return { error: 'Sistema de cache no disponible' };
         };
 
-        // Ejecutar verificación
+        window.clearImageCache = () => {
+            if (window.simpleImageCache) {
+                window.simpleImageCache.clearAllCache();
+                console.log('🗑️ Cache limpiado - Recarga la página para ver cambios');
+                setTimeout(() => location.reload(), 1000);
+            }
+        };
+
+        // 🔍 VERIFICACIÓN DEL SISTEMA
         setTimeout(() => {
-            window.checkSystems();
-        }, 2000);
+            console.log('🔍 Verificación del sistema:');
+            console.log('- Simple Cache:', window.simpleImageCache ? '✅ ACTIVO' : '❌ INACTIVO');
+            console.log('- Image Loader:', window.optimizedImageLoader ? '✅ ACTIVO' : '❌ INACTIVO');
+            
+            if (window.simpleImageCache) {
+                const stats = window.simpleImageCache.getStats();
+                console.log('- Imágenes en cache:', stats.total);
+            }
+            
+            console.log('💡 Comandos disponibles: getCacheStats(), clearImageCache()');
+        }, 1500);
     </script>
 
     <style>
