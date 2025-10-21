@@ -2206,7 +2206,198 @@ const seriesData = [
     seasons: 2,
     studio: "Brain's Base",
     description: "Una conmovedora y profunda exploración de la existencia humana a través de los ojos de un ser inmortal. Comenzando como una esfera, luego una roca, un lobo y finalmente adoptando forma humana, 'Fushi' es una entidad misteriosa enviada a la Tierra que puede tomar la forma de cualquier cosa que lo haya impactado emocionalmente. A través de sus encuentros con humanos, Fushi experimenta el amor, la pérdida, la alegría y el dolor, mientras descubre el verdadero significado de la vida y la mortalidad. Una obra maestra emocional que cuestiona qué nos hace humanos."
-}
+},
+{
+        id: 231,
+        title: "500 Days of Summer",
+        poster: "./assets/images/series/500-days-with-summer.jpg",
+        year: "2009",
+        genre: ["Película", "Romance", "Comedia", "Drama"],
+        seasons: 1,
+        studio: "Fox Searchlight Pictures",
+        description: "Una historia de amor no convencional sobre Tom Hansen, un arquitecto que cree en el amor verdadero, y Summer Finn, quien no cree en el amor. La película explora sus 500 días juntos mostrando cómo una relación puede ser hermosa y dolorosa al mismo tiempo."
+    },
+    {
+        id: 232,
+        title: "American Psycho",
+        poster: "./assets/images/series/american-psycho.jpg",
+        year: "2000",
+        genre: ["Película", "Drama", "Psicológico", "Thriller"],
+        seasons: 1,
+        studio: "Lions Gate Films",
+        description: "Patrick Bateman, un joven ejecutivo de Wall Street en los años 80, lleva una doble vida como asesino en serie psicópata. Una sátira oscura sobre el consumismo y la pérdida de identidad en la sociedad capitalista moderna."
+    },
+    {
+        id: 233,
+        title: "Blue Valentine",
+        poster: "./assets/images/series/blue-valentine.jpg",
+        year: "2010",
+        genre: ["Película", "Romance", "Drama"],
+        seasons: 1,
+        studio: "The Weinstein Company",
+        description: "Un retrato crudo y realista de una relación en descomposición. La película alterna entre el pasado mostrando el romance floreciente entre Dean y Cindy, y el presente donde su matrimonio se desmorona."
+    },
+    {
+        id: 234,
+        title: "Crazy, Stupid, Love",
+        poster: "./assets/images/series/crazy-stupid-love.jpg",
+        year: "2011",
+        genre: ["Película", "Comedia", "Romance", "Drama"],
+        seasons: 1,
+        studio: "Warner Bros. Pictures",
+        description: "Cuando Cal Weaver descubre que su esposa Emily lo ha engañado, su vida perfecta se desmorona. Conoce a Jacob Palmer, un soltero mujeriego que lo ayuda a redescubrir su masculinidad."
+    },
+    {
+        id: 235,
+        title: "Fight Club",
+        poster: "./assets/images/series/fight-club.jpg",
+        year: "1999",
+        genre: ["Película", "Drama", "Psicológico", "Thriller"],
+        seasons: 1,
+        studio: "20th Century Fox",
+        description: "Un empleado de oficina insomne y un fabricante de jabón carismático forman un club de lucha subterráneo que evoluciona hacia algo mucho más grande. Una crítica al consumismo y la masculinidad moderna."
+    },
+    {
+        id: 236,
+        title: "I Want to Eat Your Pancreas",
+        poster: "./assets/images/series/i-want-to-eat-your-pancreas.jpg",
+        year: "2018",
+        genre: ["Película", "Romance", "Drama"],
+        seasons: 1,
+        studio: "Studio VOLN",
+        description: "Un estudiante solitario descubre el diario de su compañera Sakura Yamauchi, donde revela que padece una enfermedad terminal. Forman un vínculo especial mientras enfrentan juntos el limitado tiempo que les queda."
+    },
+    {
+        id: 237,
+        title: "Josee, the Tiger and the Fish",
+        poster: "./assets/images/series/josee-and-the-tiger-fish.jpg",
+        year: "2020",
+        genre: ["Película", "Romance", "Drama"],
+        seasons: 1,
+        studio: "Bones",
+        description: "Tsuneo, un estudiante universitario, consigue un trabajo cuidando a Josee, una joven con discapacidad física. A través de su relación, ambos descubren nuevos horizontes y aprenden lo que significa vivir plenamente."
+    },
+    {
+        id: 238,
+        title: "La La Land",
+        poster: "./assets/images/series/la-la-land.jpg",
+        year: "2016",
+        genre: ["Película", "Musical", "Romance", "Drama"],
+        seasons: 1,
+        studio: "Summit Entertainment",
+        description: "Un musical moderno que sigue la historia de amor entre Mia, una aspirante a actriz, y Sebastian, un pianista de jazz. En Los Ángeles, persiguen sus sueños mientras navegan los sacrificios que definen sus vidas."
+    },
+    {
+        id: 239,
+        title: "Nosferatu",
+        poster: "./assets/images/series/nosferatu.jpg",
+        year: "1922",
+        genre: ["Película", "Horror", "Sobrenatural"],
+        seasons: 1,
+        studio: "Prana Film",
+        description: "Clásico del cine de terror mudo alemán y adaptación no autorizada de 'Drácula'. El Conde Orlok, un vampiro de apariencia grotesca, se obsesiona con la esposa de su agente inmobiliario."
+    },
+
+    {
+        id: 240,
+        title: "Drive",
+        poster: "./assets/images/series/the-drive.jpg",
+        year: "2011",
+        genre: ["Película", "Acción", "Drama", "Crimen"],
+        seasons: 1,
+        studio: "FilmDistrict",
+        description: "Un conductor especialista de Hollywood que también trabaja como conductor de fugas para criminales se encuentra protegiendo a su vecina Irene y su hijo de unos mafiosos a quienes su esposo debe dinero."
+    },
+    {
+        id: 241,
+        title: "The Notebook",
+        poster: "./assets/images/series/the-notebook.jpg",
+        year: "2004",
+        genre: ["Película", "Romance", "Drama"],
+        seasons: 1,
+        studio: "New Line Cinema",
+        description: "Una anciana lee a un hombre con pérdida de memoria la historia de dos jóvenes enamorados en los años 40: Allie Hamilton, una chica rica de veraneo, y Noah Calhoun, un trabajador local."
+    },
+    {
+        id: 243,
+        title: "A Silent Voice",
+        poster: "./assets/images/series/the-silence-voice.jpg",
+        year: "2016",
+        genre: ["Película", "Drama", "Romance"],
+        seasons: 1,
+        studio: "Kyoto Animation",
+        description: "Shoya Ishida, un niño problemático, acosa a Shoko Nishimiya, una compañera sorda. Años después, Shoya busca a Shoko para redimirse en una conmovedora historia sobre bullying y redención."
+    },
+    {
+        id: 243,
+        title: "The Witch",
+        poster: "./assets/images/series/the-witch.jpg",
+        year: "2015",
+        genre: ["Película", "Horror", "Histórico"],
+        seasons: 1,
+        studio: "A24",
+        description: "Ambientada en la Nueva Inglaterra de 1630, una familia de colonos puritanos se enfrenta a fuerzas oscuras y paranoia cuando su hijo recién nacido desaparece misteriosamente."
+    },
+    {
+        id: 244,
+        title: "Your Name",
+        poster: "./assets/images/series/your-name.jpg",
+        year: "2016",
+        genre: ["Película", "Romance", "Fantasía", "Drama"],
+        seasons: 1,
+        studio: "CoMix Wave Films",
+        description: "Mitsuha, una estudiante de pueblo, y Taki, un estudiante de Tokyo, comienzan a intercambiar cuerpos aleatoriamente. Desarrollan una conexión única mientras intentan descubrir el misterio detrás de este fenómeno sobrenatural."
+    },
+    {
+        id: 245,
+        title: "Tengen Toppa Gurren Lagann The Movie",
+        poster: "./assets/images/series/tengen-toppa-gurren-lagann-movie-re-release.jpg",
+        year: "2009",
+        genre: ["Película", "Mecha", "Acción", "Ciencia Ficción"],
+        seasons: 1,
+        studio: "Gainax",
+        description: "Adaptación cinematográfica que condensa la segunda mitad de la serie Gurren Lagann, mostrando la épica batalla final contra los Anti-Spiral. Simon y Team Dai-Gurren llevan la lucha al espacio exterior."
+    },
+    {
+        id: 246,
+        title: "Breaking Bad",
+        poster: "./assets/images/series/the-breaking-bad.jpg",
+        year: "2008-2013",
+        genre: ["Drama", "Crimen", "Suspenso"],
+        seasons: 5,
+        studio: "Sony Pictures Television",
+        description: "Walter White, un profesor de química de secundaria diagnosticado con cáncer terminal, se asocia con su exalumno Jesse Pinkman para fabricar y vender metanfetamina con el fin de asegurar el futuro financiero de su familia, iniciando un descenso a la criminalidad que transforma a un hombre común en un temido narcotraficante."
+    },
+    {
+    id: 247,
+    title: "Ranma ½",
+    poster: "./assets/images/series/ranma1-2.jpg",
+    year: "1989-1992",
+    genre: ["Comedia", "Acción", "Fantasía", "Artes Marciales", "Shonen"],
+    seasons: 7,
+    studio: "Studio Deen",
+    description: "Ranma Saotome es un joven artista marcial que, durante un entrenamiento en China, cayó en un estanque maldito que hace que se transforme en mujer al contacto con agua fría. Al regresar a Japón, se ve obligado a vivir con la familia Tendo y enfrentar múltiples rivales mientras busca una cura para su maldición, todo ello complicado por sus compromisos matrimoniales y los extraños personajes que conoce."
+},
+{
+    id: 248,
+    title: "Ranma ½ (Remake)",
+    poster: "./assets/images/series/ranma-1-2-remake.jpg", 
+    year: "2025",
+    genre: ["Comedia", "Acción", "Fantasía", "Artes Marciales", "Shonen"],
+    seasons: 1,
+    studio: "To be announced",
+    description: "Nueva adaptación del clásico manga de Rumiko Takahashi que moderniza la historia de Ranma Saotome, el artista marcial que se transforma en mujer al contacto con agua fría. Esta versión actualizada promete mantener la esencia de la serie original mientras incorpora animación moderna y posiblemente nuevos elementos para una nueva generación de fans."
+},
+{
+    id: 249,
+    title: "JoJo's Bizarre Adventure (OVA)",
+    poster: "./assets/images/series/jojo-bizarre-adventure-ova.jpg",
+    year: "1993-2002",
+    genre: ["Acción", "Aventura", "Fantasía", "Sobrenatural", "Seinen"],
+    seasons: 2,
+    studio: "Studio A.P.P.P.",
+    description: "Adaptación OVA que cubre la tercera parte del manga, Stardust Crusaders. Jotaro Kujo y sus compañeros viajan desde Japón hasta Egipto para enfrentarse a DIO y salvar a la madre de Jotaro. Esta versión presenta un estilo visual más oscuro y maduro que la adaptación posterior de David Production, con animación característica de los 90s y fidelidad al diseño original de Hirohiko Araki."
+},
 ];
 
 // ✅ SISTEMA DE NOTICIAS CON DATOS REALES (MANTENIDO)
