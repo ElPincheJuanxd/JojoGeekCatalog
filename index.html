@@ -98,9 +98,21 @@
                                 <li>🎯 Sistema de seguimiento de series/películas</li>
                                 <li>⚡ Optimización avanzada de imágenes</li>
                             </ul>
+                            
+                            <!-- 🆕 VERSIÓN CON REGISTRO DE CAMBIOS MEJORADO -->
                             <div class="version-info">
-                                <strong>Versión 1.0.9</strong>
+                                <strong>Versión 1.1.0</strong>
                                 <span>Actualizado: Octubre 2025</span>
+                                
+                                <!-- 🆕 REGISTRO DE CAMBIOS -->
+                                <div class="changelog">
+                                    <strong>📝 Registro de cambios:</strong>
+                                    <ul class="changelog-list">
+                                        <li>✅ Se ha mejorado el sistema de compresión de imágenes para que los tiempos de carga sean más rápidos</li>
+                                        <li>✅ Se ha mejorado el sistema de caché de imágenes</li>
+                                        <li>✅ Optimizaciones varias y solución de errores menores</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -118,10 +130,7 @@
                                             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" 
                                                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        
                                         <a href="https://wa.me/+5351930214">El wasa de Juan</a>
-                                        
-                                          
                                     </div>
                                     <div class="contact-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -197,10 +206,146 @@
     <!-- 🆕 OVERLAY PARA CERRAR PANEL -->
     <div class="about-overlay" id="aboutOverlay"></div>
 
-    <!-- 🆕 OPTIMIZADOR DE IMÁGENES -->
+    <!-- 🆕 SCRIPTS EN ORDEN CORRECTO -->
     <script src="scripts/image-optimizer.js"></script>
-    
     <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
+
+    <!-- 🆕 SCRIPT DE INICIALIZACIÓN DEL SERVICE WORKER -->
+    <script>
+        // Registrar Service Worker para cache permanente
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    const registration = await navigator.serviceWorker.register('./sw.js');
+                    console.log('✅ Service Worker registrado con éxito:', registration);
+                    
+                    // Debug helpers para la consola
+                    window.getCacheSize = async () => {
+                        if ('caches' in window) {
+                            const cache = await caches.open('jojo-images-1.0');
+                            const keys = await cache.keys();
+                            let totalSize = 0;
+                            
+                            for (const request of keys) {
+                                const response = await cache.match(request);
+                                if (response) {
+                                    const blob = await response.blob();
+                                    totalSize += blob.size;
+                                }
+                            }
+                            
+                            console.log(`💾 Tamaño del cache: ${(totalSize / 1024 / 1024).toFixed(2)} MB`);
+                            console.log(`📸 Imágenes cacheadas: ${keys.length}`);
+                            keys.forEach(key => console.log('  -', key.url.split('/').pop()));
+                            return totalSize;
+                        }
+                    };
+
+                    window.clearImageCache = async () => {
+                        if ('caches' in window) {
+                            await caches.delete('jojo-images-1.0');
+                            await caches.delete('jojo-cache-1.0');
+                            console.log('🗑️ Cache de imágenes limpiado');
+                            location.reload();
+                        }
+                    };
+
+                    window.getCompressionStats = () => {
+                        if (window.optimizedImageManager) {
+                            return window.optimizedImageManager.getStats();
+                        }
+                        return { error: 'Image manager no disponible' };
+                    };
+
+                    console.log('🚀 Sistemas de cache y compresión inicializados');
+                    console.log('💡 Usa getCacheSize() en la consola para ver estadísticas');
+                    
+                } catch (error) {
+                    console.log('❌ Service Worker no disponible:', error);
+                }
+            });
+        } else {
+            console.log('ℹ️ Service Worker no soportado en este navegador');
+        }
+
+        // Función global para verificar estado de sistemas
+        window.checkSystems = () => {
+            console.log('🔍 Estado de sistemas:');
+            console.log('- Service Worker:', 'serviceWorker' in navigator ? '✅ Soportado' : '❌ No soportado');
+            console.log('- Image Optimizer:', window.optimizedImageManager ? '✅ Activo' : '❌ Inactivo');
+            console.log('- Cache API:', 'caches' in window ? '✅ Disponible' : '❌ No disponible');
+            
+            if (window.optimizedImageManager) {
+                const stats = window.optimizedImageManager.getStats();
+                console.log('- Compresión:', stats.enabled ? '✅ Activada' : '❌ Desactivada');
+                console.log('- Imágenes comprimidas:', stats.totalCompressed);
+            }
+        };
+
+        // Verificar sistemas al cargar
+        setTimeout(() => {
+            window.checkSystems();
+        }, 1000);
+    </script>
+
+    <!-- 🆕 ESTILOS PARA EL REGISTRO DE CAMBIOS -->
+    <style>
+        .changelog {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .changelog strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .changelog-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .changelog-list li {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            padding: 0.3rem 0;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .changelog-list li:before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0.3rem;
+            font-weight: bold;
+        }
+
+        /* Mejora el contenedor de versión para acomodar el changelog */
+        .version-info {
+            background: var(--bg-primary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .version-info strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .version-info span {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
 </body>
 </html>
