@@ -314,7 +314,7 @@ const seriesData = [
         title: "Attack on Titan",
         poster: "./assets/images/series/attack-on-titan.jpg",
         year: "2013-2023",
-        genre: ["Acción", "Drama", "Fantasía", "Post-apocalíptico"],
+        genre: ["Acción", "Drama", "Fantasía", "Post-apocalíptico", "Seinen"],
         seasons: 4,
         studio: "Wit Studio / MAPPA",
         description: "La humanidad vive en ciudades amuralladas protegiéndose de Titanes gigantes. Eren Yeager se une al ejército para vengar a su madre."
@@ -424,7 +424,7 @@ const seriesData = [
         title: "Battle Game in 5 Seconds",
         poster: "./assets/images/series/battle-game-5-seconds.jpg",
         year: "2021",
-        genre: ["Acción", "Suspenso", "Ciencia Ficción", "Superpoderes"],
+        genre: ["Acción", "Suspenso", "Ciencia Ficción"],
         seasons: 1,
         studio: "SynergySP / Vega Entertainment",
         description: "Akira Shiroyanagi, un joven amante de los videojuegos, es transportado a una realidad donde debe participar en mortales juegos de batalla. Los participantes obtienen habilidades únicas basadas en lo que su oponente cree que pueden hacer. Akira deberá usar su ingenio y astucia para sobrevivir en este peligroso juego donde las reglas cambian constantemente."
@@ -444,7 +444,7 @@ const seriesData = [
         title: "Darwin's Game",
         poster: "./assets/images/series/darwin-game.jpg",
         year: "2020",
-        genre: ["Acción", "Suspenso", "Supervivencia", "Superpoderes"],
+        genre: ["Acción", "Suspenso", "Supervivencia"],
         seasons: 1,
         studio: "Nexus",
         description: "Kaname Sudo acepta sin saberlo una invitación al 'Darwin's Game', una aplicación móvil que resulta ser un mortal juego de supervivencia. Los jugadores obtienen habilidades únicas llamadas Sigils y deben luchar hasta la muerte. Kaname se une a otros jugadores para sobrevivir y desentrañar los misterios detrás del siniestro juego."
@@ -574,7 +574,7 @@ const seriesData = [
         title: "Kusuriya no Hitorigoto",
         poster: "./assets/images/series/kusuriya.jpg",
         year: "2023",
-        genre: ["Misterio", "Drama", "Histórico", "Seinen"],
+        genre: ["Misterio", "Drama", "Histórico"],
         seasons: 1,
         studio: "TOHO animation STUDIO",
         description: "Maomao, una joven farmacéutica secuestrada y vendida para trabajar en el palacio interior, utiliza sus conocimientos médicos y aguda observación para resolver misteriosos casos mientras mantiene un perfil bajo en el peligroso mundo del harén imperial."
@@ -808,7 +808,7 @@ const seriesData = [
         title: "The World's Finest Assassin Gets Reincarnated in Another World as an Aristocrat",
         poster: "./assets/images/series/ansatsusha-isekai.jpg",
         year: "2021",
-        genre: ["Acción", "Fantasía", "Isekai", "Seinen"],
+        genre: ["Acción", "Fantasía", "Isekai"],
         seasons: 1,
         studio: "SILVER LINK., Studio Palette",
         description: "El mejor asesino del mundo es reencarnado en un mundo de fantasía con la misión de matar al héroe que destruirá el mundo. Usando sus conocimientos modernos y habilidades de asesinato, debe cumplir su misión mientras navega la vida noble."
@@ -908,7 +908,7 @@ const seriesData = [
         title: "Re:Monster",
         poster: "./assets/images/series/remonster.jpg",
         year: "2024",
-        genre: ["Acción", "Fantasía", "Isekai", "Seinen"],
+        genre: ["Acción", "Fantasía", "Isekai"],
         seasons: 1,
         studio: "Studio Deen",
         description: "Un hombre es reencarnado como un goblin en un mundo de fantasía. Usando su habilidad para evolucionar al consumir a sus enemigos, asciende en la cadena alimenticia mientras construye su propia tribu de monstruos."
@@ -1861,7 +1861,7 @@ const seriesData = [
         title: "NieR:Automata Ver1.1a",
         poster: "./assets/images/series/nier-automata-ver-1-1.jpg",
         year: "2023",
-        genre: ["Acción", "Ciencia Ficción", "Drama", "Filosófico", "Videojuegos"],
+        genre: ["Acción", "Ciencia Ficción", "Drama", "Videojuegos"],
         seasons: 1,
         studio: "A-1 Pictures",
         description: "Adaptación del aclamado videojuego que sigue a androides de combate 2B, 9S y A2 mientras luchan para recuperar la Tierra de máquinas invasoras creadas por alienígenas. La serie explora temas de existencia, conciencia y humanidad en un mundo post-apocalíptico."
@@ -2287,23 +2287,23 @@ const seriesData = [
         studio: "Summit Entertainment",
         description: "Un musical moderno que sigue la historia de amor entre Mia, una aspirante a actriz, y Sebastian, un pianista de jazz. En Los Ángeles, persiguen sus sueños mientras navegan los sacrificios que definen sus vidas."
     },
-    {
-        id: 239,
-        title: "Nosferatu",
-        poster: "./assets/images/series/nosferatu.jpg",
-        year: "1922",
-        genre: ["Película", "Horror", "Sobrenatural"],
-        seasons: 1,
-        studio: "Prana Film",
-        description: "Clásico del cine de terror mudo alemán y adaptación no autorizada de 'Drácula'. El Conde Orlok, un vampiro de apariencia grotesca, se obsesiona con la esposa de su agente inmobiliario."
-    },
+{
+    id: 239,
+    title: "Nosferatu",
+    poster: "./assets/images/series/nosferatu.jpg",
+    year: "2024",
+    genre: ["Película", "Horror", "Sobrenatural"],
+    seasons: 1,
+    studio: "Focus Features",
+    description: "Nueva adaptación del clásico vampírico dirigida por Robert Eggers. Ambientada en la Alemania del siglo XIX, sigue la obsesión del vampiro Conde Orlok con una joven mujer y el terror que desata en su comunidad. Una reinterpretación atmosférica y fiel al espíritu del cine expresionista alemán original."
+},
 
     {
         id: 240,
         title: "Drive",
         poster: "./assets/images/series/the-drive.jpg",
         year: "2011",
-        genre: ["Película", "Acción", "Drama", "Crimen"],
+        genre: ["Película", "Acción", "Drama"],
         seasons: 1,
         studio: "FilmDistrict",
         description: "Un conductor especialista de Hollywood que también trabaja como conductor de fugas para criminales se encuentra protegiendo a su vecina Irene y su hijo de unos mafiosos a quienes su esposo debe dinero."
@@ -2319,7 +2319,7 @@ const seriesData = [
         description: "Una anciana lee a un hombre con pérdida de memoria la historia de dos jóvenes enamorados en los años 40: Allie Hamilton, una chica rica de veraneo, y Noah Calhoun, un trabajador local."
     },
     {
-        id: 243,
+        id: 242,
         title: "A Silent Voice",
         poster: "./assets/images/series/the-silence-voice.jpg",
         year: "2016",
@@ -2363,7 +2363,7 @@ const seriesData = [
         title: "Breaking Bad",
         poster: "./assets/images/series/the-breaking-bad.jpg",
         year: "2008-2013",
-        genre: ["Drama", "Crimen", "Suspenso"],
+        genre: ["Drama", "Suspenso"],
         seasons: 5,
         studio: "Sony Pictures Television",
         description: "Walter White, un profesor de química de secundaria diagnosticado con cáncer terminal, se asocia con su exalumno Jesse Pinkman para fabricar y vender metanfetamina con el fin de asegurar el futuro financiero de su familia, iniciando un descenso a la criminalidad que transforma a un hombre común en un temido narcotraficante."
@@ -2398,6 +2398,277 @@ const seriesData = [
     studio: "Studio A.P.P.P.",
     description: "Adaptación OVA que cubre la tercera parte del manga, Stardust Crusaders. Jotaro Kujo y sus compañeros viajan desde Japón hasta Egipto para enfrentarse a DIO y salvar a la madre de Jotaro. Esta versión presenta un estilo visual más oscuro y maduro que la adaptación posterior de David Production, con animación característica de los 90s y fidelidad al diseño original de Hirohiko Araki."
 },
+{
+    id: 250,
+    title: "Kuroshitsuji",
+    poster: "./assets/images/series/kuroshitsuji.jpg",
+    year: "2008-2014",
+    genre: ["Acción", "Sobrenatural", "Misterio", "Shoujo"],
+    seasons: 5,
+    studio: "A-1 Pictures",
+    description: "En la Inglaterra victoriana, Ciel Phantomhive, un joven conde y líder de la familia Phantomhive, hace un pacto con un demonio llamado Sebastian Michaelis. A cambio de su venganza contra aquellos que destruyeron su familia, Sebastian servirá como su mayordomo perfecto hasta que Ciel logre su objetivo. Juntos investigan casos sobrenaturales para la Reina mientras buscan a los responsables de la tragedia de Ciel."
+},
+{
+    id: 251,
+    title: "Kuroshitsuji: Book of the Atlantic",
+    poster: "./assets/images/series/kuroshitsuji-book-of-the-atlantic.jpg",
+    year: "2017",
+    genre: ["Película", "Acción", "Sobrenatural", "Misterio"],
+    seasons: 1,
+    studio: "A-1 Pictures",
+    description: "Ciel Phantomhive y su mayordomo demoníaco Sebastian Michaelis abordan el trasatlántico Campania para investigar los experimentos de resurrección de la Sociedad Aurora. A bordo del lujoso barco, se enfrentan a cadáveres reanimados y descubren los siniestros secretos detrás de la búsqueda de la inmortalidad en esta emocionante aventura que adapta el arco del 'Libro del Atlántico' del manga."
+},{
+    id: 252,
+    title: "Kuroshitsuji: Book of Murder (OVA)",
+    poster: "./assets/images/series/kuroshitsuji-book-of-murder.jpg",
+    year: "2015",
+    genre: ["Misterio", "Sobrenatural", "Drama"],
+    seasons: 1,
+    studio: "A-1 Pictures",
+    description: "Ciel Phantomhive organiza una cena de gala en su mansión, pero el evento se convierte en una trampa mortal cuando los invitados comienzan a ser asesinados uno por uno. Sebastian y Ciel deben resolver el misterio mientras están atrapados con los sospechosos, en una historia que adapta el arco 'Libro del Asesinato' del manga, lleno de intriga, sospechas y giros inesperados."
+},
+// Continuación de seriesData después del último elemento existente (ID 252)
+
+{
+    id: 253,
+    title: "Akame ga Kill!",
+    poster: "./assets/images/series/akame-ga-kill.jpg",
+    year: "2014",
+    genre: ["Acción", "Fantasía", "Drama", "Shonen"],
+    seasons: 1,
+    studio: "White Fox",
+    description: "Tatsumi, un joven guerrero, se une al grupo de asesinos Night Raid para luchar contra la corrupción del imperio. Armados con poderosas armas Imperial Arms, combaten a los ministros corruptos y sus peligrosos seguidores en una lucha sangrienta por la justicia."
+},
+{
+    id: 254,
+    title: "Avatar: The Last Airbender",
+    poster: "./assets/images/series/avatar-the-last-airbender.jpg",
+    year: "2005-2008",
+    genre: ["Aventura", "Fantasía", "Acción", "Animación"],
+    seasons: 3,
+    studio: "Nickelodeon Animation Studio",
+    description: "En un mundo donde algunas personas pueden manipular los elementos (agua, tierra, fuego y aire), el Avatar Aang debe dominar los cuatro elementos para derrotar a la Nación del Fuego y restaurar el equilibrio al mundo."
+},
+{
+    id: 255,
+    title: "Avatar: The Legend of Korra",
+    poster: "./assets/images/series/avatar-the-legend-of-korra.jpg",
+    year: "2012-2014",
+    genre: ["Aventura", "Fantasía", "Acción", "Animación"],
+    seasons: 4,
+    studio: "Nickelodeon Animation Studio",
+    description: "Secuela de Avatar: The Last Airbender que sigue a Korra, la nueva Avatar después de Aang, mientras enfrenta desafíos políticos, espirituales y amenazas revolucionarias en una era de tecnología moderna."
+},
+{
+    id: 256,
+    title: "Ben 10 Complete Edition",
+    poster: "./assets/images/series/ben-10-complete-edition.jpg",
+    year: "2005-2008",
+    genre: ["Ciencia Ficción", "Aventura", "Acción", "Animación"],
+    seasons: 4,
+    studio: "Cartoon Network Studios",
+    description: "Ben Tennyson, un niño de 10 años, encuentra un dispositivo alienígena llamado Omnitrix que le permite transformarse en 10 diferentes aliens. Junto a su primo Gwen y su abuelo Max, viaja por el país luchando contra criminales extraterrestres."
+},
+{
+    id: 257,
+    title: "Game of Thrones",
+    poster: "./assets/images/series/game-of-throne.jpg",
+    year: "2011-2019",
+    genre: ["Fantasía", "Drama", "Aventura", "Acción"],
+    seasons: 8,
+    studio: "HBO",
+    description: "En los continentes de Westeros y Essos, varias familias nobles luchan por el Trono de Hierro mientras antiguas amenazas resurgen en el norte. Una épica historia de poder, traición, honor y supervivencia."
+},
+{
+    id: 258,
+    title: "Gravity Falls",
+    poster: "./assets/images/series/gravity-falls.jpg",
+    year: "2012-2016",
+    genre: ["Misterio", "Comedia", "Aventura", "Animación"],
+    seasons: 2,
+    studio: "Disney Television Animation",
+    description: "Los mellizos Dipper y Mabel Pasis veranean con su tío Stan en el misterioso pueblo de Gravity Falls, Oregon, donde descubren fenómenos paranormales y conspiraciones sobrenaturales."
+},
+{
+    id: 259,
+    title: "Hacksaw Ridge",
+    poster: "./assets/images/series/hacksaw-ridge.jpg",
+    year: "2016",
+    genre: ["Drama", "Histórico", "Película"],
+    seasons: 1,
+    studio: "Summit Entertainment",
+    description: "Basada en la historia real de Desmond Doss, un médico del ejército que se negó a portar armas durante la Segunda Guerra Mundial pero que salvó a 75 hombres en la Batalla de Okinawa, convirtiéndose en el primer objetor de conciencia en recibir la Medalla de Honor."
+},
+{
+    id: 260,
+    title: "Hannah Montana",
+    poster: "./assets/images/series/hanna-montana.jpg",
+    year: "2006-2011",
+    genre: ["Comedia", "Música", "Drama"],
+    seasons: 4,
+    studio: "Disney Channel",
+    description: "Miley Stewart vive una doble vida como una estudiante normal y la famosa cantante pop Hannah Montana, navegando los desafíos de la fama, la amistad y la familia mientras mantiene su identidad secreta."
+},
+{
+    id: 261,
+    title: "Kekkai Sensen",
+    poster: "./assets/images/series/kekkai-sensen.jpg",
+    year: "2015-2017",
+    genre: ["Acción", "Fantasía", "Comedia", "Shonen"],
+    seasons: 2,
+    studio: "Bones",
+    description: "Después de que una brecha dimensional conecta Nueva York con el mundo sobrenatural, Leonardo Watch se une a Libra, una organización que mantiene el equilibrio entre humanos y criaturas sobrenaturales en esta ciudad caótica."
+},
+{
+    id: 262,
+    title: "Peaky Blinders",
+    poster: "./assets/images/series/peaky-blinders.jpg",
+    year: "2013-2022",
+    genre: ["Drama", "Histórico", "Suspenso"],
+    seasons: 6,
+    studio: "BBC",
+    description: "Después de la Primera Guerra Mundial, la familia Shelby lidera una de las pandillas más temidas de Birmingham, Inglaterra. Thomas Shelby expande su imperio criminal mientras enfrenta rivales, policías y sus propios demonios."
+},
+{
+    id: 263,
+    title: "Primeval",
+    poster: "./assets/images/series/primeval.jpg",
+    year: "2007-2011",
+    genre: ["Ciencia Ficción", "Aventura", "Drama"],
+    seasons: 5,
+    studio: "ITV",
+    description: "Un equipo de científicos investiga anomalías temporales que permiten a criaturas prehistóricas y futuras entrar en el presente, mientras intentan contener las amenazas y entender el fenómeno."
+},
+{
+    id: 264,
+    title: "Sanda",
+    poster: "./assets/images/series/sanda.jpg",
+    year: "2025",
+    genre: ["Acción", "Fantasía", "Aventura", "Shonen"],
+    seasons: 1,
+    studio: "To be announced",
+    description: "Una nueva serie de fantasía y acción que sigue las aventuras de Sanda y sus compañeros en un mundo lleno de criaturas mágicas y desafíos épicos."
+},
+{
+    id: 265,
+    title: "The Spectacular Spider-Man",
+    poster: "./assets/images/series/spectacular-spider-man.jpg",
+    year: "2008-2009",
+    genre: ["Acción", "Superhéroes", "Drama", "Animación"],
+    seasons: 2,
+    studio: "Sony Pictures Television",
+    description: "Peter Parker equilibra su vida como estudiante de preparatoria con sus responsabilidades como Spider-Man, enfrentándose a icónicos villanos mientras aprende qué significa ser un héroe."
+},
+{
+    id: 266,
+    title: "The Legend of Vox Machina",
+    poster: "./assets/images/series/the-legend-of-vox-machina.jpg",
+    year: "2022-presente",
+    genre: ["Fantasía", "Aventura", "Comedia", "Animación"],
+    seasons: 3,
+    studio: "Titmouse",
+    description: "Basada en la primera campaña de Critical Role, sigue a Vox Machina, un grupo de inadaptados que se convierten en héroes improbables mientras enfrentan monstruos, dioses y dragones en el mundo de Exandria."
+},
+{
+    id: 267,
+    title: "The Social Network",
+    poster: "./assets/images/series/the-social-network.jpg",
+    year: "2010",
+    genre: ["Drama", "Biográfica", "Película"],
+    seasons: 1,
+    studio: "Columbia Pictures",
+    description: "La historia de la creación de Facebook y las batallas legales que siguieron, explorando las complejas relaciones entre Mark Zuckerberg, sus cofundadores y los gemelos Winklevoss."
+},
+{
+    id: 268,
+    title: "The Walking Dead",
+    poster: "./assets/images/series/the-walking-dead.jpg",
+    year: "2010-2022",
+    genre: ["Horror", "Drama", "Suspenso", "Post-apocalíptico"],
+    seasons: 11,
+    studio: "AMC",
+    description: "En un apocalipsis zombie, un grupo de supervivientes liderados por el sheriff Rick Grimes lucha por mantenerse con vida mientras enfrentan no solo a los muertos vivientes, sino también a otros humanos desesperados."
+},
+{
+    id: 269,
+    title: "Tick, Tick... Boom!",
+    poster: "./assets/images/series/tick-tick-boom.jpg",
+    year: "2021",
+    genre: ["Musical", "Drama", "Biográfica", "Película"],
+    seasons: 1,
+    studio: "Netflix",
+    description: "Basada en el musical autobiográfico de Jonathan Larson, sigue a un compositor teatral en Nueva York que se acerca a sus 30 años y se pregunta si su sueño es alcanzable."
+},
+{
+    id: 270,
+    title: "Cannibal Holocaust",
+    poster: "./assets/images/series/cannibal-holocaust.jpg",
+    year: "1980",
+    genre: ["Horror", "Película"],
+    seasons: 1,
+    studio: "F.D. Cinematografica",
+    description: "Película de culto controversial que sigue a un equipo de antropólogos que viaja a la selva amazónica para investigar la desaparición de un equipo de documentalistas, descubriendo filmaciones perturbadoras de sus encuentros con tribus caníbales."
+},
+{
+    id: 271,
+    title: "Metal Family",
+    poster: "./assets/images/series/metal-family.jpg",
+    year: "2018-presente",
+    genre: ["Comedia", "Música", "Animación", "Recuentos de la vida"],
+    seasons: 2,
+    studio: "Wizart Animation",
+    description: "Serie animada rusa que sigue las divertidas desventuras de una familia de metaleros, mostrando su vida cotidiana llena de humor, música heavy metal y situaciones absurdas mientras navegan las peculiaridades de ser una familia no convencional."
+},
+{
+    id: 272,
+    title: "Midori",
+    poster: "./assets/images/series/midori.jpg",
+    year: "1992",
+    genre: ["Horror", "Psicológico", "Drama", "Película", "Seinen"],
+    seasons: 1,
+    studio: "Japan Home Video",
+    description: "También conocida como 'Shōjo Tsubaki', esta película de animación japonesa basada en el manga de Maruo Suehiro es conocida por su contenido extremadamente oscuro y perturbador, siguiendo la trágica vida de una joven huérfana en un circo siniestro."
+},
+{
+    id: 273,
+    title: "Scott Pilgrim Takes Off",
+    poster: "./assets/images/series/scott-serie.jpg",
+    year: "2023",
+    genre: ["Comedia", "Acción", "Romance", "Animación"],
+    seasons: 1,
+    studio: "Science SARU",
+    description: "Reinvención animada de la historia de Scott Pilgrim donde los eventos toman un giro inesperado. Scott debe derrotar a los malvados ex-novios de Ramona Flowers, pero esta vez la historia se desarrolla de manera sorprendentemente diferente al cómic y la película original."
+},
+{
+    id: 274,
+    title: "Scott Pilgrim vs. The World",
+    poster: "./assets/images/series/scott-pelicula.jpg",
+    year: "2010",
+    genre: ["Comedia", "Acción", "Romance", "Película"],
+    seasons: 1,
+    studio: "Universal Pictures",
+    description: "Adaptación cinematográfica de los cómics de Bryan Lee O'Malley. Scott Pilgrim, un bajista de una banda de garage, debe derrotar a los siete malvados ex-novios de la chica de sus sueños, Ramona Flowers, en batallas estilo videojuego."
+},
+{
+    id: 275,
+    title: "Spider-Man: Lotus",
+    poster: "./assets/images/series/spider-Man-lotus.jpg",
+    year: "2023",
+    genre: ["Acción", "Drama", "Superhéroes"],
+    seasons: 1,
+    studio: "Gavin J. Konop",
+    description: "Película fan-made de Spider-Man que se volvió viral por su alta calidad de producción. Explora un lado más oscuro y emocional del Hombre Araña, mostrando a Peter Parker lidiando con el peso de sus responsabilidades y pérdidas personales."
+},
+{
+    id: 276,
+    title: "The Last Temptation of Christ",
+    poster: "./assets/images/series/the-last-temptation-of-christ.jpg",
+    year: "1988",
+    genre: ["Drama", "Histórico", "Película"],
+    seasons: 1,
+    studio: "Universal Pictures",
+    description: "Película dirigida por Martin Scorsese que presenta una interpretación alternativa de la vida de Jesucristo, basada en la novela de Nikos Kazantzakis. Explora la lucha humana y divina de Jesús mientras enfrenta tentaciones y duda sobre su destino."
+}
 ];
 
 // ✅ SISTEMA DE NOTICIAS CON DATOS REALES (MANTENIDO)
@@ -2416,7 +2687,7 @@ La nueva temporada continuará adaptando el aclamado cómic de Robert Kirkman, C
 
 La producción mantendrá el elenco principal de voces, incluyendo a Steven Yeun como Mark Grayson/Invencible, J.K. Simmons como Nolan Grayson/Omni-Man y Sandra Oh como Debbie Grayson.`,
         videoId: "uGyE1jFPa7Q",
-        fecha: "2025-01-15",
+        fecha: "2026-03-13",
         seriesRelacionadas: [126],
         destacada: true,
         vistas: 0
@@ -2504,7 +2775,7 @@ La producción mantendrá el estilo visual característico de la serie mientras 
 
 Entre los combates confirmados se incluyen enfrentamientos legendarios que los fans del manga han estado esperando ansiosamente, con técnicas divinas y humanas que desafían los límites de la imaginación.`,
     videoId: "5ySabzYxfFQ",
-    fecha: "2025-01-25",
+    fecha: "2025-12-14",
     seriesRelacionadas: [4],
     destacada: true,
     vistas: 0
