@@ -191,34 +191,52 @@ class ViewingStateManager {
     }
 }
 
-// GESTOR DE ESTADO TEMPORAL
+// GESTOR DE ESTADO TEMPORAL - ACTUALIZADO PARA SCROLL PRECISO
 class CatalogStateManager {
     constructor() {
         this.stateKey = 'catalogTempState';
     }
 
-    saveState(searchTerm, genreFilters, statusFilters) {
+    saveState(searchTerm, genreFilters, statusFilters, activeCategory, scrollPosition = null) {
         const state = {
-            scrollPosition: window.scrollY,
+            scrollPosition: scrollPosition !== null ? scrollPosition : window.scrollY,
             searchTerm: searchTerm,
             genreFilters: Array.from(genreFilters),
             statusFilters: Array.from(statusFilters),
+            activeCategory: activeCategory,
             timestamp: Date.now()
         };
         localStorage.setItem(this.stateKey, JSON.stringify(state));
+        console.log('💾 Estado guardado:', { 
+            category: activeCategory, 
+            search: searchTerm,
+            scroll: scrollPosition !== null ? `${scrollPosition}px (exacto)` : `${window.scrollY}px (actual)`,
+            genreFilters: genreFilters.size,
+            statusFilters: statusFilters.size
+        });
     }
 
     restoreState() {
         const saved = localStorage.getItem(this.stateKey);
-        return saved ? JSON.parse(saved) : null;
+        if (saved) {
+            const state = JSON.parse(saved);
+            console.log('📂 Estado restaurado:', { 
+                category: state.activeCategory,
+                search: state.searchTerm,
+                scroll: state.scrollPosition
+            });
+            return state;
+        }
+        return null;
     }
 
     clearState() {
         localStorage.removeItem(this.stateKey);
+        console.log('🗑️ Estado limpiado');
     }
 }
 
-// 🚀 CATÁLOGO ULTRA-OPTIMIZADO CON NUEVO SISTEMA DE CACHE
+// 🚀 CATÁLOGO ULTRA-OPTIMIZADO CON NUEVO SISTEMA DE CACHE Y CATEGORÍAS
 class UltraOptimizedSeriesCatalog {
     constructor() {
         this.series = seriesData;
@@ -237,7 +255,128 @@ class UltraOptimizedSeriesCatalog {
         this.searchTerm = '';
         this.stateManager = new CatalogStateManager();
         
+        // 🆕 SISTEMA DE CATEGORÍAS
+        this.activeCategory = 'all';
+        this.categories = this.defineCategories();
+        this.categoryCounts = this.calculateCategoryCounts();
+        
         this.init();
+    }
+
+    // 🆕 DEFINICIÓN DE CATEGORÍAS
+    defineCategories() {
+        return [
+            { 
+                id: 'all', 
+                name: 'Todos', 
+                icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'peliculas', 
+                name: 'Películas', 
+                icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" 
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'anime', 
+                name: 'Anime', 
+                icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" 
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'series', 
+                name: 'Series', 
+                icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 11a9 9 0 0118 0m-9 9v4m-6-4h12" 
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'animados', 
+                name: 'Animados', 
+                icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            }
+        ];
+    }
+
+    // 🆕 MÉTODO CORREGIDO PARA CALCULAR CONTEO
+    calculateCategoryCounts() {
+        const counts = {};
+        
+        this.categories.forEach(category => {
+            if (category.id === 'all') {
+                counts['all'] = this.series.length; // Todas las series
+            } else {
+                const seriesInCategory = this.series.filter(serie => 
+                    serie.category && serie.category === category.id
+                );
+                counts[category.id] = seriesInCategory.length;
+            }
+        });
+        
+        console.log('✅ Conteo de categorías:', counts);
+        return counts;
+    }
+
+    // 🆕 RENDERIZAR TABS DE CATEGORÍAS
+    renderCategoryTabs() {
+        const tabsContainer = document.getElementById('categoriesTabs');
+        
+        tabsContainer.innerHTML = this.categories.map(category => `
+            <button class="category-tab ${category.id === this.activeCategory ? 'active' : ''}" 
+                    data-category="${category.id}">
+                <span class="category-icon">${category.icon}</span>
+                ${category.name}
+                <span class="category-count">${this.categoryCounts[category.id]}</span>
+            </button>
+        `).join('');
+    }
+
+    // 🆕 MANEJAR CAMBIO DE CATEGORÍA - ACTUALIZADO PARA SCROLL PRECISO
+    handleCategoryChange(categoryId) {
+        // 🆕 GUARDAR POSICIÓN ACTUAL ANTES DEL CAMBIO
+        const currentScroll = window.scrollY;
+        
+        this.activeCategory = categoryId;
+        
+        // Actualizar estado visual de tabs
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.category === categoryId);
+        });
+        
+        console.log('🔀 Cambio de categoría:', categoryId, 'Scroll actual:', currentScroll + 'px');
+        
+        // Aplicar filtros (incluyendo la nueva categoría)
+        this.applyFilters();
+        
+        // 🆕 GUARDAR ESTADO PERO MANTENER EL SCROLL ACTUAL
+        this.stateManager.saveState(
+            this.searchTerm,
+            this.activeGenreFilters,
+            this.activeStatusFilters,
+            this.activeCategory,
+            currentScroll // 🆕 MANTENER POSICIÓN EXACTA
+        );
+    }
+
+    // 🆕 MÉTODO PARA ACTUALIZAR ESTADO VISUAL DE TABS
+    updateCategoryTabsVisualState() {
+        const tabs = document.querySelectorAll('.category-tab');
+        tabs.forEach(tab => {
+            const categoryId = tab.dataset.category;
+            tab.classList.toggle('active', categoryId === this.activeCategory);
+        });
+        console.log('🎯 Tabs actualizados, categoría activa:', this.activeCategory);
     }
 
     isMovie(serie) {
@@ -252,6 +391,7 @@ class UltraOptimizedSeriesCatalog {
         this.series.sort((a, b) => a.title.localeCompare(b.title));
     }
 
+    // 🆕 RESTORE STATE ACTUALIZADO PARA SCROLL PRECISO
     restoreState() {
         const savedState = this.stateManager.restoreState();
         if (savedState) {
@@ -268,33 +408,76 @@ class UltraOptimizedSeriesCatalog {
                 this.activeStatusFilters = new Set(savedState.statusFilters);
             }
 
+            // 🆕 RESTAURAR CATEGORÍA ACTIVA CON SEGURIDAD
+            if (savedState.activeCategory) {
+                const categoryExists = this.categories.some(cat => cat.id === savedState.activeCategory);
+                if (categoryExists) {
+                    this.activeCategory = savedState.activeCategory;
+                    console.log('✅ Categoría restaurada:', this.activeCategory);
+                } else {
+                    console.warn('⚠️ Categoría no encontrada:', savedState.activeCategory);
+                    this.activeCategory = 'all';
+                }
+            }
+
             this.applyFilters();
             this.updateChipsActiveState('genre');
             this.updateChipsActiveState('status');
+            
+            // 🆕 ACTUALIZAR TABS DE CATEGORÍAS VISUALMENTE
+            this.updateCategoryTabsVisualState();
 
+            // 🆕 RESTAURAR SCROLL CON MÁS PRECISIÓN
+            if (savedState.scrollPosition) {
+                console.log('🎯 Restaurando scroll a:', savedState.scrollPosition + 'px');
+                
+                // 🆕 USAR requestAnimationFrame PARA MEJOR SINCRONIZACIÓN
+                requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: savedState.scrollPosition,
+                        behavior: 'instant' // 🆕 SCROLL INSTANTÁNEO SIN ANIMACIÓN
+                    });
+                    
+                    // 🆕 VERIFICACIÓN DESPUÉS DE LA RESTAURACIÓN
+                    setTimeout(() => {
+                        console.log('📏 Scroll actual después de restauración:', window.scrollY + 'px');
+                        console.log('📏 Diferencia:', (window.scrollY - savedState.scrollPosition) + 'px');
+                    }, 100);
+                });
+            }
+
+            // 🆕 LIMPIAR ESTADO DESPUÉS DE RESTAURAR SCROLL
             setTimeout(() => {
-                if (savedState.scrollPosition) {
-                    window.scrollTo(0, savedState.scrollPosition);
-                }
                 this.stateManager.clearState();
-            }, 100);
+            }, 1000); // 🆕 DAR MÁS TIEMPO PARA QUE SE RESTAURE EL SCROLL
         }
     }
 
+    // 🆕 SAVE CURRENT STATE ACTUALIZADO - NO GUARDAR SCROLL PARA CAMBIOS EN PÁGINA
     saveCurrentState() {
         this.stateManager.saveState(
             this.searchTerm,
             this.activeGenreFilters,
-            this.activeStatusFilters
+            this.activeStatusFilters,
+            this.activeCategory,
+            null // 🆕 NO GUARDAR SCROLL PARA CAMBIOS EN PÁGINA ACTUAL
         );
     }
 
+    // 🆕 MÉTODO MEJORADO - GÉNEROS ORDENADOS ALFABÉTICAMENTE
     getAllGenres() {
         const genres = new Set();
         this.series.forEach(serie => {
             serie.genre.forEach(genre => genres.add(genre));
         });
-        return Array.from(genres);
+        
+        // Convertir a array y ordenar alfabéticamente
+        const genresArray = Array.from(genres);
+        return genresArray.sort((a, b) => {
+            const nameA = this.getGenreDisplayName(a).toLowerCase();
+            const nameB = this.getGenreDisplayName(b).toLowerCase();
+            return nameA.localeCompare(nameB);
+        });
     }
 
     renderChips() {
@@ -304,13 +487,19 @@ class UltraOptimizedSeriesCatalog {
 
     renderGenreChips() {
         const genreChipsContainer = document.getElementById('genreChips');
+        
+        // "Todos los géneros" siempre primero
         const genreChips = [
-            { value: 'all', text: 'Todos los géneros' },
-            ...this.allGenres.map(genre => ({
+            { value: 'all', text: 'Todos los géneros' }
+        ];
+        
+        // Luego los géneros ordenados alfabéticamente
+        this.allGenres.forEach(genre => {
+            genreChips.push({
                 value: genre,
                 text: this.getGenreDisplayName(genre)
-            }))
-        ];
+            });
+        });
 
         genreChipsContainer.innerHTML = genreChips.map(chip => `
             <button class="filter-chip ${chip.value === 'all' ? 'active' : ''}" 
@@ -573,23 +762,59 @@ class UltraOptimizedSeriesCatalog {
         });
     }
 
+    // 🆕 MÉTODO DE FILTRADO MEJORADO CON CATEGORÍAS - CORREGIDO
     applyFilters() {
         let filtered = [...this.series];
         
+        console.group('🔍 Aplicando filtros');
+        console.log('Categoría activa:', this.activeCategory);
+        console.log('Búsqueda:', this.searchTerm);
+        console.log('Géneros activos:', Array.from(this.activeGenreFilters));
+        console.log('Estados activos:', Array.from(this.activeStatusFilters));
+        
+        // 🆕 FILTRAR POR CATEGORÍA ACTIVA - CON SEGURIDAD
+        if (this.activeCategory !== 'all') {
+            const beforeFilter = filtered.length;
+            filtered = filtered.filter(serie => 
+                serie.category && serie.category === this.activeCategory
+            );
+            console.log(`📊 Filtro categoría: ${beforeFilter} → ${filtered.length}`);
+        }
+        
+        // FILTRAR POR GÉNERO (existente)
         if (!this.activeGenreFilters.has('all')) {
+            const beforeFilter = filtered.length;
             filtered = filtered.filter(serie =>
                 serie.genre.some(genre => this.activeGenreFilters.has(genre))
             );
+            console.log(`🎭 Filtro género: ${beforeFilter} → ${filtered.length}`);
         }
         
+        // FILTRAR POR ESTADO (existente)
         if (!this.activeStatusFilters.has('all')) {
+            const beforeFilter = filtered.length;
             filtered = filtered.filter(serie =>
                 this.activeStatusFilters.has(this.viewingStateManager.getViewingState(serie.id))
             );
+            console.log(`📊 Filtro estado: ${beforeFilter} → ${filtered.length}`);
+        }
+        
+        // FILTRAR POR BÚSQUEDA (existente)
+        if (this.searchTerm) {
+            const beforeFilter = filtered.length;
+            filtered = filtered.filter(serie => 
+                serie.title.toLowerCase().includes(this.searchTerm) ||
+                serie.genre.some(g => g.includes(this.searchTerm))
+            );
+            console.log(`🔎 Filtro búsqueda: ${beforeFilter} → ${filtered.length}`);
         }
         
         filtered.sort((a, b) => a.title.localeCompare(b.title));
         this.filteredSeries = filtered;
+        
+        console.log(`✅ Resultados finales: ${this.filteredSeries.length} series`);
+        console.groupEnd();
+        
         this.renderSeries();
     }
 
@@ -598,18 +823,7 @@ class UltraOptimizedSeriesCatalog {
         
         this.searchTimeout = setTimeout(() => {
             this.searchTerm = query.toLowerCase().trim();
-            
-            if (this.searchTerm === '') {
-                this.applyFilters();
-            } else {
-                this.filteredSeries = this.series.filter(serie => 
-                    serie.title.toLowerCase().includes(this.searchTerm) ||
-                    serie.genre.some(g => g.includes(this.searchTerm))
-                );
-                
-                this.filteredSeries.sort((a, b) => a.title.localeCompare(b.title));
-                this.renderSeries();
-            }
+            this.applyFilters();
         }, 200);
     }
 
@@ -665,6 +879,13 @@ class UltraOptimizedSeriesCatalog {
                 const value = e.target.dataset.value;
                 this.handleChipClick(type, value);
             }
+            
+            // 🆕 MANEJAR CLIC EN TABS DE CATEGORÍAS
+            if (e.target.closest('.category-tab')) {
+                const categoryTab = e.target.closest('.category-tab');
+                const categoryId = categoryTab.dataset.category;
+                this.handleCategoryChange(categoryId);
+            }
         });
 
         const searchInput = document.getElementById('searchInput');
@@ -690,19 +911,47 @@ class UltraOptimizedSeriesCatalog {
         });
     }
 
+    // 🆕 INIT MEJORADO PARA PERSISTENCIA
     init() {
         this.wishlistManager.updateAllWishlistCounts();
         this.renderChips();
+        this.renderCategoryTabs();
+        
+        // 🆕 PRIMERO RESTAURAR ESTADO, LUEGO RENDERIZAR
         this.restoreState();
+        
         this.renderSeries();
         this.setupEventListeners();
+        
+        // 🆕 LOG DE ESTADO INICIAL
+        console.log('🚀 Catálogo inicializado:', {
+            categoría: this.activeCategory,
+            seriesTotales: this.series.length,
+            seriesFiltradas: this.filteredSeries.length,
+            búsqueda: this.searchTerm
+        });
     }
 
+    // 🆕 SHOW SERIE DETAILS ACTUALIZADO PARA SCROLL PRECISO
     showSerieDetails(serie) {
-        this.saveCurrentState();
-        setTimeout(() => {
-            window.location.href = `pages/serie.html?id=${serie.id}`;
-        }, 50);
+        console.log('🎬 Navegando a serie:', serie.title);
+        console.log('📝 Guardando estado actual:', {
+            categoría: this.activeCategory,
+            búsqueda: this.searchTerm,
+            scrollPosition: window.scrollY
+        });
+        
+        // 🆕 GUARDAR POSICIÓN EXACTA INMEDIATAMENTE ANTES DE NAVEGAR
+        this.stateManager.saveState(
+            this.searchTerm,
+            this.activeGenreFilters,
+            this.activeStatusFilters,
+            this.activeCategory,
+            window.scrollY // 🆕 POSICIÓN EXACTA
+        );
+        
+        // 🆕 NAVEGACIÓN INMEDIATA SIN TIMEOUT
+        window.location.href = `pages/serie.html?id=${serie.id}`;
     }
 
     clearState() {
@@ -823,7 +1072,7 @@ function updateNewsBadge() {
 
 // 🚀 INICIALIZACIÓN OPTIMIZADA
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Inicializando Catálogo con Nuevo Sistema de Cache...');
+    console.log('🚀 Inicializando Catálogo con Nuevo Sistema de Cache y Categorías...');
     
     new UltraOptimizedSeriesCatalog();
     new GlobalWishlistManager();
