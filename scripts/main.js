@@ -191,26 +191,25 @@ class ViewingStateManager {
     }
 }
 
-// GESTOR DE ESTADO TEMPORAL - ACTUALIZADO PARA SCROLL PRECISO
+// GESTOR DE ESTADO TEMPORAL - ACTUALIZADO PARA CATEGORÍAS
 class CatalogStateManager {
     constructor() {
         this.stateKey = 'catalogTempState';
     }
 
-    saveState(searchTerm, genreFilters, statusFilters, activeCategory, scrollPosition = null) {
+    saveState(searchTerm, genreFilters, statusFilters, activeCategory) {
         const state = {
-            scrollPosition: scrollPosition !== null ? scrollPosition : window.scrollY,
+            scrollPosition: window.scrollY,
             searchTerm: searchTerm,
             genreFilters: Array.from(genreFilters),
             statusFilters: Array.from(statusFilters),
-            activeCategory: activeCategory,
+            activeCategory: activeCategory, // 🆕 GUARDAR CATEGORÍA ACTIVA
             timestamp: Date.now()
         };
         localStorage.setItem(this.stateKey, JSON.stringify(state));
         console.log('💾 Estado guardado:', { 
             category: activeCategory, 
             search: searchTerm,
-            scroll: scrollPosition !== null ? `${scrollPosition}px (exacto)` : `${window.scrollY}px (actual)`,
             genreFilters: genreFilters.size,
             statusFilters: statusFilters.size
         });
@@ -222,8 +221,7 @@ class CatalogStateManager {
             const state = JSON.parse(saved);
             console.log('📂 Estado restaurado:', { 
                 category: state.activeCategory,
-                search: state.searchTerm,
-                scroll: state.scrollPosition
+                search: state.searchTerm 
             });
             return state;
         }
@@ -342,11 +340,8 @@ class UltraOptimizedSeriesCatalog {
         `).join('');
     }
 
-    // 🆕 MANEJAR CAMBIO DE CATEGORÍA - ACTUALIZADO PARA SCROLL PRECISO
+    // 🆕 MANEJAR CAMBIO DE CATEGORÍA
     handleCategoryChange(categoryId) {
-        // 🆕 GUARDAR POSICIÓN ACTUAL ANTES DEL CAMBIO
-        const currentScroll = window.scrollY;
-        
         this.activeCategory = categoryId;
         
         // Actualizar estado visual de tabs
@@ -354,29 +349,8 @@ class UltraOptimizedSeriesCatalog {
             tab.classList.toggle('active', tab.dataset.category === categoryId);
         });
         
-        console.log('🔀 Cambio de categoría:', categoryId, 'Scroll actual:', currentScroll + 'px');
-        
         // Aplicar filtros (incluyendo la nueva categoría)
         this.applyFilters();
-        
-        // 🆕 GUARDAR ESTADO PERO MANTENER EL SCROLL ACTUAL
-        this.stateManager.saveState(
-            this.searchTerm,
-            this.activeGenreFilters,
-            this.activeStatusFilters,
-            this.activeCategory,
-            currentScroll // 🆕 MANTENER POSICIÓN EXACTA
-        );
-    }
-
-    // 🆕 MÉTODO PARA ACTUALIZAR ESTADO VISUAL DE TABS
-    updateCategoryTabsVisualState() {
-        const tabs = document.querySelectorAll('.category-tab');
-        tabs.forEach(tab => {
-            const categoryId = tab.dataset.category;
-            tab.classList.toggle('active', categoryId === this.activeCategory);
-        });
-        console.log('🎯 Tabs actualizados, categoría activa:', this.activeCategory);
     }
 
     isMovie(serie) {
@@ -391,7 +365,6 @@ class UltraOptimizedSeriesCatalog {
         this.series.sort((a, b) => a.title.localeCompare(b.title));
     }
 
-    // 🆕 RESTORE STATE ACTUALIZADO PARA SCROLL PRECISO
     restoreState() {
         const savedState = this.stateManager.restoreState();
         if (savedState) {
@@ -423,44 +396,35 @@ class UltraOptimizedSeriesCatalog {
             this.applyFilters();
             this.updateChipsActiveState('genre');
             this.updateChipsActiveState('status');
-            
+
             // 🆕 ACTUALIZAR TABS DE CATEGORÍAS VISUALMENTE
             this.updateCategoryTabsVisualState();
 
-            // 🆕 RESTAURAR SCROLL CON MÁS PRECISIÓN
-            if (savedState.scrollPosition) {
-                console.log('🎯 Restaurando scroll a:', savedState.scrollPosition + 'px');
-                
-                // 🆕 USAR requestAnimationFrame PARA MEJOR SINCRONIZACIÓN
-                requestAnimationFrame(() => {
-                    window.scrollTo({
-                        top: savedState.scrollPosition,
-                        behavior: 'instant' // 🆕 SCROLL INSTANTÁNEO SIN ANIMACIÓN
-                    });
-                    
-                    // 🆕 VERIFICACIÓN DESPUÉS DE LA RESTAURACIÓN
-                    setTimeout(() => {
-                        console.log('📏 Scroll actual después de restauración:', window.scrollY + 'px');
-                        console.log('📏 Diferencia:', (window.scrollY - savedState.scrollPosition) + 'px');
-                    }, 100);
-                });
-            }
-
-            // 🆕 LIMPIAR ESTADO DESPUÉS DE RESTAURAR SCROLL
             setTimeout(() => {
+                if (savedState.scrollPosition) {
+                    window.scrollTo(0, savedState.scrollPosition);
+                }
                 this.stateManager.clearState();
-            }, 1000); // 🆕 DAR MÁS TIEMPO PARA QUE SE RESTAURE EL SCROLL
+            }, 100);
         }
     }
 
-    // 🆕 SAVE CURRENT STATE ACTUALIZADO - NO GUARDAR SCROLL PARA CAMBIOS EN PÁGINA
+    // 🆕 MÉTODO PARA ACTUALIZAR ESTADO VISUAL DE TABS
+    updateCategoryTabsVisualState() {
+        const tabs = document.querySelectorAll('.category-tab');
+        tabs.forEach(tab => {
+            const categoryId = tab.dataset.category;
+            tab.classList.toggle('active', categoryId === this.activeCategory);
+        });
+        console.log('🎯 Tabs actualizados, categoría activa:', this.activeCategory);
+    }
+
     saveCurrentState() {
         this.stateManager.saveState(
             this.searchTerm,
             this.activeGenreFilters,
             this.activeStatusFilters,
-            this.activeCategory,
-            null // 🆕 NO GUARDAR SCROLL PARA CAMBIOS EN PÁGINA ACTUAL
+            this.activeCategory // 🆕 INCLUIR CATEGORÍA ACTIVA
         );
     }
 
@@ -766,55 +730,37 @@ class UltraOptimizedSeriesCatalog {
     applyFilters() {
         let filtered = [...this.series];
         
-        console.group('🔍 Aplicando filtros');
-        console.log('Categoría activa:', this.activeCategory);
-        console.log('Búsqueda:', this.searchTerm);
-        console.log('Géneros activos:', Array.from(this.activeGenreFilters));
-        console.log('Estados activos:', Array.from(this.activeStatusFilters));
-        
         // 🆕 FILTRAR POR CATEGORÍA ACTIVA - CON SEGURIDAD
         if (this.activeCategory !== 'all') {
-            const beforeFilter = filtered.length;
             filtered = filtered.filter(serie => 
                 serie.category && serie.category === this.activeCategory
             );
-            console.log(`📊 Filtro categoría: ${beforeFilter} → ${filtered.length}`);
         }
         
         // FILTRAR POR GÉNERO (existente)
         if (!this.activeGenreFilters.has('all')) {
-            const beforeFilter = filtered.length;
             filtered = filtered.filter(serie =>
                 serie.genre.some(genre => this.activeGenreFilters.has(genre))
             );
-            console.log(`🎭 Filtro género: ${beforeFilter} → ${filtered.length}`);
         }
         
         // FILTRAR POR ESTADO (existente)
         if (!this.activeStatusFilters.has('all')) {
-            const beforeFilter = filtered.length;
             filtered = filtered.filter(serie =>
                 this.activeStatusFilters.has(this.viewingStateManager.getViewingState(serie.id))
             );
-            console.log(`📊 Filtro estado: ${beforeFilter} → ${filtered.length}`);
         }
         
         // FILTRAR POR BÚSQUEDA (existente)
         if (this.searchTerm) {
-            const beforeFilter = filtered.length;
             filtered = filtered.filter(serie => 
                 serie.title.toLowerCase().includes(this.searchTerm) ||
                 serie.genre.some(g => g.includes(this.searchTerm))
             );
-            console.log(`🔎 Filtro búsqueda: ${beforeFilter} → ${filtered.length}`);
         }
         
         filtered.sort((a, b) => a.title.localeCompare(b.title));
         this.filteredSeries = filtered;
-        
-        console.log(`✅ Resultados finales: ${this.filteredSeries.length} series`);
-        console.groupEnd();
-        
         this.renderSeries();
     }
 
@@ -911,47 +857,20 @@ class UltraOptimizedSeriesCatalog {
         });
     }
 
-    // 🆕 INIT MEJORADO PARA PERSISTENCIA
     init() {
         this.wishlistManager.updateAllWishlistCounts();
         this.renderChips();
         this.renderCategoryTabs();
-        
-        // 🆕 PRIMERO RESTAURAR ESTADO, LUEGO RENDERIZAR
         this.restoreState();
-        
         this.renderSeries();
         this.setupEventListeners();
-        
-        // 🆕 LOG DE ESTADO INICIAL
-        console.log('🚀 Catálogo inicializado:', {
-            categoría: this.activeCategory,
-            seriesTotales: this.series.length,
-            seriesFiltradas: this.filteredSeries.length,
-            búsqueda: this.searchTerm
-        });
     }
 
-    // 🆕 SHOW SERIE DETAILS ACTUALIZADO PARA SCROLL PRECISO
     showSerieDetails(serie) {
-        console.log('🎬 Navegando a serie:', serie.title);
-        console.log('📝 Guardando estado actual:', {
-            categoría: this.activeCategory,
-            búsqueda: this.searchTerm,
-            scrollPosition: window.scrollY
-        });
-        
-        // 🆕 GUARDAR POSICIÓN EXACTA INMEDIATAMENTE ANTES DE NAVEGAR
-        this.stateManager.saveState(
-            this.searchTerm,
-            this.activeGenreFilters,
-            this.activeStatusFilters,
-            this.activeCategory,
-            window.scrollY // 🆕 POSICIÓN EXACTA
-        );
-        
-        // 🆕 NAVEGACIÓN INMEDIATA SIN TIMEOUT
-        window.location.href = `pages/serie.html?id=${serie.id}`;
+        this.saveCurrentState();
+        setTimeout(() => {
+            window.location.href = `pages/serie.html?id=${serie.id}`;
+        }, 50);
     }
 
     clearState() {
