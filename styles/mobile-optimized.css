@@ -1,0 +1,212 @@
+/* mobile-optimized.css - OPTIMIZACIONES PARA MÓVILES DE BAJOS RECURSOS */
+
+/**
+ * ESTILOS PARA DISPOSITIVOS DE GAMA BAJA
+ * Se activan automáticamente cuando se detecta bajo rendimiento
+ */
+
+/* 🎯 DISPOSITIVOS PEQUEÑOS Y DE BAJOS RECURSOS */
+@media (max-width: 480px) and (max-height: 700px) {
+    /* Reducir animaciones y efectos hover */
+    .serie-card,
+    .noticia-card,
+    .wishlist-item,
+    .similar-card,
+    .related-card {
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    /* Simplificar sombras para mejor rendimiento GPU */
+    .serie-card,
+    .noticia-card,
+    .wishlist-item,
+    .info-card,
+    .similar-card,
+    .related-card {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Reducir padding para más espacio en pantallas pequeñas */
+    .serie-info,
+    .noticia-contenido,
+    .wishlist-item-info,
+    .similar-info {
+        padding: 0.5rem !important;
+    }
+    
+    /* Optimizar tamaños de imágenes */
+    .serie-poster {
+        height: 150px !important;
+    }
+    
+    .noticia-imagen {
+        height: 120px !important;
+    }
+    
+    .wishlist-item-poster {
+        height: 140px !important;
+    }
+    
+    .similar-poster {
+        height: 140px !important;
+    }
+    
+    /* Ajustar tipografía para mejor legibilidad */
+    .serie-title,
+    .noticia-titulo,
+    .wishlist-item-title,
+    .similar-title {
+        font-size: 0.85rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .serie-meta,
+    .noticia-meta,
+    .wishlist-item-meta,
+    .similar-meta {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Optimizar grids */
+    .series-grid,
+    .noticias-grid,
+    .wishlist-grid,
+    .similar-grid {
+        gap: 0.8rem !important;
+    }
+}
+
+/* 🎯 DISPOSITIVOS MUY PEQUEÑOS O CON POCA RAM */
+@media (max-width: 360px), (max-height: 600px) {
+    /* Ocultar elementos no esenciales */
+    .hero p,
+    .wishlist-hero p,
+    .noticias-hero p {
+        display: none;
+    }
+    
+    /* Simplificar navbar */
+    .nav-controls {
+        gap: 0.3rem !important;
+    }
+    
+    .back-button span {
+        display: none;
+    }
+    
+    .back-button {
+        padding: 0.5rem !important;
+        width: 40px !important;
+        height: 40px !important;
+        justify-content: center !important;
+    }
+    
+    /* Reducir márgenes y padding */
+    .series-grid,
+    .noticias-grid,
+    .wishlist-grid {
+        gap: 0.5rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    /* Ajustar headers */
+    .hero h2,
+    .wishlist-hero h1,
+    .noticias-hero h1 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Optimizar botones */
+    .filter-chip,
+    .category-tab {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+/* 💡 MODO AHORRO DE ENERGÍA (se activa automáticamente) */
+.power-save-mode {
+    /* Deshabilitar todas las transiciones y animaciones */
+    * {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+    
+    /* Mantener hover básico pero sin animaciones */
+    .serie-card:hover,
+    .noticia-card:hover,
+    .wishlist-item:hover,
+    .similar-card:hover {
+        opacity: 0.9 !important;
+    }
+    
+    /* Simplificar panels deslizantes */
+    .filters-chips-panel {
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Reducir opacidades de elementos decorativos */
+    .status-indicator-card,
+    .wishlist-btn-card,
+    .remove-btn {
+        opacity: 0.9;
+    }
+    
+    /* Optimizar imágenes de placeholder */
+    .serie-poster[src*="placeholder"],
+    .noticia-imagen[src*="default-news"],
+    .similar-poster[src*="placeholder"] {
+        filter: none !important;
+    }
+}
+
+/* 🚀 OPTIMIZACIONES ESPECÍFICAS PARA LAZY LOADING */
+.power-save-mode .lazy {
+    filter: blur(3px) !important; /* Reducir blur para mejor rendimiento */
+}
+
+/* 📱 MEJORAS DE RENDIMIENTO EN CARDS */
+@media (max-width: 420px) {
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .serie-card {
+        margin: 0 !important;
+    }
+    
+    /* Simplificar badges */
+    .noticia-badge {
+        font-size: 0.65rem !important;
+        padding: 0.3rem 0.6rem !important;
+    }
+    
+    /* Optimizar contadores */
+    .wishlist-count,
+    .noticias-count {
+        width: 16px !important;
+        height: 16px !important;
+        font-size: 0.65rem !important;
+    }
+}
+
+/* 🎨 MANTENER ACCESIBILIDAD MIENTRAS SE OPTIMIZA */
+.power-save-mode .serie-card:focus,
+.power-save-mode .noticia-card:focus,
+.power-save-mode .wishlist-item:focus {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 2px !important;
+}
+
+/**
+ * NOTA: Estos estilos solo se aplican cuando:
+ * 1. El dispositivo es detectado como de bajos recursos, O
+ * 2. La pantalla es muy pequeña, O  
+ * 3. Se activa manualmente el modo ahorro de energía
+ *
+ * En dispositivos normales, los estilos originales se mantienen intactos.
+ */
