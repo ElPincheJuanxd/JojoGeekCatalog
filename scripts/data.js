@@ -1426,7 +1426,7 @@ const seriesData = [
     {
         id: 133,
         title: "Hunter x Hunter",
-        poster: "./assets/images/series/hunter-x-hunter.jpg",
+        poster: "./assets/images/series/hunter-x-hunter-x.jpg",
         year: "2011-2014",
         genre: ["Aventura", "Acción", "Fantasía", "Shonen"],
         category: "anime",
@@ -1614,10 +1614,10 @@ const seriesData = [
         id: 150,
         title: "Ao no Exorcist",
         poster: "./assets/images/series/ao-no-exorcist.jpg",
-        year: "2011-2017",
+        year: "2011-2024",
         genre: ["Acción", "Fantasía", "Sobrenatural", "Shonen"],
         category: "anime",
-        seasons: 3,
+        seasons: 5,
         studio: "A-1 Pictures",
         description: "Rin Okumura descubre que es hijo de Satanás y decide convertirse en exorcista para derrotar a su padre. Se une a la Academia Verdadera Cruz mientras controla sus poderes demoníacos."
     },
@@ -3170,7 +3170,7 @@ const seriesData = [
         genre: ["Aventura", "Fantasía", "Shonen"],
         category: "anime",
         seasons: 5,
-        studio: "Toei Animation / Studio Gallop",
+        studio: "Studio Gallop",
         description: "Yugi Mutou resuelve el Milenario Rompecabezas, despertando el espíritu de un faraón antiguo que lo posee durante los juegos de sombras. Juntos enfrentan duelos de monstruos y desafíos que amenazan el mundo."
     },
     {
@@ -3227,6 +3227,450 @@ const seriesData = [
     seasons: 1,
     studio: "Warner Bros. Pictures",
     description: "Adaptación cinematográfica del videojuego más vendido de la historia. Sigue las aventuras de un héroe en el mundo de Minecraft donde debe luchar contra el malvado Ender Dragon mientras descubre la verdad sobre su pasado en este universo de bloques."
+},
+    {
+        id: 305,
+        title: "Passengers",
+        poster: "./assets/images/series/passengers-2016.jpg",
+        year: "2016",
+        genre: ["Ciencia Ficción", "Romance", "Drama", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Columbia Pictures",
+        description: "Una nave espacial que transporta miles de colonos a un planeta distante sufre una falla que despierta a un pasajero 90 años antes de lo previsto. Atrapado en la soledad del espacio, toma una decisión desesperada que cambiará el destino de todos a bordo."
+    },
+    {
+        id: 306,
+        title: "Pokémon: Advanced Hoenn",
+        poster: "./assets/images/series/pokemon-advanced-hoenn.jpg",
+        year: "2002-2006",
+        genre: ["Aventura", "Fantasía", "Comedia"],
+        category: "anime",
+        seasons: 3,
+        studio: "OLM",
+        description: "Ash Ketchum y su compañero Pikachu viajan a la región Hoenn donde conocen a nuevos amigos y Pokémon. Juntos participan en gimnasios, enfrentan al Team Magma y Aqua, y compiten en el Gran Festival mientras exploran esta nueva región llena de desafíos."
+    },
+    {
+        id: 307,
+        title: "Pokémon: Journeys Galar",
+        poster: "./assets/images/series/pokemon-journey-galar.jpg",
+        year: "2019-2022",
+        genre: ["Aventura", "Fantasía", "Comedia"],
+        category: "anime",
+        seasons: 1,
+        studio: "OLM",
+        description: "Parte de la serie Pokémon Journeys que se centra en las aventuras de Ash y Goh en la región Galar, donde participan en el World Coronation Series y exploran los fenómenos Dynamax y Gigantamax que son únicos de esta región."
+    },
+    {
+        id: 308,
+        title: "Pokémon: Sun and Moon Alola",
+        poster: "./assets/images/series/pokemon-sun-and-moon-alola.jpg",
+        year: "2016-2019",
+        genre: ["Aventura", "Fantasía", "Comedia"],
+        category: "anime",
+        seasons: 3,
+        studio: "OLM",
+        description: "Ash viaja a la región tropical de Alola donde asiste a la Escuela Pokémon y participa en los desafíos de la Isla. Conoce nuevos amigos y formas regionales de Pokémon mientras se enfrenta al Team Skull y los Ultraentes que amenazan la región."
+    },
+    {
+        id: 309,
+        title: "Pokémon: The Origin",
+        poster: "./assets/images/series/pokemon-the-origin.jpg",
+        year: "2013",
+        genre: ["Aventura", "Fantasía", "Drama"],
+        category: "anime",
+        seasons: 1,
+        studio: "Production I.G",
+        description: "Adaptación especial que recrea fielmente los eventos del primer videojuego Pokémon Rojo y Verde. Sigue la historia de Red en su viaje para convertirse en el mejor entrenador Pokémon mientras se enfrenta al Team Rocket y a su rival Blue."
+    },
+    {
+        id: 310,
+        title: "Pokémon: The Series Jhoto",
+        poster: "./assets/images/series/pokemon-the-series-jhoto.jpg",
+        year: "1999-2002",
+        genre: ["Aventura", "Fantasía", "Comedia"],
+        category: "anime",
+        seasons: 3,
+        studio: "OLM",
+        description: "Ash, Misty y Brock viajan a la región de Jhoto donde Ash compite en la Liga Jhoto. Se enfrentan al Team Rocket, conocen nuevos Pokémon y participan en gimnasios mientras exploran esta región basada en la región de Kansai de Japón."
+    },
+    {
+        id: 311,
+        title: "Pokémon: The Series Kanto",
+        poster: "./assets/images/series/pokemon-the-series-kanto.jpg",
+        year: "1997-1999",
+        genre: ["Aventura", "Fantasía", "Comedia"],
+        category: "anime",
+        seasons: 2,
+        studio: "OLM",
+        description: "La serie original que sigue las aventuras de Ash Ketchum y Pikachu en la región de Kanto. Junto a Misty y Brock, Ash compite en gimnasios, se enfrenta al Team Rocket y participa en la Liga Pokémon mientras busca convertirse en un Maestro Pokémon."
+    },
+    {
+        id: 312,
+        title: "Pokémon: XY",
+        poster: "./assets/images/series/pokemon-xy.jpg",
+        year: "2013-2015",
+        genre: ["Aventura", "Fantasía", "Comedia"],
+        category: "anime",
+        seasons: 2,
+        studio: "OLM",
+        description: "Ash explora la región de Kalos inspirada en Francia, donde conoce a Serena, Clemont y Bonnie. Juntos investigan el fenómeno Mega-Evolución, se enfrentan al Team Flare y participan en la Liga Kalos con nuevos Pokémon y técnicas de batalla."
+    },
+    {
+        id: 313,
+        title: "Rebuild of Evangelion",
+        poster: "./assets/images/series/rebuild-of-evangelion.jpg",
+        year: "2007-2021",
+        genre: ["Mecha", "Psicológico", "Ciencia Ficción", "Drama"],
+        category: "anime",
+        seasons: 1,
+        parts: 4,
+        studio: "Studio Khara",
+        description: "Reinvención cinematográfica de la serie Neon Genesis Evangelion que presenta nuevos diseños, personajes adicionales y un final alternativo. La tetralogía explora temas de identidad, depresión y relaciones humanas a través de batallas épicas contra los Ángeles."
+    },
+    {
+        id: 314,
+        title: "Shangri-La Frontier",
+        poster: "./assets/images/series/shangri-la-frontier.jpg",
+        year: "2023-2024",
+        genre: ["Aventura", "Videojuegos", "Acción", "Comedia"],
+        category: "anime",
+        seasons: 1,
+        studio: "C2C",
+        description: "Rakuro Hizutome, un amante de los videojuegos 'basura', decide probar Shangri-La Frontier, un popular juego de realidad virtual. Usando su experiencia en juegos mal diseñados, se convierte en un jugador legendario mientras descubre los misterios del mundo virtual."
+    },
+    {
+        id: 315,
+        title: "Sonic Collection",
+        poster: "./assets/images/series/sonic-collection.jpg",
+        year: "1993-1996",
+        genre: ["Aventura", "Ciencia Ficción", "Comedia"],
+        category: "animados",
+        seasons: 2,
+        studio: "DiC Entertainment",
+        description: "Colección de las series animadas clásicas de Sonic the Hedgehog. Sigue las aventuras de Sonic y sus amigos mientras protegen Mobius del malvado Dr. Robotnik, quien busca convertir a todos los animales en robots malvados."
+    },
+    {
+        id: 316,
+        title: "Taxi Driver",
+        poster: "./assets/images/series/taxi-driver.jpg",
+        year: "1976",
+        genre: ["Drama", "Psicológico", "Thriller", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Columbia Pictures",
+        description: "Travis Bickle, un ex marine y conductor de taxi en Nueva York, sufre de insomnio y alienación. Su creciente desilusión con la sociedad lo lleva a un plan violento para 'limpiar' la ciudad, en un descenso a la locura que se convierte en un clásico del cine."
+    },
+    {
+        id: 317,
+        title: "The Curse of La Llorona",
+        poster: "./assets/images/series/the-curse-of-llorona.jpg",
+        year: "2019",
+        genre: ["Horror", "Sobrenatural", "Thriller", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Warner Bros. Pictures",
+        description: "Basada en la leyenda mexicana de La Llorona, una madre que ahoga a sus hijos y luego se suicida, condenada a vagar eternamente buscándolos. Una trabajadora social y sus hijos se convierten en el nuevo objetivo del espíritu vengativo en esta aterradora historia de horror sobrenatural."
+    },
+    {
+        id: 318,
+        title: "The Substance",
+        poster: "./assets/images/series/the-subtance.jpg",
+        year: "2024",
+        genre: ["Horror", "Ciencia Ficción", "Thriller", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Universal Pictures",
+        description: "Una leyenda del culto al cuerpo descubre un revolucionario producto que promete rejuvenecer el cuerpo creando una versión mejorada de uno mismo. Sin embargo, el tratamiento tiene consecuencias aterradoras cuando su yo alternativo desarrolla su propia conciencia."
+    },
+    {
+        id: 319,
+        title: "Tougen Anki",
+        poster: "./assets/images/series/tougen-anki.jpg",
+        year: "2024",
+        genre: ["Acción", "Fantasía", "Sobrenatural", "Shonen"],
+        category: "anime",
+        seasons: 1,
+        studio: "To be announced",
+        description: "Shiki, un joven que vive una vida normal, descubre que es descendiente de Oni y posee poderes sobrenaturales. Debe navegar entre el mundo humano y el de los Oni mientras aprende a controlar sus habilidades y se enfrenta a amenazas sobrenaturales."
+    },
+    {
+        id: 320,
+        title: "Uramichi Oniisan",
+        poster: "./assets/images/series/urimichi-onissan.jpg",
+        year: "2021",
+        genre: ["Comedia", "Recuentos de la vida", "Drama"],
+        category: "anime",
+        seasons: 1,
+        studio: "Studio Blanc",
+        description: "Uramichi Omota, un gimnasta de 31 años que trabaja como anfitrión en un programa infantil, lucha por mantener su sonrisa mientras sufre de depresión y cinismo. La serie explora con humor negro la desconexión entre su personaje alegre y su realidad adulta desilusionada."
+    },
+    {
+        id: 321,
+        title: "Watchmen",
+        poster: "./assets/images/series/wachtmen-2009.jpg",
+        year: "2009",
+        genre: ["Acción", "Drama", "Superhéroes", "Ciencia Ficción", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Warner Bros. Pictures",
+        description: "En un universo alternativo donde los superhéroes existen y han sido forzados a retirarse, el asesinato de uno de ellos revela una conspiración que amenaza con sumir al mundo en una guerra nuclear. Una desconstrucción oscura del concepto de superhéroes."
+    },
+    {
+        id: 322,
+        title: "300",
+        poster: "./assets/images/series/300.jpg",
+        year: "2006",
+        genre: ["Acción", "Histórico", "Drama", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Warner Bros. Pictures",
+        description: "Basada en la Batalla de las Termópilas, el Rey Leónidas de Esparta lidera a 300 guerreros espartanos en una batalla épica contra el masivo ejército persa de Jerjes I. Una historia de sacrificio, honor y resistencia contra imposibles probabilidades."
+    },
+    {
+        id: 323,
+        title: "Barbie",
+        poster: "./assets/images/series/barbie-2023.jpg",
+        year: "2023",
+        genre: ["Comedia", "Fantasía", "Aventura", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Warner Bros. Pictures",
+        description: "Barbie vive una vida perfecta en Barbieland hasta que comienza a experimentar pensamientos extraños sobre la mortalidad. Viaja al mundo real con Ken para descubrir la verdad sobre su existencia, en una aventura que desafía todo lo que conocía sobre su mundo perfecto."
+    },
+    {
+        id: 324,
+        title: "Beetlejuice",
+        poster: "./assets/images/series/beetlejuice.jpg",
+        year: "1988",
+        genre: ["Comedia", "Fantasía", "Horror", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Warner Bros. Pictures",
+        description: "Una pareja de fantasmas recientemente fallecidos contrata a un espíritu travieso y despreocupado llamado Beetlejuice para ayudar a ahuyentar a los nuevos dueños humanos de su casa. Una comedia sobrenatural llena de humor negro y situaciones absurdas."
+    },
+    {
+        id: 325,
+        title: "Cuando Acecha la Maldad",
+        poster: "./assets/images/series/cuando-acecha-la-maldad.jpg",
+        year: "2023",
+        genre: ["Horror", "Sobrenatural", "Drama", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "A24",
+        description: "Dos hermanos descubren a un hombre poseído por un demonio en las afueras de su remoto pueblo. Cuando intentan deshacerse del cuerpo, desatan una maldición que amenaza con destruir a toda su comunidad en esta intensa historia de horror sobrenatural."
+    },
+    {
+        id: 326,
+        title: "D.Gray-man",
+        poster: "./assets/images/series/d-gray-man.jpg",
+        year: "2006-2008",
+        genre: ["Acción", "Fantasía", "Sobrenatural", "Shonen"],
+        category: "anime",
+        seasons: 2,
+        studio: "TMS Entertainment",
+        description: "En el siglo XIX, Allen Walker se une a los Exorcistas, un grupo que lucha contra el Conde Millennium y su ejército de Akuma. Armado con su ojo maldito y su arma anti-Akuma, Innocence, Allen busca destruir al Conde y salvar a la humanidad."
+    },
+    {
+        id: 327,
+        title: "Great Teacher Onizuka",
+        poster: "./assets/images/series/great-teacher-onizuka.jpg",
+        year: "1999-2000",
+        genre: ["Comedia", "Drama", "Recuentos de la vida"],
+        category: "anime",
+        seasons: 1,
+        studio: "Studio Pierrot",
+        description: "Eikichi Onizuka, un ex líder de pandillas moteras, se convierte en profesor para conocer chicas jóvenes. Sin embargo, descubre su verdadera vocación al conectar con sus problemáticos estudiantes y usar métodos poco convencionales para cambiar sus vidas."
+    },
+    {
+        id: 328,
+        title: "Hachiko",
+        poster: "./assets/images/series/hachiko.jpg",
+        year: "2009",
+        genre: ["Drama", "Familiar", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Stage 6 Films",
+        description: "Basada en la historia real de Hachikō, un perro akita que continuó esperando a su dueño fallecido en la estación de tren durante casi diez años. Una conmovedora historia sobre lealtad, amor y la inquebrantable devoción entre un perro y su dueño."
+    },
+    {
+        id: 329,
+        title: "Hitori no Shita: The Outcast",
+        poster: "./assets/images/series/hitori-no-shita-the-outcast.jpg",
+        year: "2016-2018",
+        genre: ["Acción", "Sobrenatural", "Artes Marciales"],
+        category: "anime",
+        seasons: 2,
+        studio: "Pandanium",
+        description: "Zhou, un estudiante universitario, se ve envuelto en el mundo de los usuarios de poderes sobrenaturales después de ser atacado por zombis. Descubre que posee habilidades únicas y debe navegar entre facciones en guerra mientras busca respuestas sobre su pasado."
+    },
+    {
+        id: 330,
+        title: "Id:Invaded",
+        poster: "./assets/images/series/id-invaded.jpg",
+        year: "2020",
+        genre: ["Ciencia Ficción", "Misterio", "Psicológico"],
+        category: "anime",
+        seasons: 1,
+        studio: "NAZ",
+        description: "Un detective genial llamado Akihito Narihisago usa un sistema revolucionario que le permite entrar en la mente de asesinos seriales. Dentro de estos mundos oníricos, debe resolver crímenes mientras enfrenta sus propios demonios personales."
+    },
+    {
+        id: 331,
+        title: "Inuyashiki",
+        poster: "./assets/images/series/inuyashiki.jpg",
+        year: "2017",
+        genre: ["Ciencia Ficción", "Drama", "Acción"],
+        category: "anime",
+        seasons: 1,
+        studio: "MAPPA",
+        description: "Ichiro Inuyashiki, un hombre mayor solitario, es reconstruido como un poderoso cyborg después de un encuentro alienígena. Mientras usa sus nuevos poderes para ayudar a la gente, descubre que otro humano fue transformado y tiene intenciones mucho más siniestras."
+    },
+    {
+        id: 332,
+        title: "Isekai Ojisan",
+        poster: "./assets/images/series/isekai-ojisan.jpg",
+        year: "2022",
+        genre: ["Comedia", "Fantasía", "Isekai"],
+        category: "anime",
+        seasons: 1,
+        studio: "AtelierPontdarc",
+        description: "Un tío despierta después de 17 años en coma, revelando que pasó ese tiempo en un mundo de fantasía. Junto a su sobrino, revive sus aventuras a través de grabaciones modernas, mostrando encuentros cómicos y malentendidos culturales entre ambos mundos."
+    },
+    {
+        id: 333,
+        title: "John Wick Saga",
+        poster: "./assets/images/series/john-wick-saga.jpg",
+        year: "2014-2023",
+        genre: ["Acción", "Thriller", "Drama", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        parts: 4,
+        studio: "Summit Entertainment",
+        description: "John Wick, un ex asesino legendario, es forzado a regresar al inframundo criminal después de que un grupo de mafiosos robe su auto y mate al perro que su esposa fallecida le dejó. Su búsqueda de venganza desata una guerra que revela los secretos de su pasado."
+    },
+    {
+        id: 334,
+        title: "K-On!",
+        poster: "./assets/images/series/k-on.jpg",
+        year: "2009-2010",
+        genre: ["Comedia", "Música", "Recuentos de la vida"],
+        category: "anime",
+        seasons: 2,
+        studio: "Kyoto Animation",
+        description: "Cuatro estudiantes de secundaria forman el club de música ligera, pero pasan más tiempo tomando té y comiendo pasteles que practicando. A través de su amistad y amor por la música, crecen como personas y como músicas mientras enfrentan su último año escolar."
+    },
+    {
+        id: 335,
+        title: "K-Project",
+        poster: "./assets/images/series/k-project.jpg",
+        year: "2012-2014",
+        genre: ["Acción", "Sobrenatural", "Misterio"],
+        category: "anime",
+        seasons: 2,
+        studio: "GoHands",
+        description: "Yashiro Isana, un estudiante aparentemente normal, es acusado de un crimen que no recuerda cometer. Se ve envuelto en la guerra entre los Clanes de Reyes que poseen poderes sobrenaturales, mientras busca la verdad sobre su identidad y el misterioso Silver Clansman."
+    },
+    {
+        id: 336,
+        title: "Kabaneri of the Iron Fortress",
+        poster: "./assets/images/series/kabaneri-the-iron-fortress.jpg",
+        year: "2016",
+        genre: ["Acción", "Horror", "Ciencia Ficción"],
+        category: "anime",
+        seasons: 1,
+        studio: "Wit Studio",
+        description: "En una era steampunk alternativa, una plaga convierte a los humanos en criaturas sedientas de sangre llamadas Kabane. Ikoma, un ingeniero que se convierte en mitad humano mitad Kabane, protege a los sobrevivientes a bordo de la fortaleza móvil Kotetsujyo."
+    },
+    {
+        id: 337,
+        title: "Life of Pi",
+        poster: "./assets/images/series/life-of-pi.jpg",
+        year: "2012",
+        genre: ["Aventura", "Drama", "Fantasía", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "20th Century Fox",
+        description: "Un joven llamado Pi sobrevive a un naufragio y queda atrapado en un bote salvavidas con un tigre de Bengala llamado Richard Parker. Su increíble viaje a través del océano Pacífico explora temas de fe, supervivencia y la naturaleza de la realidad."
+    },
+    {
+        id: 338,
+        title: "Mashiro no Oto",
+        poster: "./assets/images/series/mashiro-no-oto.jpg",
+        year: "2021",
+        genre: ["Drama", "Música", "Recuentos de la vida"],
+        category: "anime",
+        seasons: 1,
+        studio: "Shin-Ei Animation",
+        description: "Setsu Sawamura, un prodigio del shamisen, lucha por encontrar su propio sonido después de la muerte de su abuelo. Viaja a Tokyo donde conoce a otros músicos y descubre nuevas posibilidades para su instrumento tradicional mientras busca su identidad musical."
+    },
+    {
+        id: 339,
+        title: "Maze Runner Saga",
+        poster: "./assets/images/series/maze-runner-saga.jpg",
+        year: "2014-2018",
+        genre: ["Ciencia Ficción", "Acción", "Aventura", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        parts: 3,
+        studio: "20th Century Fox",
+        description: "Thomas despierta sin memoria en un laberinto gigante habitado por otros jóvenes. Debe unirse a los 'runners' para encontrar una salida mientras descubre la verdad sobre el mundo exterior devastado y la organización WCKD que los mantiene prisioneros."
+    },
+    {
+        id: 340,
+        title: "Megamind",
+        poster: "./assets/images/series/megamind-film.jpg",
+        year: "2010",
+        genre: ["Comedia", "Ciencia Ficción", "Superhéroes", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "DreamWorks Animation",
+        description: "Megamind, el supervilano más inteligente del mundo, finalmente derrota a su némesis Metro Man. Pero sin un héroe que lo combata, cae en la depresión y decide crear un nuevo héroe, sin imaginar las consecuencias que esto traerá a la ciudad."
+    },
+    {
+        id: 341,
+        title: "No Country for Old Men",
+        poster: "./assets/images/series/no-country-for-old-men.jpg",
+        year: "2007",
+        genre: ["Thriller", "Drama", "Suspenso", "Película"],
+        category: "peliculas",
+        seasons: 1,
+        studio: "Miramax Films",
+        description: "En la frontera de Texas, un cazador encuentra dos millones de dólares en efectivo en el lugar de un intercambio de drogas fallido. Su decisión de tomar el dinero desencadena una persecución brutal con un asesino psicópata y un sheriff que cuestiona su lugar en un mundo cada vez más violento."
+    },
+    {
+    id: 342,
+    title: "Pokémon: XY & Z",
+    poster: "./assets/images/series/pokemon-xy-&-z.jpg",
+    year: "2015-2016",
+    genre: ["Aventura", "Fantasía", "Comedia", "Acción"],
+    category: "anime",
+    seasons: 1,
+    studio: "OLM",
+    description: "La culminación de la serie XY donde Ash y sus amigos enfrentan la amenaza definitiva del Team Flare y su plan de destruir el mundo. Ash forma un vínculo único con Greninja desarrollando la forma Ash-Greninja mientras compite en la Liga Kalos. La serie introduce a Zygarde y explora las formas 10% y Completa del Pokémon Orden, culminando en una batalla épica por la supervivencia de la región Kalos."
+},
+{
+    id: 343,
+    title: "Devilman (OVAs)",
+    poster: "./assets/images/series/devilman-ova.jpg",
+    year: "1987-2000",
+    genre: ["Acción", "Horror", "Drama", "Sobrenatural", "Seinen"],
+    category: "anime",
+    seasons: 1,
+    parts: 3,
+    studio: "Oh! Production",
+    description: "Trilogía de OVAs que adapta el manga clásico de Go Nagai, considerada una de las versiones más fieles de la obra original. La serie incluye 'Devilman: The Birth' (1987), 'Devilman: Demon Bird' (1990) y 'Amon: The Apocalypse of Devilman' (2000). Sigue la transformación de Akira Fudo en Devilman tras fusionarse con el demonio Amon, explorando temas oscuros de posesión demoníaca, la naturaleza humana y la batalla eterna entre ángeles y demonios. Una obra seminal del horror anime conocida por su violencia gráfica, narrativa filosófica y su impacto duradero en el género del horror sobrenatural."
+},
+{
+    id: 344,
+    title: "Hunter x Hunter (1999)",
+    poster: "./assets/images/series/hunter-x-hunter-1999.jpg",
+    year: "1999-2001",
+    genre: ["Aventura", "Acción", "Fantasía", "Shonen"],
+    category: "anime",
+    seasons: 1,
+    studio: "Nippon Animation",
+    description: "La adaptación anime original que sigue a Gon Freecss, un niño que descubre que su padre, a quien creía muerto, es uno de los legendarios Hunters. Para encontrarlo, Gon se embarca en el peligroso Examen Hunter donde conoce a Killua, Kurapika y Leorio. Juntos enfrentan desafíos increíbles mientras exploran el mundo de los Hunters, desde las técnicas Nen hasta las mazmorras de Greed Island. Esta versión abarca los primeros arcos de la historia con un estilo visual clásico y fidelidad al manga de Yoshihiro Togashi."
 }
 ];
 
@@ -3265,7 +3709,7 @@ El anuncio incluyó un teaser tráiler que muestra los vastos paisajes desértic
 
 La noticia ha generado euforia en redes sociales, con fans celebrando este anuncio largamente esperado que promete ser una de las experiencias anime más ambiciosas de los próximos años.`,
         videoId: "93QIhAbxmdc",
-        fecha: "2026-03-10",
+        fecha: "2026-10-10",
         seriesRelacionadas: [21],
         destacada: false,
         vistas: 0
@@ -3288,7 +3732,7 @@ El encuentro entre las técnicas de lucha modernas y el estilo de espada mortal 
 
 Los fans pueden esperar la misma acción brutal y sobrehumana que caracteriza a la serie, ahora con el añadido de un rival histórico que pondrá a prueba los límites de todos los luchadores.`,
         videoId: "EuO7vr7b2m4",
-        fecha: "2025-01-20",
+        fecha: "2025-07-20",
         seriesRelacionadas: [6], // ID de Baki
         destacada: false,
         vistas: 0
@@ -3313,7 +3757,7 @@ Yuji Itadori y Megumi Fushiguro se adentran en el juego para rescatar a Tsumiki,
 
 Los fans podrán ver un adelanto en noviembre de 2025 con el lanzamiento de una película de compilación que incluiría los dos primeros episodios de la temporada 3.`,
         videoId: "RYI-WG_HFV8",
-        fecha: "2025-01-20",
+        fecha: "2026-01-20",
         seriesRelacionadas: [135], // ID de Jujutsu Kaisen
         destacada: true,
         vistas: 0
@@ -3334,7 +3778,7 @@ La producción mantendrá el estilo visual característico de la serie mientras 
 
 Entre los combates confirmados se incluyen enfrentamientos legendarios que los fans del manga han estado esperando ansiosamente, con técnicas divinas y humanas que desafían los límites de la imaginación.`,
         videoId: "5ySabzYxfFQ",
-        fecha: "2025-12-14",
+        fecha: "2025-12-11",
         seriesRelacionadas: [4],
         destacada: true,
         vistas: 0
