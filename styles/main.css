@@ -1074,6 +1074,76 @@ footer {
     visibility: visible;
 }
 
+/* 🆕 ESTILOS PARA SECCIÓN DE DESCARGAS - MANTENIENDO ESTÉTICA */
+.downloads-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.download-item {
+    background: var(--bg-primary);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    transition: var(--transition);
+}
+
+.download-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.download-info {
+    margin-bottom: 1rem;
+}
+
+.download-info strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.download-info span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.download-platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.platform-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 1.5px solid var(--card-border);
+    white-space: nowrap;
+}
+
+.platform-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.platform-btn svg {
+    flex-shrink: 0;
+    color: inherit;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .about-panel {
@@ -1093,6 +1163,16 @@ footer {
     .creator-avatar {
         align-self: center;
     }
+    
+    /* 🆕 RESPONSIVE PARA DESCARGAS */
+    .download-platforms {
+        gap: 0.4rem;
+    }
+    
+    .platform-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1105,6 +1185,28 @@ footer {
     }
     
     .contact-link, .contact-item {
+        font-size: 0.8rem;
+    }
+    
+    /* 🆕 RESPONSIVE MÓVIL PARA DESCARGAS */
+    .download-item {
+        padding: 1rem;
+    }
+    
+    .download-platforms {
+        justify-content: center;
+    }
+    
+    .platform-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .download-info strong {
+        font-size: 0.9rem;
+    }
+    
+    .download-info span {
         font-size: 0.8rem;
     }
 }
