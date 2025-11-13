@@ -3,6 +3,16 @@ console.log('🔍 Verificando datos en main.js:');
 console.log('- seriesData:', typeof seriesData !== 'undefined' ? `✅ (${seriesData.length} series)` : '❌ No definido');
 console.log('- noticiasData:', typeof noticiasData !== 'undefined' ? `✅ (${noticiasData.length} noticias)` : '❌ No definido');
 
+// 🚀 DETECCIÓN TEMPRANA DE RENDIMIENTO
+const isLowPerfDevice = navigator.hardwareConcurrency <= 2 || 
+                       (navigator.deviceMemory && navigator.deviceMemory <= 2) ||
+                       window.innerWidth <= 360;
+console.log(`📊 Rendimiento: ${isLowPerfDevice ? 'Bajo' : 'Alto'}`, {
+  cores: navigator.hardwareConcurrency,
+  memory: navigator.deviceMemory,
+  width: window.innerWidth
+});
+
 // Detección de tema del sistema
 function detectSystemTheme() {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -427,23 +437,19 @@ class UltraOptimizedSeriesCatalog {
             // 🆕 ACTUALIZAR TABS DE CATEGORÍAS VISUALMENTE
             this.updateCategoryTabsVisualState();
 
-            // 🆕 RESTAURAR SCROLL CON MÁS PRECISIÓN
+            // ✅ RESTAURAR SCROLL OPTIMIZADO
             if (savedState.scrollPosition) {
                 console.log('🎯 Restaurando scroll a:', savedState.scrollPosition + 'px');
                 
-                // 🆕 USAR requestAnimationFrame PARA MEJOR SINCRONIZACIÓN
-                requestAnimationFrame(() => {
-                    window.scrollTo({
-                        top: savedState.scrollPosition,
-                        behavior: 'instant' // 🆕 SCROLL INSTANTÁNEO SIN ANIMACIÓN
-                    });
-                    
-                    // 🆕 VERIFICACIÓN DESPUÉS DE LA RESTAURACIÓN
-                    setTimeout(() => {
-                        console.log('📏 Scroll actual después de restauración:', window.scrollY + 'px');
-                        console.log('📏 Diferencia:', (window.scrollY - savedState.scrollPosition) + 'px');
-                    }, 100);
-                });
+                // ✅ SCROLL INMEDIATO SIN ANIMACIONES COSTOSAS
+                window.scrollTo(0, savedState.scrollPosition);
+                
+                // ✅ VERIFICACIÓN OPcional
+                setTimeout(() => {
+                    if (Math.abs(window.scrollY - savedState.scrollPosition) > 100) {
+                        window.scrollTo(0, savedState.scrollPosition);
+                    }
+                }, 100);
             }
 
             // 🆕 LIMPIAR ESTADO DESPUÉS DE RESTAURAR SCROLL
@@ -935,22 +941,18 @@ class UltraOptimizedSeriesCatalog {
     // 🆕 SHOW SERIE DETAILS ACTUALIZADO PARA SCROLL PRECISO
     showSerieDetails(serie) {
         console.log('🎬 Navegando a serie:', serie.title);
-        console.log('📝 Guardando estado actual:', {
-            categoría: this.activeCategory,
-            búsqueda: this.searchTerm,
-            scrollPosition: window.scrollY
-        });
         
-        // 🆕 GUARDAR POSICIÓN EXACTA INMEDIATAMENTE ANTES DE NAVEGAR
+        // ✅ GUARDAR ESTADO ACTUAL
         this.stateManager.saveState(
             this.searchTerm,
             this.activeGenreFilters,
             this.activeStatusFilters,
             this.activeCategory,
-            window.scrollY // 🆕 POSICIÓN EXACTA
+            window.scrollY
         );
         
-        // 🆕 NAVEGACIÓN INMEDIATA SIN TIMEOUT
+        // ✅ CORRECCIÓN CRÍTICA: ELIMINAR setTimeout PELIGROSO
+        // Esto evita que el usuario haga clic múltiples veces durante el timeout
         window.location.href = `./pages/serie.html?id=${serie.id}`;
     }
 
