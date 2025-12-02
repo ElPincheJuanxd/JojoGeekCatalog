@@ -3671,6 +3671,150 @@ const seriesData = [
     seasons: 1,
     studio: "Nippon Animation",
     description: "La adaptación anime original que sigue a Gon Freecss, un niño que descubre que su padre, a quien creía muerto, es uno de los legendarios Hunters. Para encontrarlo, Gon se embarca en el peligroso Examen Hunter donde conoce a Killua, Kurapika y Leorio. Juntos enfrentan desafíos increíbles mientras exploran el mundo de los Hunters, desde las técnicas Nen hasta las mazmorras de Greed Island. Esta versión abarca los primeros arcos de la historia con un estilo visual clásico y fidelidad al manga de Yoshihiro Togashi."
+},
+{
+    id: 345,
+    title: "Big Hero 6",
+    poster: "./assets/images/series/big-hero-6.jpg",
+    year: "2014",
+    genre: ["Acción", "Aventura", "Ciencia Ficción", "Comedia", "Superhéroes", "Animación"],
+    category: "animados",
+    seasons: 1,
+    studio: "Walt Disney Animation Studios",
+    description: "Hiro Hamada, un joven prodigio de la robótica, forma un equipo de superhéroes con su robot inflable de cuidado médico, Baymax, y sus amigos después de que una tragedia familiar los lleva a investigar una conspiración criminal. Juntos utilizan sus habilidades tecnológicas para proteger a la ciudad de San Fransokyo de una amenaza tecnológica."
+},
+{
+    id: 346,
+    title: "Chernobyl",
+    poster: "./assets/images/series/chernobyl.jpg",
+    year: "2019",
+    genre: ["Drama", "Histórico", "Thriller"],
+    category: "series",
+    seasons: 1,
+    studio: "HBO",
+    description: "Miniserie dramática que recrea los eventos del desastre nuclear de Chernóbil de abril de 1986 y los esfuerzos de limpieza sin precedentes que siguieron. La serie sigue a los científicos, ingenieros, bomberos y trabajadores que arriesgaron sus vidas para contener el desastre y prevenir una catástrofe aún mayor, revelando los sacrificios y las mentiras del gobierno soviético."
+},
+{
+    id: 347,
+    title: "Dahmer",
+    poster: "./assets/images/series/dahmer.jpg",
+    year: "2022",
+    genre: ["Drama", "Crimen", "Biografía", "Thriller", "Horror Psicológico"],
+    category: "series",
+    seasons: 1,
+    studio: "Netflix",
+    description: "Serie limitada que explora la vida y crímenes de Jeffrey Dahmer, uno de los asesinos en serie más notorios de Estados Unidos. La serie no solo se centra en los horribles actos de Dahmer, sino también en las fallas del sistema que permitieron que continuara sus crímenes durante años, así como en el impacto en las víctimas y sus familias."
+},
+{
+    id: 348,
+    title: "El Lobo de Wall Street",
+    poster: "./assets/images/series/el-lobo-de-wall-street.jpg",
+    year: "2013",
+    genre: ["Comedia", "Drama", "Biografía", "Crimen"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Paramount Pictures",
+    description: "Dirigida por Martin Scorsese y protagonizada por Leonardo DiCaprio, esta película biográfica sigue la vida de Jordan Belfort, un corredor de bolsa de Nueva York que funda la firma Stratton Oakmont y se involucra en fraudes bursátiles generalizados y corrupción en Wall Street. La película muestra su rápido ascenso a la riqueza extrema y su posterior caída debido a sus excesos y actividades criminales."
+},
+{
+    id: 349,
+    title: "Frankenstein (2025)",
+    poster: "./assets/images/series/frankenstein-2025.jpg",
+    year: "2025",
+    genre: ["Horror", "Drama", "Ciencia Ficción", "Gótico"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Apple Studios",
+    description: "Nueva adaptación de la novela clásica de Mary Shelley dirigida por Guillermo del Toro. Ambientada en el siglo XIX, sigue al Dr. Victor Frankenstein, un científico obsesionado con vencer a la muerte que crea una criatura a partir de partes de cadáveres. La película explora temas de creación, responsabilidad, rechazo y lo que realmente significa ser humano."
+},
+{
+    id: 350,
+    title: "Look Back",
+    poster: "./assets/images/series/look-back.jpg",
+    year: "2024",
+    genre: ["Drama", "Recuentos de la vida", "Seinen", "Artes"],
+    category: "anime",
+    seasons: 1,
+    studio: "Studio Durian",
+    description: "Adaptación del one-shot manga de Tatsuki Fujimoto (autor de Chainsaw Man). Sigue la historia de dos chicas, Fujino y Kyomoto, que sueñan con convertirse en mangakas. La película explora su amistad, rivalidad y los sacrificios que hacen para perseguir sus sueños artísticos en la industria del manga, abordando temas de creatividad, ambición y conexión humana."
+},
+{
+    id: 351,
+    title: "Pacific Rim",
+    poster: "./assets/images/series/pacific-rim.jpg",
+    year: "2013",
+    genre: ["Ciencia Ficción", "Acción", "Mecha", "Monstruos", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Legendary Pictures",
+    description: "En un futuro cercano, la Tierra es atacada por monstruos gigantes llamados Kaijus que emergen del océano. La humanidad responde construyendo Jaegers, robots gigantes controlados por dos pilotos cuyas mentes están conectadas. Cuando las defensas comienzan a fallar, un ex piloto y una aprendiz deben unirse para pilotar un Jaeger obsoleto en un último esfuerzo por salvar a la humanidad."
+},
+{
+    id: 352,
+    title: "Pirates of the Caribbean Movie Collection",
+    poster: "./assets/images/series/pirates-of-the-caribeen-movie-collection.jpg",
+    year: "2003-2017",
+    genre: ["Aventura", "Acción", "Fantasía", "Comedia"],
+    category: "peliculas",
+    seasons: 1,
+    parts: 5,
+    studio: "Walt Disney Pictures",
+    description: "La épica saga de aventuras piratas que sigue las hazañas del capitán Jack Sparrow, Will Turner y Elizabeth Swann en el Caribe del siglo XVIII. Desde la maldición del Black Pearl hasta la búsqueda del Tridente de Poseidón, la serie combina acción, comedia, romance y elementos de fantasía sobrenatural con piratas fantasmales, dioses del mar y criaturas mitológicas."
+},
+{
+    id: 353,
+    title: "Tatsuki Fujimoto: 17-26",
+    poster: "./assets/images/series/tatsuki-fujimoto-17-26.jpg",
+    year: "2023",
+    genre: ["Documental", "Biografía", "Artes"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Production I.G",
+    description: "Documental que explora la vida y obra del mangaka Tatsuki Fujimoto, creador de Chainsaw Man y Fire Punch. La película cubre su carrera desde los 17 hasta los 26 años, mostrando su proceso creativo, influencias artísticas y el camino que lo llevó a convertirse en uno de los mangakas más influyentes y vanguardistas de la industria moderna del manga."
+},
+{
+    id: 354,
+    title: "Teen Titans",
+    poster: "./assets/images/series/teen-titans.jpg",
+    year: "2003-2006",
+    genre: ["Acción", "Aventura", "Superhéroes", "Comedia", "Drama"],
+    category: "animados",
+    seasons: 5,
+    studio: "DC Comics",
+    description: "Serie animada que sigue las aventuras de Robin, Cyborg, Starfire, Raven y Beast Boy, un equipo de jóvenes superhéroes que protegen Jump City de villanos y amenazas sobrenaturales. La serie equilibra perfectamente acción épica, desarrollo de personajes y momentos cómicos, explorando las luchas personales de cada Titán mientras aprenden a trabajar juntos como equipo."
+},
+{
+    id: 355,
+    title: "Teen Titans vs Teen Titans Go!",
+    poster: "./assets/images/series/teen-titans-vs-teen-titans-go.jpg",
+    year: "2019",
+    genre: ["Acción", "Comedia", "Superhéroes", "Crossover", "Animación"],
+    category: "animados",
+    seasons: 1,
+    studio: "Warner Bros. Animation",
+    description: "Película crossover que reúne a los serios Teen Titans de la serie original con sus contrapartes cómicas de Teen Titans Go!. Cuando una amenaza interdimensional obliga a ambos equipos a colaborar, chocan sus diferentes estilos y personalidades en una aventura llena de acción, humor metaficcional y referencias al universo DC."
+},
+{
+    id: 356,
+    title: "The Super Mario Bros. Movie",
+    poster: "./assets/images/series/the-super-mario-bros-movie.jpg",
+    year: "2023",
+    genre: ["Aventura", "Comedia", "Fantasía", "Animación", "Videojuegos"],
+    category: "animados",
+    seasons: 1,
+    studio: "Illumination",
+    description: "Adaptación animada del icónico videojuego de Nintendo. Mario y Luigi, dos fontaneros de Brooklyn, son transportados al Reino Champiñón, donde deben unirse a la Princesa Peach para rescatar el reino del malvado Rey Bowser. La película está llena de referencias a los juegos, personajes clásicos y escenarios reconocibles del universo Mario."
+},
+{
+    id: 357,
+    title: "Whiplash",
+    poster: "./assets/images/series/whiplash.jpg",
+    year: "2014",
+    genre: ["Drama", "Música", "Intenso"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Sony Pictures Classics",
+    description: "Un joven y prometedor baterista de jazz se inscribe en un conservatorio de música de élite donde sus sueños son guiados por un instructor que no se detendrá ante nada para realizar el potencial de un estudiante. La película explora el precio de la grandeza, la obsesión por la perfección y la relación abusiva entre un estudiante y su exigente maestro."
 }
 ];
 
@@ -3757,7 +3901,7 @@ Yuji Itadori y Megumi Fushiguro se adentran en el juego para rescatar a Tsumiki,
 
 Los fans podrán ver un adelanto en noviembre de 2025 con el lanzamiento de una película de compilación que incluiría los dos primeros episodios de la temporada 3.`,
         videoId: "RYI-WG_HFV8",
-        fecha: "2026-01-20",
+        fecha: "2026-01-8",
         seriesRelacionadas: [135], // ID de Jujutsu Kaisen
         destacada: true,
         vistas: 0
@@ -3768,16 +3912,23 @@ Los fans podrán ver un adelanto en noviembre de 2025 con el lanzamiento de una 
         tipo: "trailer", 
         imagen: "./assets/images/noticias/shuumatsu-no-valkyrie-season-3.jpg",
         resumen: "El torneo divino continúa con nuevos combates épicos entre humanos y dioses programados para 2026",
-        contenido: `Netflix ha anunciado oficialmente la tercera temporada de Shuumatsu no Valkyrie (Record of Ragnarok), programada para estrenarse en 2026.
+        contenido: `La producción estará a cargo de un nuevo equipo: los estudios Yumeta Company y Maru Animation, dirigidos por Kōichi Hatsumi (conocido por Tokyo Revengers).
 
-La nueva temporada continuará el épico torneo donde 13 dioses se enfrentan a 13 humanos en combates a vida o muerte para decidir el destino de la humanidad. Basada en el manga de Shinya Umemura y Takumi Fukui, esta temporada promete adaptar algunos de los encuentros más esperados por los fans.
+Combates que se Adaptarán
 
-"Los combates se intensificarán como nunca antes", comentó el director. "Estamos preparando animación de la más alta calidad para hacer justicia a las batallas cósmicas que están por venir".
+La temporada romperá el empate 3-3 actual adaptando las siguientes rondas del manga:
 
-La producción mantendrá el estilo visual característico de la serie mientras introduce nuevos y poderosos contendientes tanto del panteón divino como de la historia humana, cada uno con habilidades únicas y técnicas devastadoras.
+· Ronda 7: Qin Shi Huang vs. Hades
+· Ronda 8: Nikola Tesla vs. Belcebú
+· Ronda 9: Apolo vs. Leónidas
 
-Entre los combates confirmados se incluyen enfrentamientos legendarios que los fans del manga han estado esperando ansiosamente, con técnicas divinas y humanas que desafían los límites de la imaginación.`,
-        videoId: "5ySabzYxfFQ",
+Otros Detalles Destacados
+
+· Tema Musical: El opening será "Dead or Alive" por la banda GLAY.
+· Nuevo Seiyu: Shun Horie se unirá al elenco dando voz al profeta Nostradamus.
+
+El equipo promete una animación de la más alta calidad para estos combates épicos que decidirán el destino de la humanidad. La espera está casi terminada, y la emoción sigue en aumento. ¿Por qué bando crees que caerá la primera victoria de esta nueva tanda de batallas?`,
+        videoId: "o5GRIchY2M4",
         fecha: "2025-12-11",
         seriesRelacionadas: [4],
         destacada: true,
