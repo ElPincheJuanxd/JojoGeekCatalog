@@ -3971,6 +3971,27 @@ const seriesData = [
     seasons: 1,
     studio: "Walt Disney Animation Studios",
     description: "En la metrópolis de Zootopia, donde animales de cada hábitat conviven, Judy Hopps se convierte en la primera coneja oficial de policía. Para demostrar su valía, se embarca en un caso con la ayuda de un estafador zorro llamado Nick Wilde, descubriendo una conspiración que amenaza la armonía de la ciudad."
+},{
+    id: 372,
+    title: "Stranger Things",
+    poster: "./assets/images/series/stranger-things.jpg",
+    year: "2016-presente",
+    genre: ["Ciencia Ficción", "Horror", "Drama", "Misterio"],
+    category: "series",
+    seasons: 5,
+    studio: "Netflix",
+    description: "En los años 80, en el pequeño pueblo de Hawkins, Indiana, un grupo de amigos se embarca en una serie de aventuras sobrenaturales cuando uno de ellos, Will Byers, desaparece misteriosamente. Pronto descubren experimentos secretos del gobierno, una niña con poderes psíquicas llamada Once, y un peligroso universo alternativo conocido como el Mundo del Revés que amenaza con consumir su realidad."
+},
+{
+    id: 373,
+    title: "Bridgerton",
+    poster: "./assets/images/series/bridgerton.jpg",
+    year: "2020-presente",
+    genre: ["Drama", "Romance", "Histórico"],
+    category: "series",
+    seasons: 3,
+    studio: "Netflix",
+    description: "Ambientada en la alta sociedad de la Regencia londinense, la serie sigue a la familia Bridgerton y sus ocho hermanos mientras buscan amor y felicidad en la competitiva temporada social. Cada temporada se centra en un hermano diferente y su historia de amor, todo narrado por la misteriosa Lady Whistledown, cuyos chismorreos en su panfleto semanal mantienen a la aristocracia en vilo."
 }
 ];
 
@@ -4059,34 +4080,6 @@ Los fans podrán ver un adelanto en noviembre de 2025 con el lanzamiento de una 
         videoId: "RYI-WG_HFV8",
         fecha: "2026-01-8",
         seriesRelacionadas: [135], // ID de Jujutsu Kaisen
-        destacada: true,
-        vistas: 0
-    },
-    {
-        id: 5,
-        titulo: "Shuumatsu no Valkyrie Temporada 3 Confirmada para 2026",
-        tipo: "trailer", 
-        imagen: "./assets/images/noticias/shuumatsu-no-valkyrie-season-3.jpg",
-        resumen: "El torneo divino continúa con nuevos combates épicos entre humanos y dioses programados para 2026",
-        contenido: `La producción estará a cargo de un nuevo equipo: los estudios Yumeta Company y Maru Animation, dirigidos por Kōichi Hatsumi (conocido por Tokyo Revengers).
-
-Combates que se Adaptarán
-
-La temporada romperá el empate 3-3 actual adaptando las siguientes rondas del manga:
-
-· Ronda 7: Qin Shi Huang vs. Hades
-· Ronda 8: Nikola Tesla vs. Belcebú
-· Ronda 9: Apolo vs. Leónidas
-
-Otros Detalles Destacados
-
-· Tema Musical: El opening será "Dead or Alive" por la banda GLAY.
-· Nuevo Seiyu: Shun Horie se unirá al elenco dando voz al profeta Nostradamus.
-
-El equipo promete una animación de la más alta calidad para estos combates épicos que decidirán el destino de la humanidad. La espera está casi terminada, y la emoción sigue en aumento. ¿Por qué bando crees que caerá la primera victoria de esta nueva tanda de batallas?`,
-        videoId: "o5GRIchY2M4",
-        fecha: "2025-12-11",
-        seriesRelacionadas: [4],
         destacada: true,
         vistas: 0
     }
