@@ -733,7 +733,7 @@ const seriesData = [
         year: "2022-2023",
         genre: ["Deporte", "Psicológico", "Shonen"],
         category: "anime",
-        seasons: 1,
+        seasons: 2,
         studio: "Eight Bit",
         description: "Tras el fracaso de Japón en la Copa del Mundo, se implementa el proyecto Blue Lock: un programa de entrenamiento extremo diseñado para crear el delantero egoísta definitivo. Yoichi Isagi se une a esta competencia despiadada donde solo uno puede sobrevivir y convertirse en la estrella del fútbol mundial."
     },
@@ -1924,10 +1924,10 @@ const seriesData = [
         id: 178,
         title: "Castlevania: Nocturne",
         poster: "./assets/images/series/castlevania-nocturne.jpg",
-        year: "2023",
+        year: "2023-2025",
         genre: ["Acción", "Horror", "Fantasía", "Videojuegos"],
         category: "animados",
-        seasons: 1,
+        seasons: 2,
         studio: "Powerhouse Animation Studios",
         description: "Secuela de Castlevania ambientada durante la Revolución Francesa. Richter Belmont, descendiente de Trevor y Sypha, y la maga Maria Renard se enfrentan a una secta vampírica que planea acabar con la luz del sol y sumir al mundo en la oscuridad eterna."
     },
@@ -1937,7 +1937,7 @@ const seriesData = [
         poster: "./assets/images/series/cyberpunk-edgerunners.jpg",
         year: "2022",
         genre: ["Ciencia Ficción", "Acción", "Drama", "Videojuegos"],
-        category: "animados",
+        category: "anime",
         seasons: 1,
         studio: "Trigger",
         description: "En la distópica Night City, un joven callejero llamado David Martínez sobrevive tras perder a su madre instalándose un implante militar ilegal. Se une a los Edgerunners, mercenarios fuera de la ley, mientras lucha por mantenerse vivo en una ciudad consumida por la violencia y el ciberware."
@@ -2879,6 +2879,7 @@ const seriesData = [
     {
         id: 273,
         title: "Scott Pilgrim Takes Off",
+        franchise: "Scott Pilgrim",
         poster: "./assets/images/series/scott-serie.jpg",
         year: "2023",
         genre: ["Comedia", "Acción", "Romance"],
@@ -2890,6 +2891,7 @@ const seriesData = [
     {
         id: 274,
         title: "Scott Pilgrim vs. The World",
+        franchise: "Scott Pilgrim",
         poster: "./assets/images/series/scott-pelicula.jpg",
         year: "2010",
         genre: ["Comedia", "Acción", "Romance", "Película"],
@@ -3222,7 +3224,7 @@ const seriesData = [
     title: "Minecraft: La Película",
     poster: "./assets/images/series/a-minecraft-movie.jpg",
     year: "2025",
-    genre: ["Aventura", "Fantasía", "Videojuegos"],
+    genre: ["Aventura", "Fantasía", "Videojuegos", "Película"],
     category: "peliculas",
     seasons: 1,
     studio: "Warner Bros. Pictures",
@@ -3348,7 +3350,7 @@ const seriesData = [
         category: "animados",
         seasons: 2,
         studio: "DiC Entertainment",
-        description: "Colección de las series animadas clásicas de Sonic the Hedgehog. Sigue las aventuras de Sonic y sus amigos mientras protegen Mobius del malvado Dr. Robotnik, quien busca convertir a todos los animales en robots malvados."
+        description: "La historia sigue a Sonic mientras llega a la Tierra y forja una amistad improbable con un sheriff humano y su familia, buscando encontrar su lugar y un nuevo hogar. Sin embargo, su velocidad atrae a fuerzas oscuras y villanos obsesionados con su poder, lo que lo lleva a enfrentarse a amenazas que ponen en peligro ambos mundos.Más allá de la acción vertiginosa y el humor, la trilogía explora temas profundos como la búsqueda del hogar, la importancia de la familia elegida y los sacrificios por proteger a los seres queridos. Esencialmente, es un viaje sobre descubrir el propósito y aprender que lo más importante es nunca correr solo."
     },
     {
         id: 316,
@@ -3677,7 +3679,7 @@ const seriesData = [
     title: "Big Hero 6",
     poster: "./assets/images/series/big-hero-6.jpg",
     year: "2014",
-    genre: ["Acción", "Aventura", "Ciencia Ficción", "Comedia", "Superhéroes", "Animación"],
+    genre: ["Película","Acción", "Aventura", "Ciencia Ficción", "Comedia", "Superhéroes", "Animación"],
     category: "animados",
     seasons: 1,
     studio: "Walt Disney Animation Studios",
@@ -3721,7 +3723,7 @@ const seriesData = [
     title: "Frankenstein (2025)",
     poster: "./assets/images/series/frankenstein-2025.jpg",
     year: "2025",
-    genre: ["Horror", "Drama", "Ciencia Ficción", "Gótico"],
+    genre: ["Horror", "Drama", "Ciencia Ficción", "Gótico", "Película"],
     category: "peliculas",
     seasons: 1,
     studio: "Apple Studios",
@@ -3743,7 +3745,7 @@ const seriesData = [
     title: "Pacific Rim",
     poster: "./assets/images/series/pacific-rim.jpg",
     year: "2013",
-    genre: ["Ciencia Ficción", "Acción", "Mecha", "Monstruos", "Aventura"],
+    genre: ["Ciencia Ficción", "Acción", "Mecha", "Monstruos", "Aventura", "Película"],
     category: "peliculas",
     seasons: 1,
     studio: "Legendary Pictures",
@@ -3754,7 +3756,7 @@ const seriesData = [
     title: "Pirates of the Caribbean Movie Collection",
     poster: "./assets/images/series/pirates-of-the-caribeen-movie-collection.jpg",
     year: "2003-2017",
-    genre: ["Aventura", "Acción", "Fantasía", "Comedia"],
+    genre: ["Aventura", "Acción", "Fantasía", "Comedia", "Película"],
     category: "peliculas",
     seasons: 1,
     parts: 5,
@@ -3766,11 +3768,11 @@ const seriesData = [
     title: "Tatsuki Fujimoto: 17-26",
     poster: "./assets/images/series/tatsuki-fujimoto-17-26.jpg",
     year: "2023",
-    genre: ["Documental", "Biografía", "Artes"],
-    category: "peliculas",
+    genre: ["Fantasía", "Drama", "Romance", "Ciencia Ficción", "Comedia"],
+    category: "anime",
     seasons: 1,
-    studio: "Production I.G",
-    description: "Documental que explora la vida y obra del mangaka Tatsuki Fujimoto, creador de Chainsaw Man y Fire Punch. La película cubre su carrera desde los 17 hasta los 26 años, mostrando su proceso creativo, influencias artísticas y el camino que lo llevó a convertirse en uno de los mangakas más influyentes y vanguardistas de la industria moderna del manga."
+    studio: "Production I.G / Zexcs / Lapin Track / Studio Graph77 / 100studio / Studio Kafka / P.A. Works",
+    description: "Tatsuki Fujimoto 17-26 es una antología animada que adapta ocho historias cortas escritas e ilustradas por Fujimoto entre los 17 y los 26 años, antes de su éxito con Chainsaw Man. Cada episodio es una historia independiente con su propio estilo visual, ya que fueron producidos por seis estudios y siete directores diferentes."
 },
 {
     id: 354,
@@ -3799,7 +3801,7 @@ const seriesData = [
     title: "The Super Mario Bros. Movie",
     poster: "./assets/images/series/the-super-mario-bros-movie.jpg",
     year: "2023",
-    genre: ["Aventura", "Comedia", "Fantasía", "Animación", "Videojuegos"],
+    genre: ["Película", "Aventura", "Comedia", "Fantasía", "Animación", "Videojuegos"],
     category: "animados",
     seasons: 1,
     studio: "Illumination",
@@ -3810,7 +3812,7 @@ const seriesData = [
     title: "Whiplash",
     poster: "./assets/images/series/whiplash.jpg",
     year: "2014",
-    genre: ["Drama", "Música", "Intenso", "película"],
+    genre: ["Drama", "Música", "película"],
     category: "peliculas",
     seasons: 1,
     studio: "Sony Pictures Classics",
@@ -3833,7 +3835,7 @@ const seriesData = [
     poster: "./assets/images/series/bleach-movie-collection.jpg",
     year: "2006-2012",
     genre: ["Película", "Acción", "Fantasía", "Sobrenatural"],
-    category: "peliculas",
+    category: "anime",
     seasons: 1,
     parts: 4,
     studio: "Studio Pierrot",
@@ -3878,7 +3880,7 @@ const seriesData = [
     poster: "./assets/images/series/naruto-shippuden-movies.jpg",
     year: "2007-2015",
     genre: ["Película", "Acción", "Aventura", "Fantasía", "Shonen"],
-    category: "peliculas",
+    category: "anime",
     seasons: 1,
     parts: 7,
     studio: "Studio Pierrot",
@@ -3911,7 +3913,7 @@ const seriesData = [
     title: "Silence",
     poster: "./assets/images/series/silence.jpg",
     year: "2016",
-    genre: ["Película", "Drama", "Histórico", "Religioso"],
+    genre: ["Película", "Drama", "Histórico"],
     category: "peliculas",
     seasons: 1,
     studio: "Paramount Pictures",
@@ -3992,6 +3994,72 @@ const seriesData = [
     seasons: 3,
     studio: "Netflix",
     description: "Ambientada en la alta sociedad de la Regencia londinense, la serie sigue a la familia Bridgerton y sus ocho hermanos mientras buscan amor y felicidad en la competitiva temporada social. Cada temporada se centra en un hermano diferente y su historia de amor, todo narrado por la misteriosa Lady Whistledown, cuyos chismorreos en su panfleto semanal mantienen a la aristocracia en vilo."
+},
+{
+    id: 374,
+    title: "Breathe",
+    poster: "./assets/images/series/breathe.jpg",
+    year: "2024",
+    genre: ["Película", "Ciencia Ficción", "Drama", "Suspenso"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Columbia Pictures",
+    description: "En un futuro donde el aire exterior se ha vuelto tóxico e irrespirable, una madre y su hija luchan por sobrevivir en un mundo en el que cada bocanada de aire puro es un lujo. Cuando su suministro de oxígeno empieza a fallar, deben aventurarse fuera de su refugio subterráneo en una desesperada búsqueda de aire limpio, enfrentándose a peligros tanto humanos como ambientales en un planeta que ya no puede sostener la vida como la conocemos."
+},
+{
+    id: 375,
+    title: "Chainsaw Man: The Reze Arc",
+    poster: "./assets/images/series/chainsaw-man-the-movie-reze-arc.jpg",
+    year: "2025",
+    genre: ["Acción", "Fantasía", "Horror", "Drama"],
+    category: "anime",
+    seasons: 1,
+    studio: "MAPPA",
+    description: "Arco especial de Chainsaw Man que adapta la icónica historia de Reze del manga de Tatsuki Fujimoto. Denji conoce a Reze, una misteriosa y encantadora transferida en su escuela, sin saber que ella es en realidad una híbrida bomba-demonio enviada por la Unión Soviética para asesinarlo. Lo que comienza como un romance inocente se convierte en una brutal batalla de supervivencia que explora temas de soledad, manipulación y el deseo de conexión humana, mientras Denji se enfrenta a uno de sus oponentes más complejos y emocionalmente cargados."
+},
+{
+    id: 376,
+    title: "F1",
+    poster: "./assets/images/series/f1.jpg",
+    year: "2025",
+    genre: ["Película", "Deporte", "Drama", "Acción"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Apple Studios",
+    description: "Película de deportes dirigida por Joseph Kosinski (Top Gun: Maverick) y protagonizada por Brad Pitt. Sigue a Sonny Hayes, un veterano piloto de Fórmula 1 que regresa a la competición después de años de ausencia para mentorar a un joven prodigio y competir por el campeonato mundial. Filmada en locaciones reales durante Grandes Premios de Fórmula 1 con la colaboración de la FIA, la película ofrece una mirada auténtica y de alta velocidad al mundo de las carreras de élite, explorando la rivalidad, la redención y el precio de la grandeza en el deporte motor más exigente del mundo."
+},
+{
+    id: 377,
+    title: "Gladiator",
+    poster: "./assets/images/series/gladiator.jpg",
+    year: "2000",
+    genre: ["Película", "Acción", "Drama", "Histórico", "Épico"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "DreamWorks Pictures",
+    description: "Épica histórica ganadora del Óscar a Mejor Película. Máximo Décimo Meridio, el general más leal del emperador Marco Aurelio, es traicionado cuando el hijo ambicioso del emperador, Cómodo, asesina a su familia y lo condena a muerte. Capturado y convertido en esclavo, Máximo se levanta a través de las filas de los gladiadores para vengarse del corrupto emperador que destruyó su familia y sumió al Imperio Romano en la tiranía. Una historia épica de traición, venganza y redención ambientada en la antigua Roma."
+},
+{
+    id: 378,
+    title: "Irreversible",
+    poster: "./assets/images/series/irreversible.jpg",
+    year: "2002",
+    genre: ["Película", "Drama", "Thriller"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "StudioCanal",
+    description: "Película francesa dirigida por Gaspar Noé, conocida por su narrativa en orden inverso y su impacto visceral. La historia sigue a Marcus y Pierre, quienes buscan venganza después de que Alex, la novia de Marcus y ex novia de Pierre, es brutalmente agredida en un paso subterráneo. Filmada con tomas largas y una cinematografía desorientadora, la película explora temas de violencia, venganza y el irreversible flujo del tiempo, presentando sus eventos en orden cronológico inverso para crear una experiencia cinematográfica única y desafiante que ha sido tanto aclamada como controvertida."
+},
+{
+    id: 379,
+    title: "Salò o los 120 días de Sodoma",
+    poster: "./assets/images/series/salo-a-120-dias-de-sodoma.jpg",
+    year: "1975",
+    genre: ["Película", "Drama", "Horror", "Histórico"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Produzioni Europee Associati",
+    description: "Adaptación cinematográfica de la novela del Marqués de Sade dirigida por Pier Paolo Pasolini. Ambientada en la República de Salò (1944-1945), último bastión del fascismo italiano, la película sigue a cuatro hombres poderosos que secuestran a dieciocho jóvenes y los someten a 120 días de tortura física, psicológica y sexual. Considerada una de las películas más controvertidas de la historia del cine, funciona como una alegoría política sobre el abuso de poder, el fascismo y la corrupción moral, utilizando la transgresión extrema para criticar los sistemas opresivos y la deshumanización institucionalizada."
 }
 ];
 
@@ -4082,7 +4150,349 @@ Los fans podrán ver un adelanto en noviembre de 2025 con el lanzamiento de una 
         seriesRelacionadas: [135], // ID de Jujutsu Kaisen
         destacada: true,
         vistas: 0
-    }
+    },
+    {
+    id: 5,
+    titulo: "Frieren: Beyond Journey's End Temporada 2 Confirma Estreno para Enero 2026",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/frieren-season-2-anuncio.jpg",
+    resumen: "La segunda temporada de Frieren se estrenará el 16 de enero de 2026 con nuevo director pero manteniendo al equipo creativo clave",
+    contenido: `🧙‍♀️ Lo último de la segunda temporada de Frieren: Beyond Journey's End
+
+📅 Fecha de Estreno: 16 de enero de 2026
+
+🎬 Nuevo Director:** Tomoya Kitagawa (Asistente de dirección en Bocchi the Rock!)
+
+🏆 Estudio de Animación: MADHOUSE (retorna)
+
+🎵 Compositor Musical: Evan Call (retorna)
+
+La Continuación del Viaje Épico
+
+La aclamada serie que sigue los viajes de la maga élfica Frieren retornará con una segunda temporada programada para el 16 de enero de 2026. La producción ha confirmado importantes detalles sobre el equipo creativo y la dirección que tomará la serie.
+
+* Cambios en la Dirección con Experiencia Garantizada
+
+Tomoya Kitagawa, quien sirvió como asistente de dirección en el éxito *Bocchi the Rock!*, tomará las riendas como director principal. Aunque supone un cambio en la dirección, los fans pueden estar tranquilos sabiendo que Kitagawa trabajó estrechamente con el director original Keiichirō Saitō y comprende profundamente la esencia emocional de la serie.
+
+* Continuidad Creativa Clave
+
+Lo más reconfortante para los fans es la confirmación de que:
+
+- MADHOUSE retorna como estudio de animación
+
+- Evan Call** continúa como compositor musical, asegurando la icónica banda sonora
+
+- El elenco principal de voces japonesas reasume sus roles
+
+- Lo que Viene en la Temporada 2
+
+La segunda temporada continuará exactamente donde terminó la primera, siguiendo el viaje de Frieren, Fern y Stark después de los eventos del arco del examen de mago. Según fuentes cercanas a la producción, la temporada mantendrá el equilibrio perfecto entre:
+
+- Momentos introspectivos y emocionales
+
+- Batallas mágicas espectaculares
+
+- Desarrollo de personajes profundo
+
+- La exploración filosófica sobre el tiempo y la mortalidad
+
+* Compromiso con la Calidad
+
+A pesar del cambio en la dirección, el equipo ha asegurado que mantendrán la excepcional calidad visual y narrativa que convirtió a la primera temporada en uno de los animes más aclamados de los últimos años. La atención al detalle en la animación, la dirección de arte y la fidelidad al manga de Kanehito Yamada seguirán siendo prioridades absolutas.
+
+Los fans pueden esperar más de la conmovedora historia que explora lo que significa vivir una vida plena a través de los ojos de una elfa que aprende a apreciar los momentos efímeros después de una larga vida.`,
+    videoId: "MwP4gqRys4c?si",
+    fecha: "2025-12-15",
+    seriesRelacionadas: [164], // ID de Frieren: Beyond Journey's End
+    destacada: true,
+    vistas: 0
+},{
+    id: 6,
+    titulo: "Trigun Stargaze: Última Temporada Confirma Estreno para Enero 2026",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/trigun-stargaze-anuncio.jpg",
+    resumen: "El capítulo final de Trigun llega el 10 de enero de 2026 con nuevo director pero manteniendo el distintivo CGI de Orange",
+    contenido: `Trigun Stargaze Concluye la Saga con Nuevo Equipo Creativo
+
+La información se basa en anuncios oficiales e información confirmada.
+
+Aspecto Detalle de Producción
+
+📅 Fecha de Estreno: 10 de enero de 2026. La emisión internacional será por Crunchyroll.
+
+🎬 Director: Masako Sato. Nueva en la franquicia, fue elegida para dirigir este "capítulo final".
+
+🏆 Estudio de Animación: Orange. Continúa con su distintivo estilo CGI.
+
+✍️ Guion / Composición de Serie: Kazuyuki Fudeyasu (a cargo de los guiones).
+
+🎨 Diseño de Personajes (Animación): Kiyotaka Oshiyama. Se une al equipo para esta temporada final.
+
+🎵 Compositor Musical: Tatsuya Kato (regresa de Trigun Stampede).
+
+🎬 Claves del Equipo y Proceso Creativo
+
+Para entender el enfoque de producción, estos son los puntos más relevantes:
+
+- Un equipo mixto: La producción combina talento que regresa (como el compositor y el diseñador de personajes original, Kouji Tajima) con nuevas incorporaciones clave para aportar una perspectiva fresca al "capítulo final".
+
+- Un sonido evolucionado: El compositor Tatsuya Kato planteó una dirección musical nueva para esta temporada, buscando un balance entre temas conocidos y composiciones originales.
+
+- Producción simultánea y evolución técnica:** El trabajo en Stargaze comenzó en enero de 2022, mientras aún se producía Stampede. El estudio Orange ha evolucionado su técnica, poniendo especial atención en mejorar la expresividad facial y corporal de los personajes.
+
+- Supervisión del creador: Yasuhiro Nightow, autor del manga original, supervisa el proyecto. Su rol ha sido de aprobación y apoyo, confiando en el equipo para dar forma a esta conclusión.
+
+* Lo Que Esperar de Esta Temporada Final
+
+Trigun Stargaze promete cerrar la reinvención de la saga que comenzó con Stampede, llevando a Vash the Stampede a un enfrentamiento definitivo que explorará los misterios más profundos de su pasado y su conexión con Knives. Los fans pueden esperar:
+
+- Una conclusión satisfactoria a los arcos establecidos en Stampede
+
+- Mejoras técnicas significativas en la animación CGI
+
+- Una banda sonora que honra el legado musical de la franquicia
+
+- La participación directa del creador original Yasuhiro Nightow
+
+* Disponibilidad Internacional
+
+Al igual que su predecesora, Trigun Stargaze estará disponible globalmente a través de Crunchyroll con subtítulos en múltiples idiomas, asegurando que los fans de todo el mundo puedan experimentar el final épico de esta saga revitalizada.`,
+    videoId: "JBYLkW--zmI",
+    fecha: "2025-12-10",
+    seriesRelacionadas: [36, 35], // IDs de Trigun Stampede 2022 y Trigun 1998
+    destacada: true,
+    vistas: 0
+},
+{
+    id: 7,
+    titulo: "The Super Mario Galaxy Movie: Estreno Confirmado para Abril 2026 con Nuevo Reparto",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/super-mario-galaxy-movie.jpg",
+    resumen: "Illumination confirma secuela cinematográfica inspirada en Super Mario Galaxy para 2026 con Brie Larson como Rosalina",
+    contenido: `🎬 Ficha Técnica de The Super Mario Galaxy Movie
+
+Aspecto Detalle
+
+📅 Fecha de Estreno (EE.UU. y otros): 3 de abril de 2026
+
+🎬 Director: Aaron Horvath y Michael Jelenic
+
+🏆 Estudio de Animación: Illumination (Illumination Studios Paris)
+
+✍️ Guionista: Matthew Fogel
+
+🎵 Compositor Musical: Brian Tyler
+
+🎭 Elenco de Voces (Confirmado)
+
+| Personaje | Actor / Actriz de Voz |
+|-----------|----------------------|
+| Mario | Chris Pratt |
+| Princesa Peach | Anya Taylor-Joy |
+| Luigi | Charlie Day |
+| Bowser | Jack Black |
+| Toad | Keegan-Michael Key |
+| Kamek | Kevin Michael Richardson |
+| 👑 Rosalina | Brie Larson (nueva) |
+| 🐢 Bowser Jr. | Benny Safdie (nuevo) |
+
+🔍 Lo Más Destacado
+
+Basándonos en la información oficial disponible, estos son los puntos clave de la producción:
+
+- Nuevas incorporaciones al reparto: Brie Larson y Benny Safdie se unen a la franquicia para dar vida a dos personajes fundamentales del videojuego Super Mario Galaxy: Rosalina y Bowser Jr.
+
+- Regreso del equipo principal:** La mayoría del equipo creativo y de voces de la exitosa primera película regresa, incluyendo a los directores, guionista, compositor y actores principales.
+
+- Inspiración y alcance: La película toma su inspiración central de los juegos Super Mario Galaxy, pero la productora ha señalado que también incluirá "sorpresas para los fans de todas las eras de Mario", sugiriendo un homenaje más amplio a la franquicia.
+
+🌌 ¿Qué Podemos Esperar?
+
+La secuela del éxito de taquilla de 2023 promete llevar a Mario y compañía al espacio exterior, explorando los misteriosos mundos galácticos que hicieron famosos los juegos de Wii. Basada en filtraciones y confirmaciones oficiales, la trama podría incluir:
+
+- La introducción de las Lumas y su estrella madre
+- Viajes a través de diferentes galaxias con mecánicas de gravedad únicas
+- La búsqueda de Power Stars para alimentar el observatorio
+- La posible aparición de otros personajes cósmicos de la franquicia
+
+📊 Expectativas Comerciales
+
+Tras el rotundo éxito de la primera película que recaudó más de $1.3 billones globalmente, Illumination y Nintendo apuestan por otra entrega que combine la magia del universo Mario con innovación tecnológica. La película ya se perfila como uno de los estrenos animados más esperados de 2026.`,
+    videoId: "iTzCWDQSwvk",
+    fecha: "2025-12-12",
+    seriesRelacionadas: [356], // ID de The Super Mario Bros. Movie
+    destacada: false,
+    vistas: 0
+},
+{
+    id: 8,
+    titulo: "'Boulevard': Adaptación Cinematográfica de Flor M. Salvador Confirma Estreno para 2026",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/boulevard-movie.jpg",
+    resumen: "La exitosa novela de Wattpad llega al cine el 10 de abril de 2026 con tráiler oficial revelado",
+    contenido: `🎬 'Boulevard': De Wattpad a la Pantalla Grande
+
+Según el tráiler oficial revelado el 9 de diciembre de 2025, la adaptación cinematográfica de Boulevard ya tiene fecha de estreno y elenco confirmado. Aquí está toda la información, actualizada.
+
+Aspecto Detalle
+
+📅 Fecha de Estreno: 10 de abril de 2026
+
+🎬 Director: Sonia Méndez
+
+✍️ Guionista: Javier Ruescas
+
+🎭 Elenco Principal Revelado en el Tráiler
+
+- Eve Ryan** como Hasley
+
+- Mikel Niso** como Luke
+
+🔍 Puntos Clave de la Producción
+
+- Origen Digital: La película adapta la exitosa novela juvenil de Flor M. Salvador que se popularizó en Wattpad, alcanzando millones de lecturas en la plataforma antes de su publicación física.
+
+- Novedad en la adaptación: Se ha creado un personaje nuevo llamado Olivia exclusivamente para la versión cinematográfica, un movimiento que busca expandir el universo de la historia original mientras se mantiene fiel a su esencia.
+
+* Distribución: Su estreno será inicialmente en cines, con planes confirmados para llegar posteriormente a plataformas de streaming tras una ventana teatral estándar.
+
+*📖 Sobre la Historia Original
+
+"Boulevard" narra la historia de Hasley y Luke, dos jóvenes cuyos caminos se cruzan de manera inesperada, llevándolos a un viaje de autodescubrimiento, amor y superación personal. La novela se destacó por su representación honesta de las relaciones juveniles y las emociones complejas que acompañan a la transición a la vida adulta.
+
+🎥 Detalles del Tráiler Revelado
+
+El tráiler oficial de 2 minutos y medio muestra:
+
+- La química palpable entre Eve Ryan y Mikel Niso
+
+- Escenarios emblemáticos de la historia original
+
+- Un vistazo a la banda sonora original compuesta para la película
+
+- La atmósfera melancólica y romántica que caracteriza la novela
+
+👥 Reacciones de la Autora y Fans
+
+Flor M. Salvador ha expresado en redes sociales su emoción por ver su obra llevada a la pantalla grande, destacando que el equipo de producción "ha capturado perfectamente la esencia emocional de los personajes". Los fans de la novela han recibido con entusiasmo el casting, especialmente la elección de Eve Ryan, cuya interpretación promete dar vida a la compleja personalidad de Hasley.`,
+    videoId: "rZ6xn57p4J0", // Reemplazar con ID real del tráiler
+    fecha: "2025-12-09",
+    seriesRelacionadas: [], // No hay serie relacionada específica
+    destacada: false,
+    vistas: 0
+},
+{
+    id: 9,
+    titulo: "'Michael': Biopic de Michael Jackson Estrenará en Abril 2026 con Sobrino del Artista como Protagonista",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/michael-jackson-biopic.jpg",
+    resumen: "Jaafar Jackson debutará como su tío en ambiciosa película dirigida por Antoine Fuqua con estreno mundial el 24 de abril de 2026",
+    contenido: `🎬 "Michael": La Próxima Película Biográfica de Michael Jackson
+
+Aspecto Detalle
+
+📅 Fecha de Estreno: 24 de abril de 2026 (a nivel mundial)
+
+🎬 Director: Antoine Fuqua (Training Day, The Equalizer)
+
+✍️ Guionista: John Logan (Gladiator, The Aviator)
+
+🏢 Productor: Graham King (Bohemian Rhapsody, The Departed)
+
+🎭 Protagonista: Jaafar Jackson (debut cinematográfico del sobrino de Michael)
+
+🎵 Compositor: Aún no anunciado (se espera que incluya el catálogo musical de Jackson)
+
+💰 Presupuesto: Aproximadamente $155 millones USD
+
+🎞️ Argumento y Enfoque de la Histori*
+
+La película narrará la vida de Michael Jackson, desde sus inicios como niño prodigio liderando The Jackson 5 hasta su consolidación como superestrella global en los años 80. El enfoque abarcará los álbumes icónicos *Off the Wall*, *Thriller* y *Bad*, mostrando tanto su genialidad artística como sus luchas personales.
+
+El productor Graham King ha declarado que el filme buscará "humanizar pero no blanquear" la vida del artista, presentando una historia equilibrada que incluya sus logros y controversias, dejando al público formarse su propia opinión.
+
+🎭 Reparto Principal Completo
+
+- Michael Jackson (adulto): Jaafar Jackson (sobrino de Michael)
+
+- Michael Jackson (niño): Juliano Krue Valdi
+
+- Joe Jackson: Colman Domingo
+
+- Katherine Jackson: Nia Long
+
+-John Branca (abogado): Miles Teller
+
+- Diana Ross: Kat Graham
+
+- Quincy Jones: Kendrick Sampson
+
+- Berry Gordy: Larenz Tate
+
+📊 Producción, Recepción y Contexto
+
+🎥 Estado de Producción:
+
+La filmación principal concluyó en mayo de 2024, con 22 días adicionales de rodaje en junio de 2025 para ajustes. La película experimentó retrasos: su fecha original era abril de 2025, luego octubre de 2025, y finalmente se estableció para abril de 2026.
+
+📈 Recepción y Expectativas:
+El primer tráiler, lanzado el 6 de noviembre de 2025, rompió récords al ser visto 116.2 millones de veces en sus primeras 24 horas, superando el interés inicial por otros biopics musicales como *Bohemian Rhapsody* o *Elvis*.
+
+⚖️ Contexto y Controversias:
+
+La película no eludirá las acusaciones de abuso sexual que persiguieron al artista. Esta decisión ha generado opiniones encontradas: el documentalista Dan Reed (*Leaving Neverland*) criticó un borrador del guion, mientras que Paris Jackson, hija del cantante, expresó que la versión que leyó le pareció "edulcorada" y declaró no estar involucrada en el proyecto.
+
+💃 Coreografía y Musicalidad
+
+La producción ha trabajado intensamente en recrear los icónicos pasos de baile de Jackson, con Jaafar entrenando durante más de un año bajo la tutela de coreógrafos que trabajaron con el artista original. Se espera que la película incluya nuevas interpretaciones de sus mayores éxitos, así como material de archivo inédito proporcionado por la familia Jackson.
+
+🎯 Objetivo y Legado
+
+"Michael" busca convertirse en la definición cinematográfica de la vida del Rey del Pop, abordando sin tapujos la complejidad de una de las figuras más influyentes y controvertidas de la música del siglo XX. Con un presupuesto récord para un biopic musical y el respaldo de la familia Jackson, la película promete ser uno de los estrenos más comentados de 2026.`,
+    videoId: "7wWEvqjsvxE", // Reemplazar con ID real del tráiler
+    fecha: "2025-12-06",
+    seriesRelacionadas: [], // No hay serie relacionada específica
+    destacada: true,
+    vistas: 0
+},
+{
+    id: 11,
+    titulo: "Oshi no Ko Temporada 3: Estreno Confirmado para Enero 2026",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/oshi-no-ko-season-3.jpg",
+    resumen: "La tercera temporada de Oshi no Ko se estrenará el 14 de enero de 2026, continuando la historia seis meses después de los eventos anteriores",
+    contenido: `Oshi no Ko Temporada 3 - Estreno: 14 de enero de 2026
+
+La producción confirmó hoy la tercera temporada de la aclamada serie, que continuará la historia seis meses después de los eventos de la temporada 2.
+
+📅 Detalles del Estreno:
+
+- Fecha: 14 de enero de 2026
+
+- Estudio: DOGA KOBO (mismo que temporadas anteriores)
+
+- Director: Daisuke Hiramaki
+
+- Música: Nuevo ending "Serenade" por natori
+
+🎬 Avance de la Trama:
+
+Ruby Hoshino intensifica su búsqueda de la verdad sobre la muerte de su madre Ai, mientras Aqua avanza en su carrera dentro de la industria del entretenimiento. La temporada explorará más secretos familiares y los oscuros mecanismos de la fama.
+
+🌍 Disponibilidad:
+
+- Japón: TOKYO MX y ABEMA
+
+- Internacional: Crunchyroll (transmisión simultánea con subtítulos)
+
+El equipo creativo se mantiene intacto, prometiendo la misma calidad narrativa que convirtió a la serie en un fenómeno global.`,
+    videoId: "Wy29vhiXWeM",
+    fecha: "2025-11-15",
+    seriesRelacionadas: [50],
+    destacada: true,
+    vistas: 0
+}
 ];
 
 // DIAGNÓSTICO - Verificar que data.js se carga correctamente
