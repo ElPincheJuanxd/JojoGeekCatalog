@@ -35,6 +35,7 @@ const seriesData = [
     {
         id: 4,
         title: "Shuumatsu no Valkyrie",
+        franchise: "Shuumatsu",
         poster: "./assets/images/series/shuumatsu-no-valkyrie.jpg",
         year: "2021-2025",
         genre: ["Acción", "Fantasía", "Seinen","Histórico", "Artes Marciales"],
@@ -2351,6 +2352,7 @@ const seriesData = [
     {
         id: 225,
         title: "Chiruan",
+        franchise: "Shuumatsu",
         poster: "./assets/images/series/chiruan.jpg",
         year: "2016",
         genre: ["Comedia", "Parodia", "Histórico"],
@@ -3345,11 +3347,11 @@ const seriesData = [
         id: 315,
         title: "Sonic Collection",
         poster: "./assets/images/series/sonic-collection.jpg",
-        year: "1993-1996",
+        year: "2020-2024",
         genre: ["Aventura", "Ciencia Ficción", "Comedia"],
         category: "animados",
         seasons: 2,
-        studio: "DiC Entertainment",
+        studio: "Paramount Pictures / Sega Sammy Group",
         description: "La historia sigue a Sonic mientras llega a la Tierra y forja una amistad improbable con un sheriff humano y su familia, buscando encontrar su lugar y un nuevo hogar. Sin embargo, su velocidad atrae a fuerzas oscuras y villanos obsesionados con su poder, lo que lo lleva a enfrentarse a amenazas que ponen en peligro ambos mundos.Más allá de la acción vertiginosa y el humor, la trilogía explora temas profundos como la búsqueda del hogar, la importancia de la familia elegida y los sacrificios por proteger a los seres queridos. Esencialmente, es un viaje sobre descubrir el propósito y aprender que lo más importante es nunca correr solo."
     },
     {
@@ -4011,7 +4013,7 @@ const seriesData = [
     title: "Chainsaw Man: The Reze Arc",
     poster: "./assets/images/series/chainsaw-man-the-movie-reze-arc.jpg",
     year: "2025",
-    genre: ["Acción", "Fantasía", "Horror", "Drama"],
+    genre: ["Acción", "Película", "Fantasía", "Horror", "Drama"],
     category: "anime",
     seasons: 1,
     studio: "MAPPA",
@@ -4060,6 +4062,164 @@ const seriesData = [
     seasons: 1,
     studio: "Produzioni Europee Associati",
     description: "Adaptación cinematográfica de la novela del Marqués de Sade dirigida por Pier Paolo Pasolini. Ambientada en la República de Salò (1944-1945), último bastión del fascismo italiano, la película sigue a cuatro hombres poderosos que secuestran a dieciocho jóvenes y los someten a 120 días de tortura física, psicológica y sexual. Considerada una de las películas más controvertidas de la historia del cine, funciona como una alegoría política sobre el abuso de poder, el fascismo y la corrupción moral, utilizando la transgresión extrema para criticar los sistemas opresivos y la deshumanización institucionalizada."
+},
+{
+    id: 380,
+    title: "Blade Runner 2049",
+    poster: "./assets/images/series/blade-runner-2049.jpg",
+    year: "2017",
+    genre: ["Película", "Ciencia Ficción", "Neo-noir"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Alcon Entertainment / Columbia Pictures",
+    description: "Un nuevo blade runner, el oficial K, descubre un secreto profundamente oculto que podría sumir al mundo en el caos. Su investigación lo lleva a buscar a Rick Deckard, un blade runner desaparecido desde hace décadas."
+},
+{
+    id: 381,
+    title: "Dragon Ball Super Movies",
+    poster: "./assets/images/series/dragon-ball-super-movies.jpg",
+    year: "2013-2022",
+    genre: ["Película", "Acción", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    parts: 4,
+    studio: "Toei Animation",
+    description: "Colección de películas de la serie Dragon Ball Super, que expanden la historia con nuevas amenazas, transformaciones y batallas épicas protagonizadas por Goku y sus amigos."
+},
+{
+    id: 382,
+    title: "Dragon Ball Z Movie Collection",
+    poster: "./assets/images/series/dragon-ball-z-movie-collection.jpg",
+    year: "1986-1996",
+    genre: ["Película", "Acción", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    parts: 17,
+    studio: "Toei Animation",
+    description: "Conjunto de películas de Dragon Ball Z que presentan historias alternativas y enemigos únicos, con batallas legendarias y el icónico espíritu de lucha de los Guerreros Z."
+},
+
+{
+    id: 383,
+    title: "Final Destination Saga",
+    poster: "./assets/images/series/final-destination-saga.jpg",
+    year: "2000-2025",
+    genre: ["Película", "Horror", "Suspenso"],
+    category: "peliculas",
+    seasons: 1,
+    parts: 6,
+    studio: "New Line Cinema",
+    description: "Recopilación de la serie Final Destination, donde la muerte diseña trampas creativas y aterradoras para reclamar a aquellos que burlaron su destino original."
+},
+{
+    id: 384,
+    title: "Five Nights at Freddy's Movies",
+    poster: "./assets/images/series/five-night-at-freedy-movies.jpg",
+    year: "2023",
+    genre: ["Película", "Horror", "Suspenso"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Blumhouse Productions",
+    description: "Adaptación cinematográfica del popular videojuego de terror. Un guardia de seguridad trabaja en una pizzeria abandonada donde los animatrónicos cobran vida por la noche con intenciones mortales."
+},
+{
+    id: 385,
+    title: "Free Guy",
+    poster: "./assets/images/series/free-guy.jpg",
+    year: "2021",
+    genre: ["Película", "Acción", "Comedia", "Ciencia Ficción"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "20th Century Studios",
+    description: "Un cajero de banco descubre que en realidad es un personaje de fondo en un brutal videojuego de mundo abierto, y decide convertirse en el héroe de su propia historia."
+},
+{
+    id: 386,
+    title: "Hazbin Hotel",
+    poster: "./assets/images/series/hazbin-hotel.jpg",
+    year: "2024-actualidad",
+    genre: ["Comedia", "Musical", "Fantasía"],
+    category: "animados",
+    seasons: 1,
+    studio: "A24 / Bento Box Entertainment",
+    description: "La princesa del infierno, Charlie, abre un hotel de rehabilitación para demonios con la esperanza de que puedan redimirse y ascender al cielo, enfrentando escepticismo y desafíos en el camino."
+},
+{
+    id: 387,
+    title: "It",
+    poster: "./assets/images/series/it.jpg",
+    year: "2017",
+    genre: ["Película", "Horror", "Drama"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "New Line Cinema",
+    description: "Un grupo de niños conocidos como el 'Club de los Perdedores' se enfrenta a su mayor miedo: un entidad malévola que se disfraza de payaso y se alimenta del terror de los niños en el pueblo de Derry."
+},
+{
+    id: 388,
+    title: "It: Welcome to Derry",
+    poster: "./assets/images/series/it-welcome-to-derry.jpg",
+    year: "2025",
+    genre: ["Horror", "Drama"],
+    category: "series",
+    seasons: 1,
+    studio: "HBO Max",
+    description: "Serie precuela de 'It' que explora los orígenes del payaso Pennywise y los eventos históricos de terror que han marcado la ciudad de Derry, Maine, a lo largo de los siglos."
+},
+{
+    id: 389,
+    title: "Link Click",
+    poster: "./assets/images/series/link-click.jpg",
+    year: "2021-actualidad",
+    genre: ["Drama", "Misterio", "Ciencia Ficción"],
+    category: "anime",
+    seasons: 2,
+    studio: "LAN Studio",
+    description: "Dos amigos con habilidades especiales para viajar en el tiempo a través de fotografías ofrecen servicios para resolver misterios del pasado, pero cada cambio tiene consecuencias inesperadas."
+},
+{
+    id: 390,
+    title: "Pokémon Detective Pikachu",
+    poster: "./assets/images/series/pokemon-detective-pikachu.jpg",
+    year: "2019",
+    genre: ["Película", "Misterio", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Warner Bros. Pictures",
+    description: "Un joven se une al Detective Pikachu, un astuto Pokémon parlante, para resolver el misterio de la desaparición de su padre en la metrópolis de Ryme City."
+},
+{
+    id: 391,
+    title: "Primal",
+    poster: "./assets/images/series/primal.jpg",
+    year: "2019-2024",
+    genre: ["Acción", "Aventura", "Fantasía"],
+    category: "animados",
+    seasons: 2,
+    studio: "Cartoon Network Studios",
+    description: "Un hombre de las cavernas y un dinosaurio forman un vínculo improbable para sobrevivir en un mundo prehistórico brutal lleno de criaturas salvajes y peligros primordiales."
+},
+{
+    id: 392,
+    title: "Red Notice",
+    poster: "./assets/images/series/red-notice.jpg",
+    year: "2021",
+    genre: ["Película", "Acción", "Comedia", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Netflix",
+    description: "Un agente del FBI es obligado a formar equipo con el ladrón de arte más buscado del mundo para capturar a la ladrona de arte más escurridiza, en una carrera global por un tesoro invaluable."
+},
+{
+    id: 393,
+    title: "The Tomorrow War",
+    poster: "./assets/images/series/the-tomorrow-war.jpg",
+    year: "2021",
+    genre: ["Película", "Acción", "Ciencia Ficción", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Paramount Pictures",
+    description: "Un grupo de viajeros en el tiempo llega desde el futuro para reclutar civiles en una guerra contra una letal especie alienígena, arrastrando a un exsoldado a la lucha por la supervivencia humana."
 }
 ];
 
@@ -4090,17 +4250,42 @@ La producción mantendrá el elenco principal de voces, incluyendo a Steven Yeun
         tipo: "trailer", 
         imagen: "./assets/images/noticias/steel-ball-run-anuncio.jpg",
         resumen: "Warner Bros. Japan y David Production anuncian oficialmente la adaptación al anime de JoJo's Bizarre Adventure: Steel Ball Run.",
-        contenido: `Tokio, Japón – Warner Bros. Japan y David Production han confirmado oficialmente la adaptación al anime de JoJo's Bizarre Adventure: Steel Ball Run, la aclamada Parte 7 del manga de Hirohiko Araki.
+        contenido: `El anime de Steel Ball Run se estrenará en Netflix el 19 de marzo de 2026 con un episodio especial de 47 minutos titulado "1st Stage".
 
-La serie marcará un nuevo comienzo en el universo JoJo, transportándonos al año 1890 en una Norteamérica salvaje durante la carrera ecuestre "Steel Ball Run". Los protagonistas, Johnny Joestar y Gyro Zeppeli, se embarcarán en una épica aventura que involucra partes del cadáver de un santo con poderes sobrenaturales.
+El tráiler confirma varios aspectos visuales y de producción de esta nueva etapa. Aquí tienes los detalles clave mostrados:
 
-El anuncio incluyó un teaser tráiler que muestra los vastos paisajes desérticos y el sistema de poderes "Spin" que reemplaza a los Hamon. La producción enfrenta el desafío de adaptar las complejas batallas con Stands y las escenas de carrera ecuestre, considerándose un formato de temporadas largas para respetar los 24 volúmenes del manga original.
+📅 Estreno confirmado
 
-La noticia ha generado euforia en redes sociales, con fans celebrando este anuncio largamente esperado que promete ser una de las experiencias anime más ambiciosas de los próximos años.`,
-        videoId: "93QIhAbxmdc",
-        fecha: "2026-10-10",
+· Fecha: 19 de marzo de 2026.
+· Formato: Episodio especial de 47 minutos ("1st Stage").
+· Plataforma: Exclusivo en Netflix a nivel global.
+
+🎬 Equipo de producción
+
+· Estudio: david production (a cargo de todas las temporadas anteriores).
+· Directores: Yasuhiro Kimura y Hideya Takahashi (Golden Wind).
+· Diseño de personajes: Daisuke Tsumagari (Stone Ocean, Golden Wind).
+· Banda sonora: Yugo Kanno (desde Stardust Crusaders).
+
+👥 Voces principales reveladas
+
+· Johnny Joestar: Shogo Sakata.
+· Gyro Zeppeli: Yohei Azakami.
+· Diego Brando: Kaito Ishikawa.
+
+El tráiler también ofreció un primer vistazo al estilo y los personajes de esta nueva parte.
+
+✨ Lo que se mostró en el tráiler
+El tráiler presentó escenas y diseños que establecen el tono único de esta parte:
+
+· Ambientación y tono: Se mostraron los vastos paisajes del Viejo Oeste americano en 1890, destacando un cambio visual respecto a partes anteriores.
+· Diseño de personajes: Se confirmó el estilo de personajes fiel al manga, con un vistazo a Johnny Joestar y Gyro Zeppeli.
+· Nuevos personajes: Se revelaron los diseños animados de Sand Man (voz de Masaaki Mizunaka) y Pocoloco (voz de Kenichiro Matsuda), dos competidores clave de la carrera.
+· Premisa visual: Se vislumbró la épica "Steel Ball Run", la carrera ecuestre transcontinental con un premio de 50 millones de dólares que da nombre a la parte.`,
+        videoId: "EdarcSH9jmY",
+        fecha: "2026-03-19",
         seriesRelacionadas: [21],
-        destacada: false,
+        destacada: true,
         vistas: 0
     },
     {
@@ -4121,7 +4306,7 @@ El encuentro entre las técnicas de lucha modernas y el estilo de espada mortal 
 
 Los fans pueden esperar la misma acción brutal y sobrehumana que caracteriza a la serie, ahora con el añadido de un rival histórico que pondrá a prueba los límites de todos los luchadores.`,
         videoId: "EuO7vr7b2m4",
-        fecha: "2025-07-20",
+        fecha: "2026-07-20",
         seriesRelacionadas: [6], // ID de Baki
         destacada: false,
         vistas: 0
@@ -4203,11 +4388,12 @@ A pesar del cambio en la dirección, el equipo ha asegurado que mantendrán la e
 
 Los fans pueden esperar más de la conmovedora historia que explora lo que significa vivir una vida plena a través de los ojos de una elfa que aprende a apreciar los momentos efímeros después de una larga vida.`,
     videoId: "MwP4gqRys4c?si",
-    fecha: "2025-12-15",
+    fecha: "2026-01-16",
     seriesRelacionadas: [164], // ID de Frieren: Beyond Journey's End
     destacada: true,
     vistas: 0
-},{
+},
+{
     id: 6,
     titulo: "Trigun Stargaze: Última Temporada Confirma Estreno para Enero 2026",
     tipo: "trailer",
@@ -4259,7 +4445,7 @@ Trigun Stargaze promete cerrar la reinvención de la saga que comenzó con Stamp
 
 Al igual que su predecesora, Trigun Stargaze estará disponible globalmente a través de Crunchyroll con subtítulos en múltiples idiomas, asegurando que los fans de todo el mundo puedan experimentar el final épico de esta saga revitalizada.`,
     videoId: "JBYLkW--zmI",
-    fecha: "2025-12-10",
+    fecha: "2026-03-10",
     seriesRelacionadas: [36, 35], // IDs de Trigun Stampede 2022 y Trigun 1998
     destacada: true,
     vistas: 0
@@ -4320,7 +4506,7 @@ La secuela del éxito de taquilla de 2023 promete llevar a Mario y compañía al
 
 Tras el rotundo éxito de la primera película que recaudó más de $1.3 billones globalmente, Illumination y Nintendo apuestan por otra entrega que combine la magia del universo Mario con innovación tecnológica. La película ya se perfila como uno de los estrenos animados más esperados de 2026.`,
     videoId: "iTzCWDQSwvk",
-    fecha: "2025-12-12",
+    fecha: "2026-04-03",
     seriesRelacionadas: [356], // ID de The Super Mario Bros. Movie
     destacada: false,
     vistas: 0
@@ -4377,7 +4563,7 @@ El tráiler oficial de 2 minutos y medio muestra:
 
 Flor M. Salvador ha expresado en redes sociales su emoción por ver su obra llevada a la pantalla grande, destacando que el equipo de producción "ha capturado perfectamente la esencia emocional de los personajes". Los fans de la novela han recibido con entusiasmo el casting, especialmente la elección de Eve Ryan, cuya interpretación promete dar vida a la compleja personalidad de Hasley.`,
     videoId: "rZ6xn57p4J0", // Reemplazar con ID real del tráiler
-    fecha: "2025-12-09",
+    fecha: "2026-04-10",
     seriesRelacionadas: [], // No hay serie relacionada específica
     destacada: false,
     vistas: 0
@@ -4451,9 +4637,9 @@ La producción ha trabajado intensamente en recrear los icónicos pasos de baile
 
 "Michael" busca convertirse en la definición cinematográfica de la vida del Rey del Pop, abordando sin tapujos la complejidad de una de las figuras más influyentes y controvertidas de la música del siglo XX. Con un presupuesto récord para un biopic musical y el respaldo de la familia Jackson, la película promete ser uno de los estrenos más comentados de 2026.`,
     videoId: "7wWEvqjsvxE", // Reemplazar con ID real del tráiler
-    fecha: "2025-12-06",
+    fecha: "2026-04-24",
     seriesRelacionadas: [], // No hay serie relacionada específica
-    destacada: true,
+    destacada: false,
     vistas: 0
 },
 {
@@ -4488,8 +4674,102 @@ Ruby Hoshino intensifica su búsqueda de la verdad sobre la muerte de su madre A
 
 El equipo creativo se mantiene intacto, prometiendo la misma calidad narrativa que convirtió a la serie en un fenómeno global.`,
     videoId: "Wy29vhiXWeM",
-    fecha: "2025-11-15",
+    fecha: "2026-02-14",
     seriesRelacionadas: [50],
+    destacada: true,
+    vistas: 0
+},
+{
+    id: 12,
+    titulo: "Nuevo avance de 'Bleach: La Guerra Sangrienta de los Mil Años — La Calamidad' revela el inicio del final",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/bleach-calamidad-avance.jpg",
+    resumen: "El esperado teaser, estrenado en el Jump Festa, confirma que el desenlace definitivo de la saga Bleach llegará en julio de 2026.",
+    contenido: `El anime 'Bleach: La Guerra Sangrienta de los Mil Años' dio ayer, 21 de diciembre, un emocionante paso hacia su conclusión al revelar el primer avance de su cuarta y última parte, titulada 'La Calamidad'. El video se desveló durante el evento Jump Festa 2026, poniendo fin a casi un año de espera desde que finalizó la emisión de la tercera parte.
+
+La producción del anime, a cargo del estudio Pierrot Films, ha anunciado que esta fase final se estrenará en julio de 2026, adaptando el clímax del arco argumental que comenzó a emitirse en el otoño de 2022.
+
+📺 Un vistazo a la conclusión épica
+
+Aunque el teaser es breve, marca el regreso oficial de la serie tras un largo período sin novedades. Su estreno estratégico durante el Jump Festa —uno de los eventos más importantes para los fans del manga y anime en Japón— subraya la importancia de este lanzamiento final.
+
+Datos clave del estreno:
+
+· Título oficial: Bleach: La Guerra Sangrienta de los Mil Años — Parte 4: La Calamidad.
+· Fecha de estreno: Julio de 2026.
+· Evento de revelación: Jump Festa 2026 (21 de diciembre de 2025).
+· Estudio de producción: Pierrot Films.
+· Contenido: Adaptará el clímax y desenlace de la Guerra Sangrienta de los Mil Años.
+
+🎭 El futuro de la saga
+
+El lanzamiento de este teaser ha activado a la comunidad global de seguidores de Bleach. 
+
+Con una base de seguidores consolidada a lo largo de dos décadas, la presión y las expectativas para que 'La Calamidad' ofrezca un final satisfactorio son muy altas. La cuarta parte no solo tiene la tarea de concluir una de las sagas shonen más populares, sino también de mantener la calidad de animación y narrativa que caracterizó a las entregas anteriores.
+
+El avance, de momento, sirve como una promesa de que el viaje de Ichigo Kurosaki y los Shinigami está próximo a alcanzar su épica y definitiva resolución. Los próximos meses, hasta el estreno en verano de 2026, estarán seguramente cargados de más avances, pósters promocionales y noticias para mantener viva la llama de la expectación.`,
+
+    videoId: "W99Ef2LkyOg",
+    fecha: "2026-07-12",
+    seriesRelacionadas: [5], // ID de Bleach
+    destacada: false,
+    vistas: 0
+},
+{
+    id: 13,
+    titulo: "¡Black Clover anuncia su esperada 2ª temporada para 2026!",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/black-clover-temporada-2.jpg",
+    resumen: "Tras años de espera desde que concluyó su primera etapa en 2021, el anime de Black Clover ha anunciado oficialmente su regreso con una segunda temporada.",
+    contenido: `Tras años de espera desde que concluyó su primera etapa en 2021, el anime de Black Clover ha anunciado oficialmente su regreso con una segunda temporada.
+
+· Anuncio y estreno: El esperado regreso se anunció oficialmente el 21 de diciembre de 2025 durante el evento "Jump Festa 2026". La nueva temporada tiene su lanzamiento programado para el año 2026.
+
+· Nuevo material: Con el anuncio se reveló un nuevo teaser visual que muestra a Asta en su forma "Demon Unión" junto a Yuno, Nacht y Yami, así como un primer teaser promocional (PV) que anticipa intensas escenas de batalla.
+
+· Detalles de producción: Studio Pierrot, a cargo de la temporada anterior, volverá a dirigir la animación. El formato de emisión cambiará, adoptando un modelo por temporadas (similar a series como Demon Slayer) en lugar de emisiones continuas, lo que promete una calidad de animación superior.
+
+· Contenido de la historia: La nueva temporada continuará adaptando el manga original de Yūki Tabata, centrándose en el Asalto al Reino de Spade y avanzando hacia el desenlace final de la historia.
+
+Los fans han recibido la noticia con gran emoción, ya que desde el final de la temporada 1 han estado esperando ansiosamente la continuación de la historia de Asta, el joven sin magia que busca convertirse en el Rey Mago.
+
+Con el cambio a un formato estacional, se espera que la animación sea de mayor calidad, permitiendo a los animadores trabajar con mejores plazos y recursos. Esto podría significar secuencias de batalla aún más impresionantes que las que ya hemos visto en la serie.
+
+El teaser visual ya muestra una notable evolución en el diseño de personajes y la promesa de batallas épicas que pondrán a prueba los límites de los Caballeros Magos.`,
+    videoId: "BwdMT-OiARI",
+    fecha: "2026-10-21",
+    seriesRelacionadas: [151], // ID de Black Clover
+    destacada: false,
+    vistas: 0
+},
+{
+    id: 14,
+    titulo: "Nueva temporada de 'Hell's Paradise: Jigokuraku' anunciada para enero de 2026",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/hells-paradise-temporada-2.jpg",
+    resumen: "La segunda temporada del anime 'Hell's Paradise: Jigokuraku' tiene fecha oficial de estreno. Los nuevos episodios comenzarán a emitirse el 11 de enero de 2026.",
+    contenido: `La segunda temporada del anime 'Hell's Paradise: Jigokuraku' tiene fecha oficial de estreno. Los nuevos episodios comenzarán a emitirse el 11 de enero de 2026.
+
+Detalles clave:
+
+· Fecha de estreno: 11 de enero de 2026.
+· Emisión: Se transmitirá en Japón por TV Tokyo y estará disponible a nivel internacional en Crunchyroll.
+· Anuncio: La información y un nuevo tráiler promocional fueron revelados ayer, 21 de diciembre de 2025.
+· Producción: La animación estará nuevamente a cargo del estudio MAPPA.
+
+El tráiler ya está disponible en línea y anticipa la continuación de la peligrosa misión de Gabimaru y los demás convictos en la isla paradisíaca. La nueva temporada adaptará los arcos finales del manga.
+
+*Continuación de la Historia*
+
+Después de los eventos de la primera temporada, Gabimaru el Vacío, el ninja inmortal, continúa su búsqueda del elixir de la inmortalidad junto a su ejecutora, Sagiri Yamada Asaemon. Sin embargo, los peligros en la isla solo aumentan, con criaturas más monstruosas y los misterios de los Tensen profundizándose.
+
+La segunda temporada promete intensificar la acción, explorar los oscuros secretos de la isla y presentar confrontaciones épicas que pondrán a prueba los límites de todos los personajes. Con MAPPA nuevamente a cargo, los fans pueden esperar una animación de alta calidad que mantendrá la atmósfera única de la serie.
+
+El tráiler muestra escenas de batallas increíbles, revelaciones impactantes y el desarrollo de los personajes principales, prometiendo una conclusión satisfactoria para esta oscura y fascinante historia.`,
+
+    videoId: "JLe_NUnAZVs",
+    fecha: "2026-01-11",
+    seriesRelacionadas: [169], // ID de Hell's Paradise
     destacada: true,
     vistas: 0
 }
