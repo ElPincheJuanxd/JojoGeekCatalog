@@ -41,6 +41,46 @@
     color: var(--accent);
 }
 
+/* 🆕 ESTILOS PARA BOTÓN DE WHATSAPP */
+.whatsapp-container {
+    text-align: center;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:active {
+    transform: translateY(0);
+}
+
+.whatsapp-hint {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+/* 🆕 FIN DE ESTILOS WHATSAPP */
+
 .wishlist-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -168,6 +208,16 @@
     .wishlist-hero h1 {
         font-size: 1.8rem;
     }
+    
+    /* 🆕 RESPONSIVE PARA WHATSAPP */
+    .btn-whatsapp {
+        padding: 0.9rem 1.8rem;
+        font-size: 0.95rem;
+    }
+    
+    .whatsapp-container {
+        margin: 1.2rem 0 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -181,5 +231,12 @@
     
     .wishlist-item-title {
         font-size: 1rem;
+    }
+    
+    /* 🆕 RESPONSIVE PARA WHATSAPP */
+    .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem;
     }
 }
