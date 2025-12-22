@@ -80,14 +80,16 @@ class WishlistPage {
     constructor() {
         this.series = seriesData;
         this.wishlistManager = new WishlistManager();
+        this.whatsappNumber = "51930214"; // 🆕 ¡CAMBIA ESTE NÚMERO POR EL TUYO!
         this.init();
     }
 
     init() {
         this.wishlistManager.updateAllWishlistCounts();
-        this.updateNewsBadge(); // 🆕 AGREGADA ESTA LÍNEA
+        this.updateNewsBadge();
         this.renderWishlist();
         this.setupEventListeners();
+        this.setupWhatsAppButton(); // 🆕 AGREGAR ESTA LÍNEA
     }
 
     // 🆕 MÉTODO PARA DETECTAR PELÍCULAS
@@ -108,6 +110,9 @@ class WishlistPage {
         
         // Actualizar estadísticas
         seriesCount.textContent = wishlistSeries.length;
+        
+        // 🆕 MOSTRAR/OCULTAR BOTÓN DE WHATSAPP
+        this.toggleWhatsAppButton();
         
         // Mostrar/ocultar estado vacío
         if (wishlistSeries.length === 0) {
@@ -138,7 +143,7 @@ class WishlistPage {
                     <div class="wishlist-item-meta">
                         <span>${serie.year}</span>
                         <span>
-                            ${this.isMovie(serie) ? 'Película' : `${serie.seasons} temporada${serie.seasons > 1 ? 's' : ''}`}
+                            ${this.isMovie(serie) ? '🎬 Película' : `📺 ${serie.seasons} temporada${serie.seasons > 1 ? 's' : ''}`}
                         </span>
                     </div>
                     <div class="wishlist-item-genres">
@@ -223,6 +228,84 @@ class WishlistPage {
             'misterio': 'Misterio'
         };
         return names[genre] || genre;
+    }
+    
+    // 🆕 NUEVOS MÉTODOS PARA WHATSAPP
+    toggleWhatsAppButton() {
+        const whatsappContainer = document.getElementById('whatsappContainer');
+        const wishlistSeries = this.wishlistManager.getWishlistSeries(this.series);
+        
+        if (wishlistSeries.length > 0) {
+            whatsappContainer.style.display = 'block';
+        } else {
+            whatsappContainer.style.display = 'none';
+        }
+    }
+
+    // 🆕 MÉTODO ACTUALIZADO: SIN GÉNEROS, CON SEPARACIÓN SERIES/PELÍCULAS
+    generateWhatsAppMessage() {
+        const wishlistSeries = this.wishlistManager.getWishlistSeries(this.series);
+        
+        let message = "¡Hola! Quiero estas series y películas:\n\n";
+        
+        wishlistSeries.forEach((serie, index) => {
+            const tipo = this.isMovie(serie) ? "🎬 Película" : "📺 Serie";
+            message += `${index + 1}. ${serie.title} (${serie.year}) - ${tipo}\n`;
+        });
+        
+        // Contar series y películas
+        const peliculas = wishlistSeries.filter(serie => this.isMovie(serie)).length;
+        const series = wishlistSeries.length - peliculas;
+        
+        message += `\n📊 RESUMEN:\n`;
+        message += `📺 Series: ${series}\n`;
+        message += `🎬 Películas: ${peliculas}\n`;
+        message += `📦 Total: ${wishlistSeries.length} items`;
+        
+        return message;
+    }
+
+    // 🆕 MÉTODO ACTUALIZADO: CONFIRMACIÓN MEJORADA
+    sendToWhatsApp() {
+        const wishlistSeries = this.wishlistManager.getWishlistSeries(this.series);
+        
+        if (wishlistSeries.length === 0) {
+            alert('Tu lista está vacía. Agrega contenido primero.');
+            return;
+        }
+        
+        const peliculas = wishlistSeries.filter(serie => this.isMovie(serie)).length;
+        const series = wishlistSeries.length - peliculas;
+        
+        let confirmMessage = `¿Enviar lista de contenido por WhatsApp?\n\n`;
+        if (series > 0) confirmMessage += `📺 Series: ${series}\n`;
+        if (peliculas > 0) confirmMessage += `🎬 Películas: ${peliculas}\n`;
+        confirmMessage += `📦 Total: ${wishlistSeries.length} items`;
+        
+        if (!confirm(confirmMessage)) {
+            return;
+        }
+        
+        const message = this.generateWhatsAppMessage();
+        const encodedMessage = encodeURIComponent(message);
+        
+        // 🆕 IMPORTANTE: Cambia este número por el tuyo
+        // Formato: código de país + número sin espacios o guiones
+        const phoneNumber = this.whatsappNumber;
+        
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        // Abrir WhatsApp en nueva pestaña
+        window.open(whatsappUrl, '_blank');
+    }
+
+    setupWhatsAppButton() {
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('click', () => {
+                this.sendToWhatsApp();
+            });
+        }
     }
 }
 
