@@ -4080,7 +4080,7 @@ const seriesData = [
     poster: "./assets/images/series/dragon-ball-super-movies.jpg",
     year: "2013-2022",
     genre: ["Película", "Acción", "Aventura"],
-    category: "peliculas",
+    category: "anime",
     seasons: 1,
     parts: 4,
     studio: "Toei Animation",
@@ -4092,7 +4092,7 @@ const seriesData = [
     poster: "./assets/images/series/dragon-ball-z-movie-collection.jpg",
     year: "1986-1996",
     genre: ["Película", "Acción", "Aventura"],
-    category: "peliculas",
+    category: "anime",
     seasons: 1,
     parts: 17,
     studio: "Toei Animation",
@@ -4220,6 +4220,106 @@ const seriesData = [
     seasons: 1,
     studio: "Paramount Pictures",
     description: "Un grupo de viajeros en el tiempo llega desde el futuro para reclutar civiles en una guerra contra una letal especie alienígena, arrastrando a un exsoldado a la lucha por la supervivencia humana."
+},{
+    id: 394,
+    title: "Amphibia",
+    poster: "./assets/images/series/amphibia.jpg",
+    year: "2019-2022",
+    genre: ["Aventura", "Comedia", "Fantasía", "Animación"],
+    category: "serie",
+    seasons: 3,
+    studio: "Disney Television Animation",
+    description: "Anne Boonchuy, una niña tailandesa-estadounidense, es transportada mágicamente a Amphibia, un mundo pantanoso lleno de criaturas antropomórficas. Debe adaptarse a su nueva vida mientras busca una manera de regresar a casa y descubre secretos sobre las gemas mágicas que la trajeron allí."
+},
+{
+    id: 395,
+    title: "Constantine",
+    poster: "./assets/images/series/constantine-2005.jpg",
+    year: "2005",
+    genre: ["Película", "Fantasía", "Terror", "Acción", "Sobrenatural"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Warner Bros.",
+    description: "John Constantine, un cínico exorcista y detective de lo oculto, debe enfrentarse a su destino cuando es diagnosticado con cáncer de pulmón. Mientras lucha por redimir su alma del infierno, investiga el suicidio de una detective y descubre una conspiración celestial que amenaza el equilibrio entre el cielo y el infierno."
+},
+{
+    id: 396,
+    title: "Devil's Advocate",
+    poster: "./assets/images/series/devil-advocate.jpg",
+    year: "1997",
+    genre: ["Película", "Drama", "Suspenso", "Terror", "Sobrenatural"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Warner Bros.",
+    description: "Un joven y ambicioso abogado de Florida es reclutado por un prestigioso bufete de abogados de Nueva York. Pronto descubre que su jefe, John Milton, tiene conexiones sobrenaturales y que el bufete es una fachada para algo mucho más oscuro, forzándolo a elegir entre su carrera y su alma."
+},
+{
+    id: 397,
+    title: "Kimetsu no Yaiba: Infinity Castle Movies",
+    poster: "./assets/images/series/kimetsu-no-yaiba-infinity-castle-movies.jpg",
+    year: "2024-2025",
+    genre: ["Película", "Acción", "Fantasía", "Aventura", "Shonen"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "ufotable",
+    description: "Trilogía de películas que adapta el arco final del Castillo del Infinito de Kimetsu no Yaiba. Tanjiro Kamado y los Cazadores de Demonios se enfrentan a Muzan Kibutsuji y sus Lunas Superiores en una batalla final que decidirá el destino de la humanidad. Dividida en tres partes que cubren la conclusión épica de la serie."
+},
+{
+    id: 398,
+    title: "Se7en",
+    poster: "./assets/images/series/seven-movie-david-fincher.jpg",
+    year: "1995",
+    genre: ["Película", "Crimen", "Drama", "Misterio", "Suspenso"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "New Line Cinema",
+    description: "Dos detectives, el veterano Somerset y el joven Mills, investigan una serie de asesinatos brutales basados en los siete pecados capitales. Mientras se adentran en la mente del asesino, descubren que ellos mismos pueden ser parte del macabro plan del criminal en esta oscura y atmosférica película de David Fincher."
+},
+{
+    id: 399,
+    title: "Sony Spider-Man Universe",
+    poster: "./assets/images/series/sony-spiderman-universe.jpg",
+    year: "2018-2024",
+    genre: ["Película", "Acción", "Ciencia Ficción", "Superhéroes", "Aventura"],
+    category: "peliculas",
+    seasons: 1,
+    parts: 6,
+    studio: "Columbia Pictures",
+    description: "Colección de películas del universo cinematográfico de Spider-Man de Sony, que incluye 'Venom' (2018), 'Venom: Let There Be Carnage' (2021), 'Morbius' (2022), y 'Madame Web' (2024). Estas películas exploran personajes del universo de Spider-Man sin la presencia directa del héroe arácnido."
+},
+{
+    id: 400,
+    title: "The Count of Monte Cristo",
+    poster: "./assets/images/series/the-count-of-monte-crist.jpg",
+    year: "2002",
+    genre: ["Película", "Aventura", "Drama", "Histórico", "Romance"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Touchstone Pictures",
+    description: "Adaptación de la clásica novela de Alejandro Dumas. Edmond Dantès es traicionado y encarcelado injustamente en el Castillo de If. Tras escapar y descubrir un tesoro oculto, se reinventa como el Conde de Monte Cristo para vengarse meticulosamente de aquellos que arruinaron su vida."
+},
+{
+    id: 401,
+    title: "Zoolander",
+    poster: "./assets/images/series/zoolander-2001.jpg",
+    year: "2001",
+    genre: ["Película", "Comedia", "Sátira"],
+    category: "peliculas",
+    seasons: 1,
+    studio: "Paramount Pictures",
+    description: "Derek Zoolander, el modelo masculino más famoso del mundo, se enfrenta a una crisis existencial cuando es destronado por el nuevo modelo emergente Hansel. Mientras tanto, es manipulado por la industria de la moda para asesinar al Primer Ministro de Malasia en esta comedia satírica sobre el mundo del modelaje."
+},
+{
+    id: 402,
+    title: "Los Juegos del Hambre - Saga Completa",
+    poster: "./assets/images/series/los-juegos-del-hambre-saga-completa.jpg",
+    year: "2012-2023",
+    genre: ["Película", "Ciencia Ficción", "Acción", "Drama", "Distopía"],
+    category: "peliculas",
+    seasons: 1,
+    parts: 5,
+    studio: "Lionsgate",
+    description: "Saga cinematográfica completa basada en las novelas de Suzanne Collins. Incluye: 'Los Juegos del Hambre' (2012), 'En Llamas' (2013), 'Sinsajo - Parte 1' (2014), 'Sinsajo - Parte 2' (2015), y la precuela 'Balada de Pájaros Cantores y Serpientes' (2023). La historia sigue a Katniss Everdeen en su lucha contra el opresivo Capitolio de Panem, desde su participación en los mortales Juegos del Hambre hasta convertirse en el símbolo de la rebelión que cambiará el destino de la nación."
 }
 ];
 
@@ -4770,6 +4870,43 @@ El tráiler muestra escenas de batallas increíbles, revelaciones impactantes y 
     videoId: "JLe_NUnAZVs",
     fecha: "2026-01-11",
     seriesRelacionadas: [169], // ID de Hell's Paradise
+    destacada: true,
+    vistas: 0
+},
+{
+    id: 15,
+    titulo: "Christopher Nolan aborda la 'Odisea' en su próximo filme épico",
+    tipo: "trailer",
+    imagen: "./assets/images/noticias/nolan-odisea.jpg",
+    resumen: "Tras 'Oppenheimer', Christopher Nolan confirma su nuevo proyecto: una adaptación a gran escala de 'La Odisea' de Homero, prometiendo una narrativa no lineal e innovadores efectos prácticos en IMAX 70mm.",
+    contenido: `Tras el éxito de Oppenheimer, el aclamado director Christopher Nolan ha confirmado oficialmente su próximo proyecto: una adaptación cinematográfica de 'La Odisea', el poema épico griego atribuido a Homero. El filme, ya anunciado como una "producción de escala colosal", marcará el regreso de Nolan al cine de gran presupuesto y efectos prácticos innovadores.
+
+Según fuentes cercanas al proyecto, Nolan busca explorar los temas universales del viaje, la perseverancia y la nostalgia a través de la leyenda de Odiseo. La película promete una narrativa no lineal característica del director, sumergiendo al espectador en los mitos y desafíos del héroe en su travesía de regreso a Ítaca.
+
+"Es la historia definitiva sobre el viaje hacia el hogar", declaró Nolan en un breve comunicado. "Un desafío monumental para capturar su escala y su profundo significado humano".
+
+La producción, que será rodada en formato IMAX de 70mm, ya ha iniciado la fase de preproducción y casting, generando enorme expectación en la industria. Se especula que el estreno podría darse a finales de 2026.
+
+Esta será la primera incursión de Nolan en el mito clásico, prometiendo fusionar su visión vanguardista con una de las historias más perdurables de la humanidad.
+
+*Detalles del Proyecto*
+
+· **Director:** Christopher Nolan.
+· **Fuente Literaria:** "La Odisea", poema épico atribuido a Homero.
+· **Formato:** Rodada en IMAX de 70mm, priorizando efectos prácticos.
+· **Tema Central:** El viaje, la perseverancia y la nostalgia en la travesía de Odiseo (Ulises).
+· **Estructura Narrativa:** Se espera un enfoque no lineal, característico del estilo de Nolan.
+· **Estado:** En fase de preproducción y casting.
+· **Estreno Estimado:** Finales de 2026.
+
+*Contexto y Expectativas*
+
+Este anuncio sitúa a Nolan en el género de la épica mitológica, un terreno nuevo para el director conocido por sus thrillers psicológicos y dramas históricos y de ciencia ficción complejos. La combinación de su minuciosidad técnica, su preferencia por el celuloide y su ambición narrativa sugiere una reinterpretación única del clásico, posiblemente explorando la percepción del tiempo, la memoria y la realidad, temas recurrentes en su filmografía.
+
+La industria y el público esperan con gran anticipación los primeros detalles del elenco y cómo se materializarán visualmente criaturas míticas como Polifemo, las Sirenas o Escila y Caribdis bajo el sello de efectos prácticos por el que aboga el director.`,
+    videoId: "Mzw2ttJD2qQ",
+    fecha: "2026-07-18",
+    seriesRelacionadas: [],
     destacada: true,
     vistas: 0
 }
